@@ -3,6 +3,7 @@ package com.cheetahapps.sales.controller;
 import javax.validation.Valid;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,9 +47,9 @@ public abstract class AbstractBaseController<T, I> {
 	}
 
 	@RequestMapping("/findAll/{deleted}")
-	public Page<T> findAllByDeleted(@PathVariable boolean deleted, Page<T> page) {
+	public Page<T> findAllByDeleted(@PathVariable boolean deleted, Pageable pageable) {
 
-		return businessDelegate.findAllByDeleted(deleted, page);
+		return null;
 
 	}
 

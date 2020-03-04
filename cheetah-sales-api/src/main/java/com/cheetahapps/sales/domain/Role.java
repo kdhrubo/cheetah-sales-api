@@ -1,12 +1,12 @@
 package com.cheetahapps.sales.domain;
 
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -14,13 +14,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Document
-public class Role {
+@EqualsAndHashCode(callSuper = true)
+public class Role extends Base{
 	
 	public static final String USER = "ROLE_USER";
 	
-	@Id
-	private int id;
 	
 	private String name;
     
+	
 }
