@@ -48,8 +48,8 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 	}
 	
 	//read all which are active/inactive (recycle bin)
-	public Page<T> findAllByActive(boolean active, Page<T> page) {
-		return repository.findAllByActive(active, page);
+	public Page<T> findAllByDeleted(boolean deleted, Page<T> page) {
+		return repository.findAllByDeleted(deleted, page);
 	}
 
 	// delete

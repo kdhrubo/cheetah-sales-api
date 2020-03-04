@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface BaseMongoRepository<T, I> extends MongoRepository<T, I>{
 	
-	Page<T> findAllByActive(boolean active, Page<T> page);
+	Page<T> findAllByDeleted(boolean deleted, Page<T> page);
 
 }

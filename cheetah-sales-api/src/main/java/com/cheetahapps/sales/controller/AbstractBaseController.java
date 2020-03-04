@@ -45,10 +45,10 @@ public abstract class AbstractBaseController<T, I> {
 
 	}
 
-	@RequestMapping("/findAll/{active}")
-	public Page<T> findAllByActive(@PathVariable boolean active, Page<T> page) {
+	@RequestMapping("/findAll/{deleted}")
+	public Page<T> findAllByDeleted(@PathVariable boolean deleted, Page<T> page) {
 
-		return businessDelegate.findAllByActive(active, page);
+		return businessDelegate.findAllByDeleted(deleted, page);
 
 	}
 
