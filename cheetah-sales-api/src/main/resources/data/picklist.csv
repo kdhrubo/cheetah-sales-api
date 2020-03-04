@@ -1,0 +1,119 @@
+domain,value
+COMMON,Select a value
+LEAD_STATUS,Contacted
+LEAD_STATUS,Not contacted
+LEAD_STATUS,Attempted contact
+LEAD_STATUS,Disqualified
+SALUTATION,Mr.
+SALUTATION,Ms.
+SALUTATION,Mrs.
+SALUTATION,Dr.
+SALUTATION,Prof.
+LEAD_SOURCE,Cold Call
+LEAD_SOURCE,Word of Mouth
+LEAD_SOURCE,Website
+LEAD_SOURCE,Trade Show
+LEAD_SOURCE,Conference
+LEAD_SOURCE,Direct Mail
+LEAD_SOURCE,Public Relations
+LEAD_SOURCE,Partner
+LEAD_SOURCE,Employee
+LEAD_SOURCE,Self Generated
+LEAD_SOURCE,Existing Customer
+LEAD_SOURCE,Facebook
+INDUSTRY,Apparel
+INDUSTRY,Hospitality
+INDUSTRY,Insurance
+INDUSTRY,Machinery
+INDUSTRY,Manufacturing
+INDUSTRY,Media
+INDUSTRY,Not For Profit
+INDUSTRY,Recreation
+INDUSTRY,Retail
+INDUSTRY,Shipping
+INDUSTRY,Technology
+INDUSTRY,Telecommunications
+INDUSTRY,Transportation
+INDUSTRY,Utilities
+INDUSTRY,Healthcare
+INDUSTRY,Government
+INDUSTRY,Food & Beverage
+INDUSTRY,Banking
+INDUSTRY,Biotechnology
+INDUSTRY,Chemicals
+INDUSTRY,Communications
+INDUSTRY,Construction
+INDUSTRY,Consulting
+INDUSTRY,Education
+INDUSTRY,Electronics
+INDUSTRY,Energy
+INDUSTRY,Engineering
+INDUSTRY,Entertainment
+INDUSTRY,Environmental
+INDUSTRY,Finance
+INDUSTRY,Other
+SALES_STAGE,Prospecting
+SALES_STAGE,Qualification
+SALES_STAGE,Needs Analysis
+SALES_STAGE,Value Proposition
+SALES_STAGE,Identifying Decision Makers
+SALES_STAGE,Perception Analysis
+SALES_STAGE,Prosposal/Price Quote
+SALES_STAGE,Negotiation/Review
+SALES_STAGE,Closed Won
+SALES_STAGE,Closed Lost
+OPPORTUNITY_TYPE,T1
+OPPORTUNITY_TYPE,T2
+OPPORTUNITY_TYPE,T3
+OPPORTUNITY_TYPE,T4
+LOST_REASON,R1
+LOST_REASON,R2
+LOST_REASON,R3
+LOST_REASON,others
+CONTACT_TYPE,Lead
+CONTACT_TYPE,Qualified Lead
+CONTACT_TYPE,Customer
+CONTACT_TYPE,Competitor
+CONTACT_TYPE,Partner
+CONTACT_TYPE,Analyst
+CONTACT_TYPE,Vendor
+CONTACT_TYPE,Other
+CONTACT_STATUS,Active
+CONTACT_STATUS,Not Active
+CONTACT_STATUS,Intermittent
+CONTACT_STATUS,Others
+ENTITY,Lead
+ENTITY,Opportunity
+ENTITY,Contact
+ENTITY,Account
+ENTITY,Product
+CASE_STATUS,New
+CASE_STATUS,Assigned
+CASE_STATUS,Open
+CASE_STATUS,Wait for Customer
+CASE_STATUS,Wait for 3rd Party
+CASE_STATUS,Resolved
+CASE_STATUS,Closed
+CASE_PRIORITY,Critical
+CASE_PRIORITY,High
+CASE_PRIORITY,Medium
+CASE_PRIORITY,Low
+ACTIVITY_TYPE,Event
+ACTIVITY_TYPE,Task
+LIST_ENTITY,Lead
+LIST_ENTITY,Account
+LIST_ENTITY,Contact
+LIST_ENTITY,Opportunity
+LIST_ENTITY,Vendor
+LIST_ENTITY,Product
+LIST_ENTITY,ListView
+LIST_ENTITY,Document
+LIST_ENTITY,Case
+LIST_ENTITY,Activity
+LIST_TYPE,Dynamic
+LIST_TYPE,Static
+LEAD_LV,First Name
+LEAD_LV,Last Name
+LEAD_LV,Email
+LEAD_RECORD_COPY,Account
+LEAD_RECORD_COPY,Contact
