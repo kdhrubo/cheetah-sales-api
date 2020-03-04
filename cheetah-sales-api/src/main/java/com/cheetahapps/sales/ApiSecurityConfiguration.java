@@ -16,9 +16,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	private static final String[] AUTHENTICATION_WHITELIST = { 
-			"/browser/**",
-			"/webjars/**",
-			"/**",
+			"/swagger-resources/**",
+	        "/swagger-ui.html",
+	        "/v2/api-docs",
+	        "/webjars/**",
 			
 			"/users/otp/**",
 			"/users/register/**", 

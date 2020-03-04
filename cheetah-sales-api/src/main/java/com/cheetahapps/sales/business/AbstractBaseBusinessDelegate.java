@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.scheduling.annotation.Async;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cheetahapps.sales.repository.BaseMongoRepository;
+
 
 import jodd.bean.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class AbstractBaseBusinessDelegate<T, Id> {
 
-	protected BaseMongoRepository<T, Id> repository;
+	protected MongoRepository<T, Id> repository;
 
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
@@ -28,7 +30,7 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 		eventPublisher.publishEvent(event);
 	}
 
-	public AbstractBaseBusinessDelegate(BaseMongoRepository<T, Id> repository) {
+	public AbstractBaseBusinessDelegate(MongoRepository<T, Id> repository) {
 
 		this.repository = repository;
 
@@ -47,10 +49,8 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 		return repository.findById(id);
 	}
 	
-	//read all which are active/inactive (recycle bin)
-	public Page<T> findAllByDeleted(boolean deleted, Page<T> page) {
-		return repository.findAllByDeleted(deleted, page);
-	}
+
+	
 
 	// delete
 	@Transactional
