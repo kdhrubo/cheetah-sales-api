@@ -60,11 +60,11 @@ public class Account {
 
 	private String assignedUser;
 
-	private Industry industry;
+	private PickList industry;
 
-	private LeadType leadType;
+	private PickList leadType;
 	
-	private Rating rating;
+	private PickList rating;
 	
 	private Team assignedTeam;
 

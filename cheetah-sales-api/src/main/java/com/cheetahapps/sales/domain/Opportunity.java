@@ -45,15 +45,15 @@ public class Opportunity {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate expectedClose;
 
-	private SalesStage salesStage;
+	private PickList salesStage;
 
 	private User assignedUser;
 
-	private LeadSource leadSource;
+	private PickList leadSource;
 
 	private String nextStep;
 
-	private OpportunityType opportunityType;
+	private PickList opportunityType;
 
 	private int probablity;
 
@@ -61,7 +61,7 @@ public class Opportunity {
 
 	private String email;
 
-	private LostReason lostReason;
+	private PickList lostReason;
 
 	// Keep a reference to the lead from which it was (if it was) converted
 	private Lead lead;

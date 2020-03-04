@@ -1,0 +1,521 @@
+message_key,message_text,locale,deleted,version
+msg.signin,Sign In,en_US,FALSE,0
+msg.signin,Se connecter,fr_FR,FALSE,0
+msg.signin,à¤¸à¤¾à¤‡à¤¨ à¤‡à¤¨ à¤•à¤°à¥‡à¤‚,hi_IN,FALSE,0
+msg.recoverPasswd,Recover Password,en_US,FALSE,0
+msg.recoverPasswd,RÃ©cupÃ©rer mot de passe,fr_FR,FALSE,0
+msg.recoverPasswd,à¤—à¥‹à¤ªà¤¨à¥€à¤¯ à¤¶à¤¬à¥�à¤¦ à¤ªà¥�à¤¨ à¤ªà¥�à¤°à¤¾à¤ªà¥�à¤¤ à¤•à¤°à¥‡,hi_IN,FALSE,0
+msg.createNew,Create New Account,en_US,FALSE,0
+msg.createNew,CrÃ©er un nouveau compte,fr_FR,FALSE,0
+msg.createNew,à¤¨à¤¯à¤¾ à¤–à¤¾à¤¤à¤¾ à¤¬à¤¨à¤¾à¤�à¤�,hi_IN,FALSE,0
+msg.email,Email,en_US,FALSE,0
+msg.email,Email,fr_FR,FALSE,0
+msg.email,à¤ˆà¤®à¥‡à¤²,hi_IN,FALSE,0
+msg.password,Password,en_US,FALSE,0
+msg.password,Mot de passe,fr_FR,FALSE,0
+msg.password,à¤ªà¤¾à¤¸à¤µà¤°à¥�à¤¡,hi_IN,FALSE,0
+msg.form.first_name,First Name,en_US,FALSE,0
+msg.form.first_name,PrÃ©nom,fr_FR,FALSE,0
+msg.form.first_name,à¤ªà¤¹à¤²à¤¾ à¤¨à¤¾à¤®,hi_IN,FALSE,0
+msg.form.last_name,Last Name,en_US,FALSE,0
+msg.form.company,Company,en_US,FALSE,0
+msg.form.email,Email,en_US,FALSE,0
+msg.form.phone,Phone,en_US,FALSE,0
+msg.form.mobile,Mobile,en_US,FALSE,0
+msg.form.fax,Fax,en_US,FALSE,0
+msg.form.lead_source,Lead Source,en_US,FALSE,0
+msg.form.lead_status,Lead Status,en_US,FALSE,0
+msg.form.industry,Industry,en_US,FALSE,0
+msg.form.designation,Designation,en_US,FALSE,0
+msg.form.website,Website,en_US,FALSE,0
+msg.form.annual_revenue,Annual Revenue,en_US,FALSE,0
+msg.form.no_of_emp,No Of Employees,en_US,FALSE,0
+msg.form.twitter,Twitter,en_US,FALSE,0
+msg.form.facebook,Facebook,en_US,FALSE,0
+msg.form.email_opt_put,Email Opt Out,en_US,FALSE,0
+msg.form.dummy,dummy,en_US,FALSE,0
+msg.form.street,Street,en_US,FALSE,0
+msg.form.zip,Zip,en_US,FALSE,0
+msg.form.po_box,PO Box,en_US,FALSE,0
+msg.form.state,State,en_US,FALSE,0
+msg.form.city,City,en_US,FALSE,0
+msg.form.country,Country,en_US,FALSE,0
+msg.form.description,Description,en_US,FALSE,0
+msg.form.save,Save,en_US,FALSE,0
+msg.form.back,Back,en_US,FALSE,0
+msg.form.new,New,en_US,FALSE,0
+msg.form.edit,Edit,en_US,FALSE,0
+msg.form.copy,Copy,en_US,FALSE,0
+msg.form.delete,Delete,en_US,FALSE,0
+msg.form.convert,Convert,en_US,FALSE,0
+msg.form.account.name,Name,en_US,FALSE,0
+msg.form.account.phone,Phone,en_US,FALSE,0
+msg.form.account.secondary_phone,Phone,en_US,FALSE,0
+msg.form.account.secondary_email,Secondary Email,en_US,FALSE,0
+msg.form.account.assigned_user,Assigned User,en_US,FALSE,0
+msg.form.account.website,Website,en_US,FALSE,0
+msg.form.contact.home_phone,Home Phone,en_US,FALSE,0
+msg.form.contact.dob,Date of Birth,en_US,FALSE,0
+msg.form.title,Title,en_US,FALSE,0
+msg.form.contact.salutation,Salutation,en_US,FALSE,0
+msg.form.contact.department,Department,en_US,FALSE,0
+msg.form.contact.lead_source,Lead Source,en_US,FALSE,0
+msg.form.contact.donot_call,Donot call,en_US,FALSE,0
+msg.form.contact.contact_type,Contact Type,en_US,FALSE,0
+msg.form.contact.contact_status,Contact Status,en_US,FALSE,0
+msg.form.status,Status,en_US,FALSE,0
+msg.form.summary,Summary,en_US,FALSE,0
+msg.form.priority,Priority,en_US,FALSE,0
+msg.form.contact_id,Contact ID,en_US,FALSE,0
+msg.form.account_id,Account ID,en_US,FALSE,0
+msg.form.product_id,Product ID,en_US,FALSE,0
+msg.form.channel_id,Channel_ID,en_US,FALSE,0
+msg.form.resolution,Resolution,en_US,FALSE,0
+msg.form.primary_email,Primary Email,en_US,FALSE,0
+msg.form.category_id,Category ID,en_US,FALSE,0
+msg.form.sub_category_id,Sub Category ID,en_US,FALSE,0
+msg.form.resolution_type_id,Resolution Type ID,en_US,FALSE,0
+msg.form.deffered_date,Deffered Date,en_US,FALSE,0
+msg.form.file_name,File Name,en_US,FALSE,0
+msg.form.mime,Mime,en_US,FALSE,0
+msg.form.size,Size,en_US,FALSE,0
+msg.form.amount,Amount,en_US,FALSE,0
+msg.form.contact,Contact,en_US,FALSE,0
+msg.form.expected_close,Expected Close,en_US,FALSE,0
+msg.form.sales_stage_id,Sales Stage Id,en_US,FALSE,0
+msg.form.nextstep,Next Step,en_US,FALSE,0
+msg.form.opportunity_type_id,Opportunity Type Id,en_US,FALSE,0
+msg.form.probablity,Probablity,en_US,FALSE,0
+msg.form.forecast_amount,Forecast Amount,en_US,FALSE,0
+msg.form.lost_reason_id,Lost Reason Id,en_US,FALSE,0
+msg.form.owner,Owner,en_US,FALSE,0
+msg.form.product_code,Product Code,en_US,FALSE,0
+msg.form.active,Active,en_US,FALSE,0
+msg.form.vendor_name,Vendor Name,en_US,FALSE,0
+msg.form.product_category,Product Category,en_US,FALSE,0
+msg.form.sales_startdate,Sales StartDate,en_US,FALSE,0
+msg.form.sales_enddate,Sales EndDate,en_US,FALSE,0
+msg.form.commisson_rate,Commisson Rate,en_US,FALSE,0
+msg.form.manufacturer,Manufacturer,en_US,FALSE,0
+msg.form.unit_price,Unit Price,en_US,FALSE,0
+msg.form.taxable,Taxable,en_US,FALSE,0
+msg.form.support_startdate,Support StartDate,en_US,FALSE,0
+msg.form.support_enddate,Support EndDate,en_US,FALSE,0
+msg.form.usage_unit,Usage Unit,en_US,FALSE,0
+msg.form.qty_ordered,Qty Ordered,en_US,FALSE,0
+msg.form.qty_instock,Qty InStock,en_US,FALSE,0
+msg.form.reorder_level,Reorder Level ,en_US,FALSE,0
+msg.form.handler,Handler,en_US,FALSE,0
+msg.form.qty_in_demand,Qty In Demand,en_US,FALSE,0
+msg.form.primary_phone,Primary Phone,en_US,FALSE,0
+msg.form.gl_account_id,GL_ACCOUNT_ID,en_US,FALSE,0
+msg.form.category,Category,en_US,FALSE,0
+msg.form.assignedtouser,assignedToUser,en_US,FALSE,0
+msg.list.case.label,Cases,en_US,FALSE,0
+msg.list.summary,Summary,en_US,FALSE,0
+msg.list.title,Title,en_US,FALSE,0
+msg.list.status,Status,en_US,FALSE,0
+msg.list.button.new,New,en_US,FALSE,0
+msg.list.button.edit,Edit,en_US,FALSE,0
+msg.list.button.delete,Delete,en_US,FALSE,0
+msg.list.desc.services,Active Services,en_US,FALSE,0
+msg.list.label.services,Services,en_US,FALSE,0
+msg.list.service.name,Name,en_US,FALSE,0
+msg.list.service.owner,Owner,en_US,FALSE,0
+msg.page.service.new,New Service,en_US,FALSE,0
+msg.page.service.details,Service Details,en_US,FALSE,0
+msg.page.service.edit,Service Edit,en_US,FALSE,0
+msg.page.service.details.recycle,Service Details - Recycle Bin,en_US,FALSE,0
+msg.page.service.list,Services,en_US,FALSE,0
+msg.page.service.copy,Service Copy,en_US,FALSE,0
+
+msg.form.service.new,New Service,en_US,FALSE,0
+msg.form.service.detail,Service Details,en_US,FALSE,0
+msg.form.service.edit,Service Edit,en_US,FALSE,0
+
+
+msg.form.button.service.save,Save,en_US,FALSE,0
+msg.form.button.service.list,List,en_US,FALSE,0
+msg.form.button.service.new,New,en_US,FALSE,0
+msg.form.button.service.edit,Edit,en_US,FALSE,0
+msg.form.button.service.copy,Copy,en_US,FALSE,0
+msg.form.button.service.delete,Delete,en_US,FALSE,0
+msg.form.service.details,Service Details,en_US,FALSE,0
+msg.form.service.active,Active,en_US,FALSE,0
+msg.form.service.name,Name,en_US,FALSE,0
+msg.form.service.category,Category,en_US,FALSE,0
+msg.form.service.usageUnit,Usage Unit,en_US,FALSE,0
+msg.form.service.owner,Owner,en_US,FALSE,0
+msg.form.service.noOfUnits,# of Units,en_US,FALSE,0
+msg.form.service.salesStartDate,Sales Start,en_US,FALSE,0
+msg.form.service.salesEndDate,Sales End,en_US,FALSE,0
+msg.form.service.supportStartDate,Support Start,en_US,FALSE,0
+msg.form.service.supportEndDate,Support End,en_US,FALSE,0
+msg.form.service.commissonRate,Commission Rate,en_US,FALSE,0
+msg.form.service.website,Website,en_US,FALSE,0
+msg.form.service.price,Price,en_US,FALSE,0
+msg.form.service.vat,Vat,en_US,FALSE,0
+msg.form.service.serviceTax,Service Tax,en_US,FALSE,0
+msg.form.service.gst,GST,en_US,FALSE,0
+msg.form.service.salesTax,Sales Tax,en_US,FALSE,0
+msg.form.service.purchaseCost,Purchase Cost,en_US,FALSE,0
+msg.form.service.description,Description,en_US,FALSE,0
+
+
+msg.form.lead.salutation,Salutation,en_US,FALSE,0
+msg.form.lead.first_name,First Name,en_US,FALSE,0
+msg.form.lead.first_name,PrÃ©nom,fr_FR,FALSE,0
+msg.form.lead.first_name,à¤ªà¤¹à¤²à¤¾ à¤¨à¤¾à¤®,hi_IN,FALSE,0
+msg.form.lead.last_name,Last Name,en_US,FALSE,0
+msg.form.lead.company,Company,en_US,FALSE,0
+msg.form.lead.email,Email,en_US,FALSE,0
+msg.form.lead.phone,Phone,en_US,FALSE,0
+msg.form.lead.mobile,Mobile,en_US,FALSE,0
+msg.form.lead.fax,Fax,en_US,FALSE,0
+msg.form.lead.lead_source,Lead Source,en_US,FALSE,0
+msg.form.lead.lead_status,Lead Status,en_US,FALSE,0
+msg.form.lead.industry,Industry,en_US,FALSE,0
+msg.form.lead.designation,Designation,en_US,FALSE,0
+msg.form.lead.website,Website,en_US,FALSE,0
+msg.form.lead.annual_revenue,Annual Revenue,en_US,FALSE,0
+msg.form.lead.no_of_emp,No Of Employees,en_US,FALSE,0
+msg.form.lead.twitter,Twitter,en_US,FALSE,0
+msg.form.lead.facebook,Facebook,en_US,FALSE,0
+msg.form.lead.email_opt_put,Email Opt Out,en_US,FALSE,0
+msg.form.lead.dummy,dummy,en_US,FALSE,0
+msg.form.lead.street,Street,en_US,FALSE,0
+msg.form.lead.zip,Zip,en_US,FALSE,0
+msg.form.lead.po_box,PO Box,en_US,FALSE,0
+msg.form.lead.state,State,en_US,FALSE,0
+msg.form.lead.city,City,en_US,FALSE,0
+msg.form.lead.country,Country,en_US,FALSE,0
+msg.form.lead.description,Description,en_US,FALSE,0
+msg.form.contact.description,Description,en_US,FALSE,0
+
+msg.form.button.lead.save,Save,en_US,FALSE,0
+msg.form.button.lead.list,List,en_US,FALSE,0
+msg.form.button.lead.new,New,en_US,FALSE,0
+msg.form.button.lead.edit,Edit,en_US,FALSE,0
+msg.form.button.lead.copy,Copy,en_US,FALSE,0
+msg.form.button.lead.delete,Delete,en_US,FALSE,0
+msg.form.button.lead.convert,Convert,en_US,FALSE,0
+
+msg.form.lead.basicinfo,Basic Information,en_US,FALSE,0
+msg.form.contact.basicinfo,Basic Information,en_US,FALSE,0
+msg.form.activity.basicinfo,Basic Information,en_US,FALSE,0
+
+msg.form.lead.address,Address,en_US,FALSE,0
+msg.form.contact.address,Address,en_US,FALSE,0
+
+
+msg.form.lead.new,New Lead,en_US,FALSE,0
+msg.form.lead.detail,Lead Details,en_US,FALSE,0
+msg.form.lead.edit,Lead Edit,en_US,FALSE,0
+
+msg.page.lead.new,New Lead,en_US,FALSE,0
+msg.page.lead.details,Lead Details,en_US,FALSE,0
+msg.page.contact.details,Contact Details,en_US,FALSE,0
+msg.page.lead.edit,Edit Lead,en_US,FALSE,0
+msg.page.lead.details.recycle, Lead Details - Recycle,en_US,FALSE,0
+msg.page.lead.list, Lead List,en_US,FALSE,0
+msg.page.lead.convert, Convert Lead ,en_US,FALSE,0
+msg.page.lead.copy, Copy Lead,en_US,FALSE,0
+
+msg.form.contact.desc, Description,en_US,FALSE,0
+msg.list.lead.desc, Description,en_US,FALSE,0
+msg.list.lead.label, Leads,en_US,FALSE,0
+msg.list.button.lead.new, New,en_US,FALSE,0
+msg.list.button.lead.edit, Edit,en_US,FALSE,0
+msg.list.button.lead.delete, Delete,en_US,FALSE,0
+msg.list.lead.firstName, First Name,en_US,FALSE,0
+msg.list.lead.lastName, Last Name,en_US,FALSE,0
+msg.list.lead.company, Company,en_US,FALSE,0
+msg.list.lead.delete, Delete,en_US,FALSE,0
+
+msg.form.button.activity.save,Save,en_US,FALSE,0
+msg.form.button.activity.back,Back,en_US,FALSE,0
+msg.form.button.activity.new,New,en_US,FALSE,0
+msg.form.button.activity.edit,Edit,en_US,FALSE,0
+msg.form.button.activity.copy,Copy,en_US,FALSE,0
+msg.form.button.activity.delete,Delete,en_US,FALSE,0
+
+msg.form.activity.subject,Subject,en_US,FALSE,0
+msg.form.activity.start_date,Start Date,en_US,FALSE,0
+msg.form.activity.due_date,Due Date,en_US,FALSE,0
+msg.form.activity.location,Location,en_US,FALSE,0
+msg.form.activity.activity_type,Activity Type,en_US,FALSE,0
+msg.form.activity.status,Status,en_US,FALSE,0
+msg.form.activity.priority,Priority,en_US,FALSE,0
+msg.form.activity.send_notification,Send Notification,en_US,FALSE,0
+
+
+msg.form.activity.description,Description,en_US,FALSE,0
+msg.form.activity.menu,Activity,en_US,FALSE,0
+msg.form.activity.menu.list_all,List All,en_US,FALSE,0
+msg.form.activity.menu.new,New,en_US,FALSE,0
+msg.form.activity.activities,Activities,en_US,FALSE,0
+
+msg.form.activity.list.new,New,en_US,FALSE,0
+msg.form.activity.list.edit,Edit,en_US,FALSE,0
+msg.form.activity.list.delete,Delete,en_US,FALSE,0
+msg.form.activity.list.subject,Subject,en_US,FALSE,0
+msg.form.activity.list.startDateTime,startDateTime,en_US,FALSE,0
+msg.form.activity.list.dueDateTime,dueDateTime,en_US,FALSE,0
+
+
+msg.form.activity.new,New Activity,en_US,FALSE,0
+msg.form.activity.detail,Activity Details,en_US,FALSE,0
+msg.form.activity.edit,Activity Edit,en_US,FALSE,0
+
+msg.form.document.new,New,en_US,FALSE,0
+msg.form.document.edit,Edit,en_US,FALSE,0
+msg.form.document.delete,Delete,en_US,FALSE,0
+msg.form.document.name,Name,en_US,FALSE,0
+msg.form.document.file_name,File Name,en_US,FALSE,0
+msg.form.document.mime,Mime,en_US,FALSE,0
+msg.form.document.size,Size,en_US,FALSE,0
+
+msg.form.document.title.new,New Document,en_US,FALSE,0
+msg.form.document.title.import,Import Document,en_US,FALSE,0
+msg.form.button.startimport,Start Import,en_US,FALSE,0
+msg.list.button.import,Import,en_US,FALSE,0
+msg.page.document.details,Document Details,en_US,FALSE,0
+msg.form.button.kanban,KanbanView,en_US,FALSE,0
+
+msg.form.case.new,New Case,en_US,FALSE,0
+msg.form.case.detail,Case Details,en_US,FALSE,0
+msg.form.case.edit,Case Edit,en_US,FALSE,0
+
+msg.form.button.case.save,Save,en_US,FALSE,0
+msg.form.button.case.list,List,en_US,FALSE,0
+msg.form.button.case.new,New,en_US,FALSE,0
+msg.form.button.case.edit,Edit,en_US,FALSE,0
+msg.form.button.case.copy,Copy,en_US,FALSE,0
+msg.form.button.case.delete,Delete,en_US,FALSE,0
+msg.form.button.case.convert,Convert to FAQ,en_US,FALSE,0
+
+msg.form.case.basicinfo,Basic Information,en_US,FALSE,0
+
+msg.form.case.summary,Summary,en_US,FALSE,0
+msg.form.case.title,Title,en_US,FALSE,0
+
+msg.form.case.status_id,Status,en_US,FALSE,0
+msg.form.case.priority_id,Priority,en_US,FALSE,0
+
+msg.form.case.channel_id,Channel,en_US,FALSE,0
+msg.form.case.contact_id,Contact,en_US,FALSE,0
+msg.form.case.account_id,Account,en_US,FALSE,0
+msg.form.case.product_id,Product,en_US,FALSE,0
+
+msg.page.activity.new,New Activity,en_US,FALSE,0
+msg.page.activity.details,Activity Details,en_US,FALSE,0
+msg.page.activity.edit,Edit Activity,en_US,FALSE,0
+msg.page.activity.details.recycle, Activity Details - Recycle,en_US,FALSE,0
+msg.page.activity.list, Activity List,en_US,FALSE,0
+msg.page.activity.copy, Copy Activity,en_US,FALSE,0
+
+msg.list.activity.desc,Activities,en_US,FALSE,0
+msg.list.activity.label,Activities,en_US,FALSE,0
+
+msg.list.activity.subject,Subject,en_US,FALSE,0
+msg.list.activity.startDateTime,Start,en_US,FALSE,0 
+msg.list.activity.dueDateTime,End,en_US,FALSE,0
+
+msg.form.activity.details, Activity Details,en_US,FALSE,0
+msg.page.activity.edit, Activity Edit,en_US,FALSE,0
+
+msg.form.lead.convert,Convert Lead,en_US,FALSE,0
+
+msg.form.convertLead.opportunity, Opportunity,en_US,FALSE,0
+msg.form.convertLead.createOpportunity,Create Opportunity,en_US,FALSE,0
+msg.form.convertLead.opportunityName,Opportunity Name,en_US,FALSE,0
+msg.form.convertLead.opportunityAmount,Opportunity Amount,en_US,FALSE,0
+msg.form.convertLead.expectedCloseDate,Expected Close Date,en_US,FALSE,0
+msg.form.convertLead.salesStage,Sales Stage,en_US,FALSE,0
+
+msg.form.convertLead.contact,Contact,en_US,FALSE,0
+msg.form.convertLead.createContact,Create Contact,en_US,FALSE,0
+
+msg.form.convertLead.firstName,First Name,en_US,FALSE,0
+msg.form.convertLead.lastName,Last Name,en_US,FALSE,0
+msg.form.convertLead.primaryEmail,Primary Email,en_US,FALSE,0
+msg.form.convertLead.contactType,Contact Type,en_US,FALSE,0
+ 
+msg.form.convertLead.account,Account,en_US,FALSE,0
+msg.form.convertLead.createAccount,Create Account,en_US,FALSE,0
+msg.form.convertLead.accountName,Name,en_US,FALSE,0
+msg.form.convertLead.annualRevenue,Annual Revenue,en_US,FALSE,0
+msg.form.convertLead.industry,Industry,en_US,FALSE,0
+
+msg.form.convertLead.copyRecordsTo,Copy Records To,en_US,FALSE,0
+msg.form.convertLead.assignedTo,Assigned To,en_US,FALSE,0
+
+msg.module.menu.service,Service,en_US,FALSE,0
+msg.module.menu.account,Account,en_US,FALSE,0
+msg.module.menu.case,Case,en_US,FALSE,0
+msg.module.menu.contact,Contact,en_US,FALSE,0
+msg.module.menu.document,Document,en_US,FALSE,0
+msg.module.menu.lead,Lead,en_US,FALSE,0
+msg.module.menu.listView,List View,en_US,FALSE,0
+msg.module.menu.opportunity,Opportunity,en_US,FALSE,0
+
+
+msg.module.menu.service.viewall,Services,en_US,FALSE,0
+msg.form.convertLead.assignedTo,Assigned To,en_US,FALSE,0
+
+msg.module.menu.notes,Notes,en_US,FALSE,0
+
+msg.module.menu.notes.viewall,Notes,en_US,FALSE,0
+
+msg.list.notes.desc,Notes,en_US,FALSE,0
+msg.page.notes.notes,Notes,en_US,FALSE,0
+msg.list.notes.description,Description,en_US,FALSE,0
+
+msg.list.case.desc,Cases,en_US,FALSE,0
+
+msg.list.button.case.new,New,en_US,FALSE,0
+msg.list.button.case.edit,Edit,en_US,FALSE,0
+msg.list.button.case.delete,Delete,en_US,FALSE,0
+msg.list.case.title,Title,en_US,FALSE,0
+msg.list.case.status,Status,en_US,FALSE,0
+msg.list.case.priority,Priority,en_US,FALSE,0
+
+msg.list.document.desc,Documents,en_US,FALSE,0
+msg.list.document.hlabel,Documents,en_US,FALSE,0
+
+msg.list.desc.products,Active Products,en_US,FALSE,0
+msg.list.label.products,Products,en_US,FALSE,0
+msg.list.product.name,Name,en_US,FALSE,0
+msg.list.product.owner,Owner,en_US,FALSE,0
+msg.module.menu.product,Product,en_US,FALSE,0
+msg.module.menu.product.viewall,Products,en_US,FALSE,0
+msg.form.opportunity.label,Opportunity,en_US,FALSE,0
+msg.form.opportunity.new,New,en_US,FALSE,0
+msg.form.opportunity.edit,Edit,en_US,FALSE,0
+msg.form.opportunity.delete,Delete,en_US,FALSE,0
+msg.form.opportunity.name,Name,en_US,FALSE,0
+msg.form.opportunity.phone,Phone,en_US,FALSE,0
+msg.form.opportunity.website,Website,en_US,FALSE,0
+msg.form.opportunity.secondary_phone,Secondary Phone,en_US,FALSE,0
+msg.form.opportunity.createNewOppurtunity,Create New Opportunity,en_US,FALSE,0
+msg.form.opportunity.editOppurtunity,Edit Opportunity,en_US,FALSE,0
+msg.form.opportunity.oppurtunityDetails,Opportunity Details,en_US,FALSE,0
+msg.form.opportunity.amount,Amount,en_US,FALSE,0
+msg.form.opportunity.email,Email,en_US,FALSE,0
+
+msg.module.menu.opportunity.comments,Comments,en_US,FALSE,0
+msg.module.menu.opportunity.comments.viewall,Comments,en_US,FALSE,0
+msg.module.menu.opportunity.comments.comment,Comments,en_US,FALSE,0
+
+msg.module.menu.opportunity.desc,Comments,en_US,FALSE,0
+msg.module.menu.opportunity.edit,Edit,en_US,FALSE,0
+msg.module.menu.opportunity.description,Description,en_US,FALSE,0
+
+msg.form.product.save,Save,en_US,FALSE,0
+msg.form.product.back,Back,en_US,FALSE,0
+msg.form.product.new,New,en_US,FALSE,0
+msg.form.product.edit,Edit,en_US,FALSE,0
+msg.form.product.copy,Copy,en_US,FALSE,0
+msg.form.product.delete,Delete,en_US,FALSE,0
+msg.form.product.convert,Convert,en_US,FALSE,0
+msg.form.product.name,Name,en_US,FALSE,0
+msg.form.product.vendor_name,Vendor Name,en_US,FALSE,0
+msg.form.product.sales_startdate,Sales StartDate,en_US,FALSE,0
+msg.form.product.sales_enddate,Sales EndDate,en_US,FALSE,0
+msg.form.product.commisson_rate,Commisson Rate,en_US,FALSE,0
+msg.form.product.manufacturer,Manufacturer,en_US,FALSE,0
+msg.form.product.unit_price,Unit Price,en_US,FALSE,0
+msg.form.product.taxable,Taxable,en_US,FALSE,0
+msg.form.product.support_startdate,Support StartDate,en_US,FALSE,0
+msg.form.product.support_enddate,Support EndDate,en_US,FALSE,0
+msg.form.product.usage_unit,Usage Unit,en_US,FALSE,0
+msg.form.product.qty_ordered,Qty Ordered,en_US,FALSE,0
+msg.form.product.qty_instock,Qty InStock,en_US,FALSE,0
+msg.form.product.reorder_level,Reorder Level ,en_US,FALSE,0
+msg.form.product.handler,Handler,en_US,FALSE,0
+msg.form.product.qty_in_demand,Qty In Demand,en_US,FALSE,0
+msg.form.product.description,Description,en_US,FALSE,0
+msg.form.product.owner,Owner,en_US,FALSE,0
+msg.form.product.product_code,Product Code,en_US,FALSE,0
+msg.form.product.active,Active,en_US,FALSE,0
+msg.form.product.product_category,Product Category,en_US,FALSE,0
+
+msg.form.list.newlv,NewListView,en_US,FALSE,0
+msg.form.list.description,Description,en_US,FALSE,0
+msg.form.list.savelv,SaveLv,en_US,FALSE,0
+msg.form.list.viewall,View All,en_US,FALSE,0
+msg.form.list.edit,Edit,en_US,FALSE,0
+msg.form.list.delete,Delete,en_US,FALSE,0
+msg.form.list.manage,Manage,en_US,FALSE,0
+msg.form.list.name,Name,en_US,FALSE,0
+msg.form.list.entity,Entity,en_US,FALSE,0
+msg.form.list.list_type,List Type,en_US,FALSE,0
+
+msg.list.contact.desc,Contacts,en_US,FALSE,0
+msg.list.contact.label,Contacts,en_US,FALSE,0
+msg.list.button.contact.new,New,en_US,FALSE,0
+
+msg.list.col.contact.firstName,First Name,en_US,FALSE,0
+msg.list.col.contact.lastName,Last Name,en_US,FALSE,0
+msg.list.col.contact.email,Email,en_US,FALSE,0
+msg.list.col.contact.phone,Phone,en_US,FALSE,0
+msg.page.contact.new,New Contact,en_US,FALSE,0
+
+msg.form.contact.new,New Contact,en_US,FALSE,0
+msg.form.contact.edit,Edit Contact,en_US,FALSE,0
+msg.form.contact.detail,Contact Details,en_US,FALSE,0
+msg.page.contact.list,Contacts,en_US,FALSE,0
+msg.page.contact.edit,Edit Contact,en_US,FALSE,0
+
+##product##
+msg.list.product.desc,Products,en_US,FALSE,0
+msg.list.product.label,Products,en_US,FALSE,0
+msg.page.product.label,Products,en_US,FALSE,0
+
+msg.form.product.title.new,New Product,en_US,FALSE,0
+msg.form.product.title.edit,Edit Product,en_US,FALSE,0
+msg.form.product.title.detail,Product Detail,en_US,FALSE,0
+msg.page.product.new,New Product,en_US,FALSE,0
+
+## category
+msg.module.menu.category,Category,en_US,FALSE,0
+msg.list.category.desc,Product Categories,en_US,FALSE,0
+msg.list.category.label,Product Categories,en_US,FALSE,0
+msg.list.button.category.new,New,en_US,FALSE,0
+msg.list.col.category.name,Name,en_US,FALSE,0
+
+msg.page.product.new,New Product,en_US,FALSE,0
+msg.page.product.detail,Product Details,en_US,FALSE,0
+msg.page.product.edit,Edit Product,en_US,FALSE,0
+msg.page.product.copy,Copy Product,en_US,FALSE,0
+msg.page.product.list,Products,en_US,FALSE,0
+
+
+#### validation messages ######
+
+NotEmpty.lead.email,Email cannot be empty,en_US,FALSE,0
+typeMismatch.opportunity.expectedClose,Expected close date format incorrect,en_US,FALSE,0
+
+
+### spring security
+AbstractAccessDecisionManager.accessDenied,Access Denied,en_US,FALSE,0
+
+
+## Quote
+msg.module.menu.quote,Quote,en_US,FALSE,0
+Lead,Quote,en_US,FALSE,0
+
+## Opportunity
+msg.page.opportunity.list,Opportunities,en_US,FALSE,0
+Leads,Leads,en_US,FALSE,0
+msg.page.opportunity.kanban,Kanban View - Opportunities,en_US,FALSE,0
+
+#import
+msg.form.import.basicinfo,Basic Information,en_US,FALSE,0
+msg.form.document.title.import,Import Document,en_US,FALSE,0
+#document
+msg.form.document.basicinfo,Basic Information,en_US,FALSE,0
+msg.form.document.description,Description,en_US,FALSE,0
+msg.form.document.new,New Document,en_US,FALSE,0
+msg.form.document.edit,Edit New Document,en_US,FALSE,0
+msg.form.document.details,Document Details,en_US,FALSE,0

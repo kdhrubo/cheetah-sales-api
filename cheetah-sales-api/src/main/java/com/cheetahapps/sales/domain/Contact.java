@@ -28,7 +28,7 @@ public class Contact {
 	@Id
 	private String id;
 
-	private Salutation salutation;
+	private PickList salutation;
 
 	private String firstName;
 
@@ -55,7 +55,7 @@ public class Contact {
 
 	private Contact parent;
 
-	private LeadSource leadSource;
+	private PickList leadSource;
 
 	private User assignedUser;
 
@@ -67,9 +67,9 @@ public class Contact {
 
 	private boolean notifyOwner;
 
-	private ContactType contactType;
+	private PickList contactType;
 
-	private ContactStatus contactStatus;
+	private PickList contactStatus;
 
 	private String twitter;
 
