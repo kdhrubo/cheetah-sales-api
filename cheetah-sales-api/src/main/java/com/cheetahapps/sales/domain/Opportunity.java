@@ -1,37 +1,25 @@
 package com.cheetahapps.sales.domain;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document("Account")
+@Document("Opportunity")
 @Data
-@TypeAlias("account")
+@TypeAlias("opportunity")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Opportunity {
-
-	@Id
-	private String id;
+@EqualsAndHashCode(callSuper = true)
+public class Opportunity extends ExtensibleBase {
 
 	private String name;
 
@@ -69,36 +57,5 @@ public class Opportunity {
 	Team assignedTeam;
 
 	private String description;
-	
-	private boolean deleted;
-
-	private int version;
-
-	@CreatedBy
-	private User createdBy;
-
-	@CreatedDate
-	private LocalDateTime createdDate;
-
-	@LastModifiedDate
-	private LocalDateTime lastModifiedDate;
-
-	@LastModifiedBy
-	private User lastModifiedBy;
-	
-	@Builder.Default
-	private Map<String, String> extra = new HashMap<String, String>();
-
-	// setter
-	@JsonAnySetter
-	public void set(String name, String value) {
-		extra.put(name, value);
-	}
-
-	// getter
-	@JsonAnyGetter
-	public Object get(String name) {
-		return extra.get(name);
-	}
 
 }
