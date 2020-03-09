@@ -44,7 +44,7 @@ public class UserService {
 
 		log.info("Registering user - {}", user.getEmail());
 
-		Role role = roleRepository.findByName(Role.USER);
+		Role role = roleRepository.findByName(Role.COMPANY_ADMIN);
 
 		user.setRole(role);
 
