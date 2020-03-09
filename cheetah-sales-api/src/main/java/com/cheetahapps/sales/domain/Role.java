@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Role extends Base{
 	
 	public static final String USER = "ROLE_USER";
-	
+	public static final String COMPANY_ADMIN = "ROLE_COMPANY_ADMIN";
 	
 	private String name;
     
