@@ -19,26 +19,24 @@ import lombok.NoArgsConstructor;
 public class Lead extends ExtensibleBase {
 
 	private String firstName;
-
 	private String lastName;
-
+	private String designation;
+	
+	
 	private String company;
-
+	private int noOfEmployees;
+	private double annualRevenue;
+	
 	private String email;
-
 	private String phone;
-
 	private String mobile;
 
-	private String designation;
-
+	
 	private String website;
-
 	private String fax;
 
-	private double annualRevenue;
-
-	private int noOfEmployees;
+	
+	
 
 	private Long industry;
 
