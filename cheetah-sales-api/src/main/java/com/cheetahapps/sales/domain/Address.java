@@ -19,9 +19,6 @@ public class Address {
 	private String zip;
 
 	
-	private String poBox;
-
-	
 	private String city;
 
 	

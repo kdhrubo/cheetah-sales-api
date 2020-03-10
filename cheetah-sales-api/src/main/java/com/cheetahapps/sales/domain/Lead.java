@@ -1,6 +1,7 @@
 package com.cheetahapps.sales.domain;
 
 import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -17,50 +18,49 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Lead extends ExtensibleBase {
-
+	@DBRef
+	private PickList salutation;
 	private String firstName;
 	private String lastName;
+	
 	private String designation;
-	
-	
 	private String company;
 	private int noOfEmployees;
+	
 	private double annualRevenue;
+	private String website;
+	private String fax;
 	
 	private String email;
 	private String phone;
 	private String mobile;
 
+	@DBRef
+	private PickList industry;
+	@DBRef
+	private PickList leadSource;
+	@DBRef
+	private PickList leadStatus;
 	
-	private String website;
-	private String fax;
 
-	
-	
+	private String street;
+	private String zip;
+	private String city;
+	private String state;
+	private String country;
 
-	private Long industry;
-
-	private Long salutation;
-
-	private Long leadSource;
-
-	private Long leadStatus;
-
-	private Long rating;
-
-	private Address address;
-
+	@DBRef
 	private User assignedTo;
 
 	private Long assignedTeam;
 
 	private String description;
 
-	private boolean emailOptOut;
-
+	private boolean emailOptIn;
+	private boolean smsOptIn;
 	private String twitter;
 
-	private String facebook;
+	
 
 	private boolean converted;
 
