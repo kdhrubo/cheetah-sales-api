@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -14,8 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Document
-@EqualsAndHashCode(callSuper = true)
-public class Role extends Base{
+public class Role {
 	
 	public static final String USER = "ROLE_USER";
 	public static final String COMPANY_ADMIN = "ROLE_COMPANY_ADMIN";
