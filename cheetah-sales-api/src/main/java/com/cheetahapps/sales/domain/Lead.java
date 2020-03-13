@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 @Document("Lead")
 @Data
-@TypeAlias("lead")
+@TypeAlias("Lead")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

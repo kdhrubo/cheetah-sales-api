@@ -37,8 +37,8 @@ public abstract class AbstractBaseController<T, I> {
 	}
 
 	// view details, edit, copy
-	@GetMapping("/{id}")
-	public T findById(@RequestParam("id") I id) {
+	@GetMapping("/findOne/{id}")
+	public T findById(@PathVariable("id") I id) {
 
 		log.debug("Id - {}", id);
 
