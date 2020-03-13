@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import com.cheetahapps.sales.business.LeadBusinessDelegate;
 import com.cheetahapps.sales.domain.Lead;
@@ -19,7 +19,7 @@ public class LeadController extends AbstractBaseController<Lead, String> {
 
 	public LeadController(LeadBusinessDelegate leadBusinessDelegate) {
 		super(leadBusinessDelegate);
-		this.businessDelegate = leadBusinessDelegate;
+		this.leadBusinessDelegate = leadBusinessDelegate;
 	}
 
 	// TODO - Complete implementation
@@ -31,7 +31,10 @@ public class LeadController extends AbstractBaseController<Lead, String> {
 	}
 	
 	@GetMapping("/q")
-	public Page<Lead> search(@RequestParam("rsql") String rsql, Pageable pageable) {
+	public Page<Lead> search(@RequestParam("rsql") String rsql, @PageableDefault Pageable pageable) {
+		log.info("Lead business delegate - {}", this.businessDelegate);
+		log.info("rsql - {}", rsql);
+		log.info("pageable - {}", pageable);
 		return leadBusinessDelegate.search(rsql, pageable);
 	}
 }

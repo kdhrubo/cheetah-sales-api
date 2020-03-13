@@ -5,8 +5,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.domain.Account;
-import com.cheetahapps.sales.domain.Contact;
 import com.cheetahapps.sales.domain.Lead;
 import com.cheetahapps.sales.repository.LeadRepository;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
@@ -34,6 +32,9 @@ public class LeadBusinessDelegate extends AbstractBaseBusinessDelegate<Lead, Str
 	public Page<Lead> search(String rsql, Pageable pageable) {
 		//"firstName==Paul;age==30"
 		//"deleted==false"
+		
+		log.info("Inside search");
+		
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Lead.class);
 	    Criteria criteria = condition.query(new MongoVisitor());
 		
