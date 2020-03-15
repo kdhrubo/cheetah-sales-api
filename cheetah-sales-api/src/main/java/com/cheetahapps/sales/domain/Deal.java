@@ -12,9 +12,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document("Opportunity")
+@Document("Deal")
 @Data
-@TypeAlias("opportunity")
+@TypeAlias("deal")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

@@ -7,7 +7,7 @@ import com.cheetahapps.sales.business.DealBusinessDelegate;
 import com.cheetahapps.sales.domain.Deal;
 
 @RestController
-@RequestMapping("/opportunities")
+@RequestMapping("/deals")
 
 public class DealController extends AbstractBaseController<Deal, String> {
 
