@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Opportunity extends ExtensibleBase {
+public class Deal extends ExtensibleBase {
 
 	private String name;
 
