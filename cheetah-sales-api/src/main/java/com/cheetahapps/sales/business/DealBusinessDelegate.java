@@ -5,8 +5,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.domain.Opportunity;
-import com.cheetahapps.sales.repository.OpportunityRepository;
+import com.cheetahapps.sales.domain.Deal;
+import com.cheetahapps.sales.repository.DealRepository;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -16,22 +16,22 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class OpportunityBusinessDelegate extends AbstractBaseBusinessDelegate<Opportunity, String> {
-	private final OpportunityRepository repository;
+public class DealBusinessDelegate extends AbstractBaseBusinessDelegate<Deal, String> {
+	private final DealRepository repository;
 	
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
-	public OpportunityBusinessDelegate(OpportunityRepository repository) {
+	public DealBusinessDelegate(DealRepository repository) {
 		super(repository);
 		this.repository = repository;
 	}
 	
-	public Page<Opportunity> search(String rsql, Pageable pageable) {
+	public Page<Deal> search(String rsql, Pageable pageable) {
 		//"firstName==Paul;age==30"
 		//"deleted==false"
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Opportunity.class);
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Deal.class);
 	    Criteria criteria = condition.query(new MongoVisitor());
 		
-		return repository.search(criteria, pageable, Opportunity.class);
+		return repository.search(criteria, pageable, Deal.class);
 	}
 }

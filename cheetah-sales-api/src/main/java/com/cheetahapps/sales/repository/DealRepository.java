@@ -5,11 +5,11 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 
-import com.cheetahapps.sales.domain.Opportunity;
+import com.cheetahapps.sales.domain.Deal;
 
 
 
 @Repository
-public interface OpportunityRepository extends MongoRepository<Opportunity, String>, SearchRepositoryCustom<Opportunity> {
+public interface DealRepository extends MongoRepository<Deal, String>, SearchRepositoryCustom<Deal> {
 
 }

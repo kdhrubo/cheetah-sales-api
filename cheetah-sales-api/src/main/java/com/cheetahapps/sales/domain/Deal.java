@@ -12,14 +12,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document("Opportunity")
+@Document("Deal")
 @Data
-@TypeAlias("opportunity")
+@TypeAlias("deal")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Opportunity extends ExtensibleBase {
+public class Deal extends ExtensibleBase {
 
 	private String name;
 
