@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -20,24 +21,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Document
 public class User {
-
-
+	
 	@Id
 	private String id;
-	
 	private String email;
-
+	private String mobile;
+	
 	
 	private String password;
-
-	private String fullName;
+	private String firstName;
+	private String lastName;
 	
-	private String mobile;
+	@DBRef
 	private Role role;
 	
 	
-	private boolean deleted;
 	
+	
+	private boolean deleted;
+
 	@LastModifiedDate
 	private LocalDateTime lastModifiedDate;
 	

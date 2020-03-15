@@ -38,7 +38,7 @@ dependencies {
 	compile 'io.vavr:vavr:0.10.2'
 	compile 'org.springframework.security:spring-security-oauth2-resource-server'
 	
-	compile group: 'com.eatthepath', name: 'java-otp', version: '0.2.0' 
+	
 	 
 	compile 'org.springframework.security:spring-security-oauth2-jose'	
 	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -46,14 +46,7 @@ dependencies {
 	compile group: 'com.github.seratch', name: 'jslack-api-client', version: '3.3.0'
 	
 	
-	compile group: 'org.jodd', name: 'jodd-mail', version: '5.1.0'
-	
-	
 	compile group: 'org.jodd', name: 'jodd-core', version: '5.1.0'
-	
-	
-	// https://mvnrepository.com/artifact/javax.mail/javax.mail-api
-	compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
 	
 	// https://mvnrepository.com/artifact/org.jodd/jodd-bean
 	compile group: 'org.jodd', name: 'jodd-bean', version: '5.1.3'
