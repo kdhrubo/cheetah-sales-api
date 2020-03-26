@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 @Document("Deal")
 @Data
-@TypeAlias("deal")
+@TypeAlias("Deal")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

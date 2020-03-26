@@ -1,0 +1,43 @@
+{
+	"name": "contact-form",
+	"fields": [
+		{
+			"className": "section-label",
+			"template": "<div><strong>Basic Information</strong></div>",
+			"section": true,
+			"sectionLabel": "Basic Information"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "select",
+					"key": "salutation",
+					"templateOptions": {
+						"label": "Salutation"
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "firstName",
+					"templateOptions": {
+						"label": "First Name",
+						"attributes": {
+              				"class": "form-control form-control-sm"
+            			}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "lastName",
+					"templateOptions": {
+						"label": "Last Name"
+					}
+				}
+			]
+		}
+	]
+}
