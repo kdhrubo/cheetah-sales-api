@@ -58,6 +58,57 @@ and the support team will also use the same information to answer customer queri
 Products represent a stock of goods or services you sell.Products are used in quotes and sales order. 
 [In future they can be used to build Inventory management as well]
 
+**Fields**
+
+|||
+|--- |--- |
+|Field|Description|
+|Availability|Select if the item is in stock or not from the dropdown list|
+|Category Type|The product category to which the new item belongs|
+|Cost|The actual cost of the item. This will not appear on printed quotes|
+|Currency|The currency of the given prices (Cost, List, Unit)|
+|Date Available|Select the date of availability if the item is out of stock|
+|Date Created|The date the product catalog record was created|
+|Date Modified|The date the product catalog record was last modified|
+|Date-Cost-Price|The starting date that the cost is valid|
+|Default Pricing Formula|Select a formula from the dropdown list to arrive at the discount price for the Unit Price field. |
+|Description|A description or other information about the product|
+|List Price|The quotable list price of the product|
+|Manufacturer Name|The manufacturer of the product|
+|Mft. Part Number|The manufacturer's part number for the product|
+|Product Name|The name of the product|
+|Product URL|The web address of product if it is available online|
+|Quantity in Stock|Enter the number of units that are in stock of the product
+Note: Negative values are supported in this field.|
+|Support Contact|The support person's contact information, such as the phone number or email address|
+|Support Desc.|Brief description or other information regarding the support provided|
+|Support Name|The name of the Customer Support person|
+|Support Term|The term (e.g. six months, one year, etc.) in which support will be provided for the product|
+|Tags|User-created keywords that can be used to identify records in filters, dashlets, and reportsNote: For more information on creating and using tags, please refer to the Tags documentation.|
+|Tax Class|Tax classification (e.g. taxable, non-taxable) for the product|
+|Type|The specified product type|
+|Unit Price|The unit price of the product|
+|Vendor Part Number|The vendor's part number for the product|
+|Weight|The weight of the product
+Note: Negative values are supported in this field.|
+
+
+
+**Product Pricing Formulas **
+
+The formulas are as follows:
+
+*  Fixed Price: Allows you to enter a Unit Price without any calculation.
+
+*  Profit Margin: Enter the points in the adjoining field to vary the percentage against the cost.
+
+*  Markup over Cost: Choose a percentage to raise the price over the cost.
+
+*  Discount from List: Enter the discount percentage from the List Price in the adjoining field.
+
+*  Same as List: The Unit Price will be the same as the List Price.
+
+
 ### Product Category
 
 Products are organized in categories. Categories are hierarchial in nature - ie a category can have parent category.
