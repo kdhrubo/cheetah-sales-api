@@ -53,6 +53,16 @@ You’ve turned a prospect into a customer. Once the deal is closed, you hand of
 The billing team will require customer and deal related information to generate invoice 
 and the support team will also use the same information to answer customer queries. 
 
+## Product
+
+Products represent a stock of goods or services you sell.Products are used in quotes and sales order. 
+[In future they can be used to build Inventory management as well]
+
+### Product Category
+
+Products are organized in categories. Categories are hierarchial in nature - ie a category can have parent category.
+
+
 ## Territory
 
 **What is a territory?**
@@ -80,6 +90,5 @@ When you modify and save your territories, Cheetah will ask if you want to recal
 Note that you can also manually change a person or company’s territory.
 
 
-## Product
 
 
