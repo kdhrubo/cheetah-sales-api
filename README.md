@@ -58,7 +58,7 @@ and the support team will also use the same information to answer customer queri
 Products represent a stock of goods or services you sell.Products are used in quotes and sales order. 
 [In future they can be used to build Inventory management as well]
 
-**Fields**
+### Product Fields
 
 |Field|Description|
 |--- |--- |
@@ -91,7 +91,7 @@ Products represent a stock of goods or services you sell.Products are used in qu
 
 
 
-**Product Pricing Formulas **
+**Product Pricing Formulas**
 
 The formulas are as follows:
 
@@ -109,6 +109,15 @@ The formulas are as follows:
 ### Product Category
 
 Products are organized in categories. Categories are hierarchial in nature - ie a category can have parent category.
+
+### Product Category Fields
+
+|Field|Description|
+|--- |--- |
+|Product Category|The category's name as it will appear on the Product Category dropdown list|
+|Parent Category|Select a parent product category if this product category is a sub-set of another category|
+|Description|A description or other information about the product category|
+|Order|	Enter a number to specify the order in which this category will appear in the Product Category dropdown list|
 
 
 ## Territory
