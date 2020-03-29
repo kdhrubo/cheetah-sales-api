@@ -11,16 +11,16 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Document("Contact")
 @Data
-@TypeAlias("contact")
+@TypeAlias("Contact")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Contact extends ExtensibleBase{
-	
 	
 
 	private PickList salutation;
@@ -30,25 +30,29 @@ public class Contact extends ExtensibleBase{
 	private String lastName;
 
 	private String email;
-
-	private String phone;
+	
+	private String otherEmail;
+	
+	private String officePhone;
 
 	private String mobile;
 
 	private String homePhone;
+	
+	private String fax;
+	
+	private String otherPhone;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 
-	private String fax;
-
 	private Account account;
 
-	private String title;
+	private PickList title;
 
 	private String department;
 
-	private Contact parent;
+	private Contact reportsTo;
 
 	private PickList leadSource;
 
@@ -58,7 +62,9 @@ public class Contact extends ExtensibleBase{
 
 	private boolean donotCall;
 
-	private boolean emailOptOut;
+	private boolean emailOptIn;
+	
+	private boolean smsOptIn;
 
 	private boolean notifyOwner;
 
@@ -69,12 +75,18 @@ public class Contact extends ExtensibleBase{
 	private String twitter;
 
 	private String facebook;
+	
+	private String linkedIn;
 
 	private Address primaryAddress;
 
 	private Address secondaryAddress;
 
 	private String description;
+	
+	private List<Note> notes;
+	
+	private List<Activity> activities;
 	
 	
 }
