@@ -60,11 +60,10 @@ Products represent a stock of goods or services you sell.Products are used in qu
 
 **Fields**
 
-|||
-|--- |--- |
 |Field|Description|
+|--- |--- |
 |Availability|Select if the item is in stock or not from the dropdown list|
-|Category Type|The product category to which the new item belongs|
+|Category |The product category to which the new item belongs|
 |Cost|The actual cost of the item. This will not appear on printed quotes|
 |Currency|The currency of the given prices (Cost, List, Unit)|
 |Date Available|Select the date of availability if the item is out of stock|
@@ -78,8 +77,7 @@ Products represent a stock of goods or services you sell.Products are used in qu
 |Mft. Part Number|The manufacturer's part number for the product|
 |Product Name|The name of the product|
 |Product URL|The web address of product if it is available online|
-|Quantity in Stock|Enter the number of units that are in stock of the product
-Note: Negative values are supported in this field.|
+|Quantity in Stock|Enter the number of units that are in stock of the product Note: Negative values are supported in this field.|
 |Support Contact|The support person's contact information, such as the phone number or email address|
 |Support Desc.|Brief description or other information regarding the support provided|
 |Support Name|The name of the Customer Support person|
@@ -89,8 +87,7 @@ Note: Negative values are supported in this field.|
 |Type|The specified product type|
 |Unit Price|The unit price of the product|
 |Vendor Part Number|The vendor's part number for the product|
-|Weight|The weight of the product
-Note: Negative values are supported in this field.|
+|Weight|The weight of the product Note: Negative values are supported in this field.|
 
 
 
