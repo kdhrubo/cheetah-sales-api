@@ -2,6 +2,10 @@
 
 ## How Sales Process Work in Cheetah Sales?
 
+The steps below mostly describe B2B sales. In case of B2C, some of these steps are optional. 
+For example an E-Commerce system may use this CRM as well. In that case when a customer signs up through E-Commerce portal, a contact and account information 
+is created in CRM. E-Commerce may also use the CRM product catalog. When a user buys products, sales order details can also flow into CRM. 
+The customer grievences can also be answered via the helpdesk module. 
 
 ### Lead Generation 
 
@@ -14,8 +18,40 @@ You find prospects seeking suggestions and advices on social channels before mak
 
 Lead qualification is the process of evaluating prospect’s willingness to buy from you. 
 Lead qualification helps you save time spent on prospects who never buy from you.
-CRM’s profile scoring and engagement scoring features enable you to identify and focus on your most valuable prospects.
+CRM’s profile scoring and engagement scoring features enable you to identify and focus on your most valuable prospects.[More on this later]
 
+
+### Product Demonstration
+
+After qualifying leads, the next step is to schedule an appointment with them to present your product or service. 
+If you’re rallying emails back and forth to set an appointment, then you’re not only handling the process inefficiently 
+but also slowing down the deal’s momentum
+
+
+### Negotiation
+
+You’ve delivered an impressive demo, your prospect is convinced to buy, you’ve sent a price quote and are waiting to close the deal. 
+But then you hear the prospect say – “I’d like to negotiate”. 
+While this stage of the sales cycle highly demands your negotiation skills, you can still use a few automations to manage documents and make quick decisions.
+
+In cases of prospects asking for a discount that is over your approval limit, you have to consult with your manager or other higher level executive before 
+sending the quote to the prospect. 
+A CRM should have a quote approval process in place you don’t have to waste time chasing down approvers for getting quotes approved. 
+It should also be possible to auto sends quotes for approval when certain entry conditions are met. 
+You can also include multiple approvers and the quote will be sent to each approver automatically.
+
+### Agreements Review
+
+Getting contracts and sales documents signed in time is critical to close deals by the expected close date. After all, you don’t want to stall a deal because a contract you had couriered didn’t reach the key decision makers before they left for a week long business trip. 
+To help you get contracts signed quickly and reliably, a CRM should integrate with secure e-sign service providers.
+
+### Close
+
+The final stage in the sales cycle is close. 
+When the prospect finally buys your product or service, you have successfully closed a deal. 
+You’ve turned a prospect into a customer. Once the deal is closed, you hand off the customer account to the billing team and customer support team.
+The billing team will require customer and deal related information to generate invoice 
+and the support team will also use the same information to answer customer queries. 
 
 ## Territory
 
