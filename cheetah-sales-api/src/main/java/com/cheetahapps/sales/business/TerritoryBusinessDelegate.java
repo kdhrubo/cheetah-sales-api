@@ -40,5 +40,10 @@ public class TerritoryBusinessDelegate extends AbstractBaseBusinessDelegate<Terr
 		Criteria criteria = condition.query(new MongoVisitor());
 		return repository.search(criteria, pageable, Territory.class);
 	}
+	
+	public List<Territory> listAllTerritory() {
+		log.info("Fectching territory from database.");
+		return repository.findAll();
+	}
 
 }
