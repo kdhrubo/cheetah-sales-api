@@ -1,5 +1,3 @@
-domain,value
-COMMON,Select a value
 LEAD_STATUS,Contacted
 LEAD_STATUS,Not contacted
 LEAD_STATUS,Attempted contact

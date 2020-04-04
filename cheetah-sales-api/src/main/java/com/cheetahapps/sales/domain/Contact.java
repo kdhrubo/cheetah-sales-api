@@ -1,6 +1,7 @@
 package com.cheetahapps.sales.domain;
 
 import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,32 +23,37 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Contact extends ExtensibleBase{
 	
-
+	@DBRef
 	private PickList salutation;
 
 	private String firstName;
 
 	private String lastName;
+	
+	
 
 	private String email;
 	
-	private String otherEmail;
+	private String mobile;
 	
 	private String officePhone;
-
-	private String mobile;
-
-	private String homePhone;
+	
+	
+	
+	private String otherEmail;
+	
+	private String otherPhone;
 	
 	private String fax;
 	
-	private String otherPhone;
+	
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 
 	private Account account;
-
+	
+	@DBRef
 	private PickList title;
 
 	private String department;
