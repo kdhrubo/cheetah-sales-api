@@ -4,45 +4,57 @@
 		{
 			"className": "section-label",
 			"template": "<div><strong>Basic Information</strong></div>",
-			"section": true,
 			"sectionLabel": "Basic Information"
 		},
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{
-					"className": "col-md-4",
+					"className": "col-md-3",
 					"type": "pickList",
 					"key": "salutation.id",
 					"templateOptions": {
 						"label": "Salutation",
-						"cKey" : "salutation",
+						"cKey": "salutation",
 						"attributes": {
-              				"class": "form-control form-control-sm",
-              				"pickList" : "LEAD_SOURCE"
-            			}
+							"class": "form-control form-control-sm",
+							"pickList": "LEAD_SOURCE"
+						}
 					}
 				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-3",
 					"type": "input",
 					"key": "firstName",
 					"templateOptions": {
 						"label": "First Name",
 						"attributes": {
-              				"class": "form-control form-control-sm"
-            			}
+							"class": "form-control form-control-sm"
+						}
 					}
 				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-3",
 					"type": "input",
 					"key": "lastName",
 					"templateOptions": {
 						"label": "Last Name",
+						"required": "true",
 						"attributes": {
-              				"class": "form-control form-control-sm"
-            			}
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "dob",
+					"templateOptions": {
+						"label": "Date of Birth",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
 					}
 				}
 			]
@@ -51,103 +63,423 @@
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{
-					"className": "col-md-4",
+					"className": "col-md-2",
 					"type": "input",
 					"key": "email",
 					"templateOptions": {
 						"label": "Email",
 						"attributes": {
-              				"class": "form-control form-control-sm",
-              				"type" : "email"
-            			}
+							"class": "form-control form-control-sm",
+							"type": "email"
+						}
 					}
 				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-2",
 					"type": "input",
 					"key": "mobile",
 					"templateOptions": {
 						"label": "Mobile",
 						"attributes": {
-              				"class": "form-control form-control-sm"
-            			}
+							"class": "form-control form-control-sm"
+						}
 					}
 				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-2",
 					"type": "input",
 					"key": "officePhone",
 					"templateOptions": {
 						"label": "Phone",
 						"attributes": {
-              				"class": "form-control  form-control-sm"
-            			}
+							"class": "form-control  form-control-sm"
+						}
 					}
-				}
-			]
-		},
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
+				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-2",
 					"type": "input",
 					"key": "otherEmail",
 					"templateOptions": {
 						"label": "Secondary Email",
 						"attributes": {
-              				"class": "form-control form-control-sm",
-              				"type" : "email"
-            			}
+							"class": "form-control form-control-sm",
+							"type": "email"
+						}
 					}
 				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-2",
 					"type": "input",
 					"key": "otherPhone",
 					"templateOptions": {
 						"label": "Secondary Phone",
 						"attributes": {
-              				"class": "form-control form-control-sm"
-            			}
+							"class": "form-control form-control-sm"
+						}
 					}
 				},
 				{
-					"className": "col-md-4",
+					"className": "col-md-2",
 					"type": "input",
 					"key": "fax",
 					"templateOptions": {
 						"label": "Fax",
 						"attributes": {
-              				"class": "form-control form-control-sm"
-            			}
+							"class": "form-control form-control-sm"
+						}
 					}
 				}
 			]
 		},
 		{
 			"className": "section-label",
-			"template": "<div><strong>Related Information</strong></div>",
-			"section": true,
-			"sectionLabel": "Related Information"
+			"template": "<div><strong>Account Information</strong></div>",
+			"sectionLabel": "Account Information"
 		},
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{
-					"className": "col-md-4",
+					"className": "col-md-3",
+					"type": "input",
+					"key": "account.id",
+					"templateOptions": {
+						"label": "Account",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
 					"type": "pickList",
 					"key": "title.id",
 					"templateOptions": {
-						"label": "Contact Type",
-						"cKey" : "title",
+						"label": "Title",
+						"cKey": "title",
 						"attributes": {
-              				"class": "form-control form-control-sm",
-              				"pickList" : "INDUSTRY"
-            			}
+							"class": "form-control form-control-sm",
+							"pickList": "TITLE"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "department",
+					"templateOptions": {
+						"label": "Department",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "reportsTo.id",
+					"templateOptions": {
+						"label": "Reports To",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
 					}
 				}
-				
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "pickList",
+					"key": "leadSource.id",
+					"templateOptions": {
+						"label": "Lead Source",
+						"cKey": "leadSource",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"pickList": "LEAD_SOURCE"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "pickList",
+					"key": "contactType.id",
+					"templateOptions": {
+						"label": "Contact Type",
+						"cKey": "contactType",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"pickList": "CONTACT_TYPE"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "pickList",
+					"key": "contactStatus.id",
+					"templateOptions": {
+						"label": "Contact Status",
+						"cKey": "contactStatus",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"pickList": "CONTACT_STATUS"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "assignedUser.id",
+					"templateOptions": {
+						"label": "Assigned To",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "assignedTeam.id",
+					"templateOptions": {
+						"label": "Assigned Team",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "twitter",
+					"templateOptions": {
+						"label": "Twitter",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "facebook",
+					"templateOptions": {
+						"label": "Facebook",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "linkedIn",
+					"templateOptions": {
+						"label": "LinkedIn",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"key": "donotCall",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Donot Call"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "emailOptIn",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Email Opt-in"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "smsOptIn",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "SMS Opt-in"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "notifyOwner",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Notify Owner"
+					}
+				}
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Primary Address</strong></div>",
+			"section": true,
+			"sectionLabel": "Primary Address"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "zip",
+					"templateOptions": {
+						"label": "Zip",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "state",
+					"templateOptions": {
+						"label": "State",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "city",
+					"templateOptions": {
+						"label": "City",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "country",
+					"templateOptions": {
+						"label": "Country",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "textarea",
+					"key": "street",
+					"templateOptions": {
+						"label": "Street",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Secondary Address</strong></div>",
+			"sectionLabel": "Secondary Address"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "zip",
+					"templateOptions": {
+						"label": "Zip",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "state",
+					"templateOptions": {
+						"label": "State",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "city",
+					"templateOptions": {
+						"label": "City",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "country",
+					"templateOptions": {
+						"label": "Country",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "textarea",
+					"key": "street",
+					"templateOptions": {
+						"label": "Street",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Description</strong></div>",
+			"sectionLabel": "Description"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "2",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
 			]
 		}
 	]
