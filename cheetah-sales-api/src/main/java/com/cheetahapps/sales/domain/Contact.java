@@ -27,8 +27,12 @@ public class Contact extends ExtensibleBase{
 	private PickList salutation;
 
 	private String firstName;
+	
 
 	private String lastName;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dob;
 	
 	
 
@@ -48,23 +52,36 @@ public class Contact extends ExtensibleBase{
 	
 	
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dob;
+
 
 	private Account account;
 	
+	
+	
 	@DBRef
 	private PickList title;
+	
 
 	private String department;
+	
 
 	private Contact reportsTo;
 
 	private PickList leadSource;
 
+	
+	
+	
 	private User assignedUser;
 
 	private Team assignedTeam;
+	
+	
+	private PickList contactType;
+
+	private PickList contactStatus;
+	
+	
 
 	private boolean donotCall;
 
@@ -74,15 +91,14 @@ public class Contact extends ExtensibleBase{
 
 	private boolean notifyOwner;
 
-	private PickList contactType;
-
-	private PickList contactStatus;
+	
 
 	private String twitter;
 
 	private String facebook;
 	
 	private String linkedIn;
+	
 
 	private Address primaryAddress;
 
