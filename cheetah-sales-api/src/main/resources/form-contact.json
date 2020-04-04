@@ -12,10 +12,15 @@
 			"fieldGroup": [
 				{
 					"className": "col-md-4",
-					"type": "select",
-					"key": "salutation",
+					"type": "pickList",
+					"key": "salutation.id",
 					"templateOptions": {
-						"label": "Salutation"
+						"label": "Salutation",
+						"cKey" : "salutation",
+						"attributes": {
+              				"class": "form-control form-control-sm",
+              				"pickList" : "LEAD_SOURCE"
+            			}
 					}
 				},
 				{
@@ -34,9 +39,115 @@
 					"type": "input",
 					"key": "lastName",
 					"templateOptions": {
-						"label": "Last Name"
+						"label": "Last Name",
+						"attributes": {
+              				"class": "form-control form-control-sm"
+            			}
 					}
 				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "email",
+					"templateOptions": {
+						"label": "Email",
+						"attributes": {
+              				"class": "form-control form-control-sm",
+              				"type" : "email"
+            			}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "mobile",
+					"templateOptions": {
+						"label": "Mobile",
+						"attributes": {
+              				"class": "form-control form-control-sm"
+            			}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "officePhone",
+					"templateOptions": {
+						"label": "Phone",
+						"attributes": {
+              				"class": "form-control  form-control-sm"
+            			}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "otherEmail",
+					"templateOptions": {
+						"label": "Secondary Email",
+						"attributes": {
+              				"class": "form-control form-control-sm",
+              				"type" : "email"
+            			}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "otherPhone",
+					"templateOptions": {
+						"label": "Secondary Phone",
+						"attributes": {
+              				"class": "form-control form-control-sm"
+            			}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "fax",
+					"templateOptions": {
+						"label": "Fax",
+						"attributes": {
+              				"class": "form-control form-control-sm"
+            			}
+					}
+				}
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Related Information</strong></div>",
+			"section": true,
+			"sectionLabel": "Related Information"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "pickList",
+					"key": "title.id",
+					"templateOptions": {
+						"label": "Contact Type",
+						"cKey" : "title",
+						"attributes": {
+              				"class": "form-control form-control-sm",
+              				"pickList" : "INDUSTRY"
+            			}
+					}
+				}
+				
 			]
 		}
 	]
