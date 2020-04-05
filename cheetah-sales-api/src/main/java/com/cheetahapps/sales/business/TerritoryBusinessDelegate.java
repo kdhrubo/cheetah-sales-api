@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
 import com.cheetahapps.sales.domain.Lead;
-import com.cheetahapps.sales.domain.LeadWrapper;
 import com.cheetahapps.sales.domain.Territory;
+import com.cheetahapps.sales.dto.LeadWrapper;
 import com.cheetahapps.sales.repository.TerritoryRepository;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;

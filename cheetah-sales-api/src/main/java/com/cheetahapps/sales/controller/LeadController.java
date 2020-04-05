@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cheetahapps.sales.business.LeadBusinessDelegate;
 import com.cheetahapps.sales.domain.Lead;
-import com.cheetahapps.sales.domain.LeadWrapper;
 import com.cheetahapps.sales.dto.LeadConversionDto;
+import com.cheetahapps.sales.dto.LeadWrapper;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -47,10 +47,10 @@ public class LeadController extends AbstractBaseController<Lead, String> {
 		return leadBusinessDelegate.search(rsql, pageable);
 	}
 	
-	@PostMapping("/saveAll")
+	@PostMapping("/import")
 	public List<Lead> saveAll(@RequestBody LeadWrapper leadWrapper) {
 		log.info("## In saveAll --> {}", leadWrapper);
 		
-		return leadBusinessDelegate.saveAll(leadWrapper);
+		return leadBusinessDelegate.saveAll(leadWrapper.getLeads());
 	}
 }

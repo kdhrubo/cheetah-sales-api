@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
 import com.cheetahapps.sales.domain.Lead;
-import com.cheetahapps.sales.domain.LeadWrapper;
+import com.cheetahapps.sales.dto.LeadWrapper;
 import com.cheetahapps.sales.repository.LeadRepository;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
@@ -44,8 +44,5 @@ public class LeadBusinessDelegate extends AbstractBaseBusinessDelegate<Lead, Str
 		return repository.search(criteria, pageable, Lead.class);
 	}
 	
-	public List<Lead> saveAll(LeadWrapper leadWrapper) {
-		return repository.saveAll(leadWrapper.getLeads());
-		
-	}
+	
 }

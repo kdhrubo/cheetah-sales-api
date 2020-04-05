@@ -1,12 +1,11 @@
 package com.cheetahapps.sales.business;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.scheduling.annotation.Async;
 
@@ -49,7 +48,11 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 		return repository.findById(id);
 	}
 	
-
+	//bulk create, import
+	@Transactional
+	public List<T> saveAll(List<T> ts) {
+		return this.repository.saveAll(ts);
+	}
 	
 
 	// delete
