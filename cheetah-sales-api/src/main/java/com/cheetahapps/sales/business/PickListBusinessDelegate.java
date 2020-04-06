@@ -6,20 +6,19 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.domain.PickList;
+import com.cheetahapps.sales.event.ProvisionTenantEvent;
 import com.cheetahapps.sales.repository.PickListRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class PickListBusinessDelegate extends AbstractBaseBusinessDelegate<PickList, String>
-		implements ApplicationRunner {
+public class PickListBusinessDelegate extends AbstractBaseBusinessDelegate<PickList, String> {
 
 	private PickListRepository repository;
 
@@ -45,26 +44,22 @@ public class PickListBusinessDelegate extends AbstractBaseBusinessDelegate<PickL
 		return repository.findByDomain(domain);
 	}
 
-	// TODO Move to provisioning code
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		log.info("Loading picklist -- {}", resource);
-		
+	@EventListener
+	public void provision(ProvisionTenantEvent event) {
+		log.info("Provisioning picklist -- {}", resource);
 
 		// reading csv file into stream, try-with-resources
 		try (Stream<String> stream = Files.lines(Paths.get(resource.getURI()))) {
 
-			stream.map(i -> 
-				{
-				
-					String s []= i.split(",");
-					return PickList.builder().domain(s[0]).value(s[1]).build();
-				}
-			).forEach(i -> {
-				
-				this.repository.findByDomainAndValue(i.getDomain(), i.getValue()).onEmpty(() -> this.repository.save(i));
-				
-				
+			stream.map(i -> {
+
+				String s[] = i.split(",");
+				return PickList.builder().domain(s[0]).value(s[1]).build();
+			}).forEach(i -> {
+
+				this.repository.findByDomainAndValue(i.getDomain(), i.getValue())
+						.onEmpty(() -> this.repository.save(i));
+
 			});
 
 		} catch (Exception e) {

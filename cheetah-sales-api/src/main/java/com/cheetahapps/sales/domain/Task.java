@@ -2,8 +2,6 @@ package com.cheetahapps.sales.domain;
 
 import java.time.LocalDateTime;
 
-import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,8 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Document("Task")
-@TypeAlias("Task")
 public class Task extends Base{
 	
 	private String subject;

@@ -20,10 +20,7 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        "/swagger-ui.html",
 	        "/v2/api-docs",
 	        "/webjars/**",
-			
-			"/users/otp/**",
-			"/users/register/**", 
-			"/users/changepassword/**"
+	        "/users/provision"
 	};
 
 	@Bean

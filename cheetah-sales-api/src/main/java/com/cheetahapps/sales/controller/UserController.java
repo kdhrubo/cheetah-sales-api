@@ -1,37 +1,33 @@
 package com.cheetahapps.sales.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.web.bind.annotation.GetMapping;
+import javax.validation.Valid;
+
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cheetahapps.sales.dto.UserView;
-import com.cheetahapps.sales.service.UserService;
+import com.cheetahapps.sales.domain.User;
+import com.cheetahapps.sales.event.ProvisionTenantEvent;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@RequiredArgsConstructor
 @Slf4j
-@RequestMapping("/users")
+@RequiredArgsConstructor
 @RestController
+@RequestMapping("/users")
 public class UserController {
 	
-	private final UserService userService;
+	private final ApplicationEventPublisher eventPublisher;
 
-	@GetMapping("/whoami")
-	public UserView whoami(@AuthenticationPrincipal Jwt jwt) {
-
-		log.info("jwt - {}", jwt.getClaims());
+	@PostMapping("/provision")
+	public void notifyUserRegistration(@Valid @RequestBody User u) {
 		
-		String id = (String
-				) jwt.getClaims().get("user_id");
+		log.info("=== new user data to be provisioned ==");
 		
+		eventPublisher.publishEvent(new ProvisionTenantEvent(u, this));
 		
-		
-
-		return userService.getById(id).get();
 	}
-	
 }
