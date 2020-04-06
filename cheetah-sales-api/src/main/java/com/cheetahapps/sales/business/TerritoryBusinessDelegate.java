@@ -2,15 +2,14 @@ package com.cheetahapps.sales.business;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.domain.Lead;
 import com.cheetahapps.sales.domain.Territory;
-import com.cheetahapps.sales.dto.LeadWrapper;
+
 import com.cheetahapps.sales.repository.TerritoryRepository;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
@@ -27,7 +26,7 @@ public class TerritoryBusinessDelegate extends AbstractBaseBusinessDelegate<Terr
 
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
-	@Autowired
+	
 	public TerritoryBusinessDelegate(TerritoryRepository repository) {
 		super(repository);
 		this.repository = repository;

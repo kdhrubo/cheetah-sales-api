@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,7 +20,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Data
 @Builder
-@Document
+@Document("User")
+@TypeAlias("User")
 public class User {
 	
 	@Id
@@ -28,15 +30,14 @@ public class User {
 	private String mobile;
 	
 	
-	private String password;
 	private String firstName;
 	private String lastName;
 	
-	@DBRef
+	
 	private Role role;
 	
 	
-	
+	private Tenant tenant;
 	
 	private boolean deleted;
 
@@ -46,10 +47,6 @@ public class User {
 	@CreatedDate
 	private LocalDateTime createdDate;
 
-	private LocalDateTime lastLoginDate;
 	
-	private String verificationCode;
-	
-	private LocalDateTime verificationCodeCreatedDate;
 	
 }
