@@ -148,4 +148,38 @@ Note that you can also manually change a person or company’s territory.
 
 
 
+## Activity
 
+Activity can be of different types
+
+*  Phone call
+*  Meeting
+*  Virtual meetings
+
+
+It is associated with lead, contacts, accounts
+
+### Activity Fields
+
+|Field|Description|
+|--- |--- |
+|Start date|Start date|
+|Start time |Start time|
+|End date|End date|
+|End time|End time|
+|Participants|List of contacts|
+|Subject|Subject of the activity|
+|Location|Meeting location or URL for web / online meeting|
+|High priority|High priority|
+|Status|Select a formula from the dropdown list to arrive at the discount price for the Unit Price field. |
+|Agenda|A description or meeting agenda|
+|Activity Log|Log important notes or action items from the activity|
+
+The activity status has following values:
+
+* Planned
+* Held
+* Not Held
+* Cancelled
+* Rescheduled
+* Skipped
