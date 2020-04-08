@@ -1,15 +1,16 @@
 package com.cheetahapps.sales.business;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 import lombok.extern.slf4j.Slf4j;
 import com.cheetahapps.sales.domain.Category;
 import com.cheetahapps.sales.repository.CategoryRepository;
-
-
+import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
+import com.github.rutledgepaulv.qbuilders.conditions.Condition;
+import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
+import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
 
 /**
  * 
@@ -20,61 +21,23 @@ import com.cheetahapps.sales.repository.CategoryRepository;
 @Slf4j
 public class CategoryBusinessDelegate extends AbstractBaseBusinessDelegate<Category, String> {
 
-	@Autowired
-	CategoryRepository cr;
-	
+	private CategoryRepository categoryRepository;
+
+	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
+
 	public CategoryBusinessDelegate(CategoryRepository repository) {
 		super(repository);
-		this.repository = repository;
+		this.categoryRepository = repository;
 	}
-	
-	/**
-	 * @Description: Perform request validation and save new category
-	 * @param cat
-	 * @return
-	 */
-	public String saveCategory(@RequestBody Category cat) {
-		log.info("Category request accepted");
-		
-		if(cat.getProdCatName().isEmpty() || cat.getProdCatName() == null || cat.getProdCatName().equals(" "))
-		{
-			return "Product Category can not be empty or null";
-		}
-		else if(cat.getOrder() == 0)
-		{
-			return "Category order can not be 0 or blank";
-		}
-		else if (cr.findByOrderQuery(cat.getOrder()) != null)
-		{
-			return "Order can not be duplicate";
-		}
-		else
-		{
-		cr.save(cat);
-		return "success cat";
-		}
-	}
-	
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public List<Category> listCategories()
-	{
-		return  cr.findAll();
-	}
-	
-	/**
-	 * 
-	 * @param category
-	 * @return
-	 */
-	public Category searchCategory(String category)
-	{
-		log.info("Category queried: "+category);
-		Category cat=cr.findByName(category);
-		return  cat;
+
+	public Page<Category> search(String rsql, Pageable pageable) {
+		// "firstName==Paul;age==30"
+		// "deleted==false"
+		log.debug("Searching category - {}", rsql);
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Category.class);
+		Criteria criteria = condition.query(new MongoVisitor());
+
+		return categoryRepository.search(criteria, pageable, Category.class);
 	}
 
 }

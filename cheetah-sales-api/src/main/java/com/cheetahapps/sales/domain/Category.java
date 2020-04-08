@@ -1,10 +1,7 @@
 package com.cheetahapps.sales.domain;
 
-
-
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,28 +15,20 @@ import lombok.NoArgsConstructor;
  */
 
 @Document("Category")
-@Data
 @TypeAlias("Category")
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Category extends ExtensibleBase{
+public class Category extends Base {
 
-	
-	@Field("CategoryName")
-	private String prodCatName;
-	
-	@Field("ParentCategory")
-	private String parentCatName;
-	
-	@Field("CategoryDescription")
-	private String prodCatDescription;
-	
-	
-	@Field("CategoryOrder")
-	private long order;
-	
-	
+	private String name;
+
+	private Category parent;
+
+	private String description;
+
+	private int order;
 
 }
