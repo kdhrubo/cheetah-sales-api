@@ -183,3 +183,51 @@ The activity status has following values:
 * Cancelled
 * Rescheduled
 * Skipped
+
+## Lead
+
+### Converting Lead
+
+Once a Lead is qualified and determined to be a potential sale, it is considered as a Hot Lead and can be converted to a Deal. 
+A Contact record and Organization record will be created simultaneously to store the personal information and company information.
+
+
+*  Any related records (Documents, Emails etc.,) can be transferred to either Organization or Contacts during the Lead Conversion.
+
+*  Lead record will be marked to status converted. It will be available for view and cannot be converted again.
+
+*  After conversion, Contact, Organization or Opportunity records cannot be reverted to the previous state.
+
+
+### Lead conversion field mapping
+
+| Lead Field      | Field Type | Contacts Field       | Organizations Field | Opportunities Field |
+|-----------------|------------|----------------------|---------------------|---------------------|
+| Annual Revenue  | Currency   | Annual Revenue       |                     |                     |
+| City            | Text       | Shipping City        |                     |                     |
+| City            | Text       | Billing City         | Mailing City        |                     |
+| Company         |            | Organization Name    |                     | Opportunity Name    |
+| Country         | Text       | Billing Country      | Mailing Country     |                     |
+| Country         | Text       | Shipping Country     |                     |                     |
+| Description     | Text Area  | Description          | Description         | Description         |
+| Email           | Email      | Email                | Email               |                     |
+| First Name      | Text       | First Name           | First Name          |                     |
+| Industry        | Pick List  | Industry             |                     |                     |
+| Last Name       | Text       | First Name           | First Name          |                     |
+| Lead Source     | Pick List  |                      | Lead Source         | Lead Source         |
+| No Of Employees | Integer    | Employees            |                     |                     |
+| Phone           | Phone      | Phone                | Office Phone        |                     |
+| PO Box          | Text       | Shipping PO Box      |                     |                     |
+| PO Box          | Text       | Billing PO Box       | Mailing PO Box      |                     |
+| Postal Code     | Text       | Billing Postal Code  |                     |                     |
+| Postal Code     | Text       | Shipping Postal Code |                     |                     |
+| Rating          | Pick List  | Rating               |                     |                     |
+| Salutation      | Text       |                      | Salutation          |                     |
+| Secondary Email | Email      |                      | Secondary Email     |                     |
+| State           | Text       | Shipping State       |                     |                     |
+| State           | Text       | Billing State        | Mailing State       |                     |
+| Street          | Text Area  | Billing Address      | Mailing Street      |                     |
+| Street          | Text Area  | Shipping Address     |                     |                     |
+| Website         | URL        | Website              |                     |                     |
+|                 |            |                      |                     |                     |
+
