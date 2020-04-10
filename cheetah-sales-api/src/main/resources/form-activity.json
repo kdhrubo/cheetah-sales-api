@@ -1,0 +1,211 @@
+{
+	"name": "activity-form",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "subject",
+					"templateOptions": {
+						"label": "Subject",
+						
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+				
+				
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "location",
+					"templateOptions": {
+						"label": "Location",
+						
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+				
+				
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "startDate",
+					"templateOptions": {
+						"label": "Start Date",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "startTime",
+					"templateOptions": {
+						"label": "Start Time",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "time"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "endDate",
+					"templateOptions": {
+						"label": "End Date",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "endTime",
+					"templateOptions": {
+						"label": "End Time",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "time"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "endDate",
+					"templateOptions": {
+						"label": "End Date",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "endTime",
+					"templateOptions": {
+						"label": "End Time",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "time"
+						}
+					}
+				}
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "assignedTo.id",
+					"templateOptions": {
+						"label": "Assigned To",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "pickList",
+					"key": "salutation.id",
+					"templateOptions": {
+						"label": "Salutation",
+						"cKey": "salutation",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"pickList": "LEAD_SOURCE"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "pickList",
+					"key": "salutation.id",
+					"templateOptions": {
+						"label": "Salutation",
+						"cKey": "salutation",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"pickList": "LEAD_SOURCE"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "pickList",
+					"key": "salutation.id",
+					"templateOptions": {
+						"label": "Salutation",
+						"cKey": "salutation",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"pickList": "LEAD_SOURCE"
+						}
+					}
+				}
+				
+			]
+		},
+		
+		
+		
+
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Agenda",
+						"rows": "4",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}

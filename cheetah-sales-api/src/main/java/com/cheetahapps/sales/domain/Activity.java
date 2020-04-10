@@ -1,42 +1,55 @@
 package com.cheetahapps.sales.domain;
 
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
+
+@Document("Activity")
 @Data
+@TypeAlias("Activity")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Activity  {
+@EqualsAndHashCode(callSuper = true)
+public class Activity extends Base {
 
 	private String subject;
+	private String location;
+
+	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate startDate;
+	
+	private LocalTime startTime;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate endDate;
+	
+	private LocalTime endTime;
+
+	private PickList activityType;
+	private PickList status;
+	private PickList priority;
 
 	private String assignedTo;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date startTime;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date endTime;
-
-	private PickList activityType;
-
-
-	private String location;
-	private PickList status;
-
-	private PickList priority;
-
-	private boolean sendNotification;
 
 	private String description;
 
-	// @ElementCollection
 	// List<Reminder> reminders;
+	private boolean sendNotification;
+	
+	private String relatedEntity;
+	private String relatedEntityId;
 }
