@@ -33,6 +33,12 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
 		        () -> this.getCountByQuery(criteria, clazz));
 	}
 	
+	@Override
+	public List<T> searchAll(Criteria criteria, Class<T> clazz) {
+		Query query = new Query(criteria);
+		return mongoTemplate.find(query, clazz);
+	}
+	
 	@SuppressWarnings({ "unused", "rawtypes" })
 	private long getCountByQuery(Criteria criteria , Class<T> clazz) {
 		Aggregation agg = Aggregation.newAggregation(
@@ -62,5 +68,7 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
 		
 		return finalCount;
 	}
+
+	
 
 }

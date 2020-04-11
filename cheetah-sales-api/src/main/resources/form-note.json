@@ -1,0 +1,24 @@
+{
+	"name": "note-form",
+	"fields": [
+		
+
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "4",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}

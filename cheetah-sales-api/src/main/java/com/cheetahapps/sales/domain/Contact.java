@@ -5,6 +5,10 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.cheetahapps.sales.account.Account;
+import com.cheetahapps.sales.activity.Activity;
+import com.cheetahapps.sales.note.Note;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

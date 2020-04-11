@@ -1,29 +1,24 @@
 package com.cheetahapps.sales.activity;
 
+import java.util.List;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import com.cheetahapps.sales.controller.AbstractBaseController;
-import com.cheetahapps.sales.domain.Activity;
 
 @RestController
 @RequestMapping("/activities")
 public class ActvityController extends AbstractBaseController<Activity, String> {
-	
-	private final ActivityBusinessDelegate accountBusinessDelegate;
 
-	@Autowired
-	public ActvityController(ActivityBusinessDelegate accountBusinessDelegate) {
-		super(accountBusinessDelegate);
-		this.accountBusinessDelegate = accountBusinessDelegate;
+	private final ActivityBusinessDelegate activityBusinessDelegate;
+
+	public ActvityController(ActivityBusinessDelegate activityBusinessDelegate) {
+		super(activityBusinessDelegate);
+		this.activityBusinessDelegate = activityBusinessDelegate;
 	}
-	
+
 	@GetMapping("/q")
-	public Page<Activity> search(@RequestParam("rsql") String rsql, Pageable pageable) {
-		return accountBusinessDelegate.search(rsql, pageable);
+	public List<Activity> searchAll(@RequestParam("rsql") String rsql) {
+		return activityBusinessDelegate.searchAll(rsql);
 	}
 }

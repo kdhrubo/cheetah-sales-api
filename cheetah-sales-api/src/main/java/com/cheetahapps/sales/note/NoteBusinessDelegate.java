@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.activity;
+package com.cheetahapps.sales.note;
 
 import java.util.List;
 
@@ -15,25 +15,24 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-class ActivityBusinessDelegate extends AbstractBaseBusinessDelegate<Activity, String> {
-	
-	private final ActivityRepository repository;
-	
+public class NoteBusinessDelegate extends AbstractBaseBusinessDelegate<Note, String> {
+
+	private final NoteRepository repository;
+
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
-	
-	public ActivityBusinessDelegate(ActivityRepository repository) {
+
+	public NoteBusinessDelegate(NoteRepository repository) {
 		super(repository);
 		this.repository = repository;
 	}
-	
-	
-	public List<Activity> searchAll(String rsql) {
-		//"firstName==Paul;age==30"
-		//"deleted==false"
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Activity.class);
-	    Criteria criteria = condition.query(new MongoVisitor());
-		
-		return repository.searchAll(criteria, Activity.class);
+
+	public List<Note> searchAll(String rsql) {
+		// "firstName==Paul;age==30"
+		// "deleted==false"
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Note.class);
+		Criteria criteria = condition.query(new MongoVisitor());
+
+		return repository.searchAll(criteria, Note.class);
 	}
-	
+
 }

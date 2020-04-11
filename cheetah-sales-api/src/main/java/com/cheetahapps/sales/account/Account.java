@@ -1,10 +1,15 @@
-package com.cheetahapps.sales.domain;
+package com.cheetahapps.sales.account;
 
 
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.cheetahapps.sales.domain.Address;
+import com.cheetahapps.sales.domain.ExtensibleBase;
+import com.cheetahapps.sales.domain.PickList;
+import com.cheetahapps.sales.domain.Team;
+import com.cheetahapps.sales.domain.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
