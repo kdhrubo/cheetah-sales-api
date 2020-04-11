@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.controller;
+package com.cheetahapps.sales.account;
 
 
 
@@ -7,8 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.business.AccountBusinessDelegate;
-import com.cheetahapps.sales.domain.Account;
+import com.cheetahapps.sales.controller.AbstractBaseController;
 
 @RestController
 @RequestMapping("/accounts")

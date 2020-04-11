@@ -1,12 +1,11 @@
-package com.cheetahapps.sales.business;
+package com.cheetahapps.sales.account;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.domain.Account;
-import com.cheetahapps.sales.repository.AccountRepository;
+import com.cheetahapps.sales.business.AbstractBaseBusinessDelegate;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -16,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class AccountBusinessDelegate extends AbstractBaseBusinessDelegate<Account, String> {
+class AccountBusinessDelegate extends AbstractBaseBusinessDelegate<Account, String> {
 	
 	private AccountRepository repository;
 	
