@@ -1,6 +1,4 @@
-package com.cheetahapps.sales.note;
-
-
+package com.cheetahapps.sales.category;
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,18 +11,27 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document("Note")
+/**
+ * 
+ * @author jay
+ * @Description: POJO for Category table in Mongo database
+ */
+
+@Document("Category")
+@TypeAlias("Category")
 @Data
-@TypeAlias("Note")
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Note extends Base{
+public class Category extends Base {
+
+	private String name;
+
+	private Category parent;
 
 	private String description;
 
-	
-	private String relatedEntity;
-	private String relatedEntityId;
+	private int order;
+
 }

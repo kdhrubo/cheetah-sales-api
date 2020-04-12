@@ -1,6 +1,6 @@
-package com.cheetahapps.sales.note;
+package com.cheetahapps.sales.form;
 
-
+import java.util.List;
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,18 +13,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document("Note")
+@Document("Form")
 @Data
-@TypeAlias("Note")
+@TypeAlias("Form")
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Note extends Base{
+public class Form extends Base{
 
-	private String description;
-
+	private String name;
 	
-	private String relatedEntity;
-	private String relatedEntityId;
+	private List<FormFieldConfig> fields;
 }

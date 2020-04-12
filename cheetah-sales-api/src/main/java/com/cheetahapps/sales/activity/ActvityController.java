@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.controller.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractBaseController;
 
 @RestController
 @RequestMapping("/activities")

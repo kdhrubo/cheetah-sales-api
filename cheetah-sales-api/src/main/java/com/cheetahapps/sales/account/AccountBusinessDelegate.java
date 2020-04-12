@@ -1,11 +1,14 @@
 package com.cheetahapps.sales.account;
 
+import org.springframework.context.event.EventListener;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.business.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.core.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.event.LeadConvertedEvent;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -34,6 +37,12 @@ class AccountBusinessDelegate extends AbstractBaseBusinessDelegate<Account, Stri
 	    Criteria criteria = condition.query(new MongoVisitor());
 		
 		return repository.search(criteria, pageable, Account.class);
+	}
+	
+	@Async
+	@EventListener
+	public void handle(LeadConvertedEvent event) {
+		
 	}
 	
 }
