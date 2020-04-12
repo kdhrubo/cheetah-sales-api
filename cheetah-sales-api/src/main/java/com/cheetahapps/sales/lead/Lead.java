@@ -22,8 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Lead extends ExtensibleBase {
-	@DBRef
-	private PickList salutation;
+	private String salutation;
 	private String firstName;
 	private String lastName;
 	
@@ -43,12 +42,9 @@ public class Lead extends ExtensibleBase {
 	private String otherEmail;
 	private String otherPhone;
 
-	@DBRef
-	private PickList industry;
-	@DBRef
-	private PickList leadSource;
-	@DBRef
-	private PickList leadStatus;
+	private String industry;
+	private String leadSource;
+	private String leadStatus;
 	
 
 	private String primaryStreet;
@@ -65,7 +61,6 @@ public class Lead extends ExtensibleBase {
 	private String secondaryCountry;
 	
 	
-	@DBRef
 	private User assignedTo; //TODO Change remove association
 
 	private Long assignedTeam;
