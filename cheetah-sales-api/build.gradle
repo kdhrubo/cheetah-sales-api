@@ -58,6 +58,11 @@ dependencies {
 	compile group: 'com.github.rutledgepaulv', name: 'rest-query-engine', version: '0.7.1'
 	
 	
+	// https://mvnrepository.com/artifact/org.jeasy/easy-flows
+	compile group: 'org.jeasy', name: 'easy-flows', version: '0.2'
+	
+	
+	
 }
 
 test {

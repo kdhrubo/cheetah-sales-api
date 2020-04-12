@@ -28,6 +28,7 @@ public class Lead extends ExtensibleBase {
 	private String lastName;
 	
 	private String designation;
+	private String department;
 	private String company;
 	private int noOfEmployees;
 	
@@ -38,6 +39,9 @@ public class Lead extends ExtensibleBase {
 	private String email;
 	private String phone;
 	private String mobile;
+	
+	private String otherEmail;
+	private String otherPhone;
 
 	@DBRef
 	private PickList industry;
@@ -47,23 +51,38 @@ public class Lead extends ExtensibleBase {
 	private PickList leadStatus;
 	
 
-	private String street;
-	private String zip;
-	private String city;
-	private String state;
-	private String country;
+	private String primaryStreet;
+	private String primaryZip;
+	private String primaryCity;
+	private String primaryState;
+	private String primaryCountry;
 
+	
+	private String secondaryStreet;
+	private String secondaryZip;
+	private String secondaryCity;
+	private String secondaryState;
+	private String secondaryCountry;
+	
+	
 	@DBRef
-	private User assignedTo;
+	private User assignedTo; //TODO Change remove association
 
 	private Long assignedTeam;
 
 	private String description;
 
-	private boolean emailOptIn;
-	private boolean smsOptIn;
-	private String twitter;
+	private boolean donotCall;
 
+	private boolean emailOptIn;
+	
+	private boolean smsOptIn;
+
+	private boolean notifyOwner;
+	
+	private String twitter;
+	private String facebook;
+	private String linkedin;
 	
 
 	private boolean converted;

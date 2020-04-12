@@ -6,11 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.cheetahapps.sales.account.Account;
-import com.cheetahapps.sales.activity.Activity;
 import com.cheetahapps.sales.core.ExtensibleBase;
 import com.cheetahapps.sales.domain.Address;
 import com.cheetahapps.sales.domain.Team;
-import com.cheetahapps.sales.note.Note;
 import com.cheetahapps.sales.picklist.PickList;
 import com.cheetahapps.sales.user.User;
 
@@ -21,7 +19,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Document("Contact")
 @Data
@@ -115,9 +112,6 @@ public class Contact extends ExtensibleBase{
 
 	private String description;
 	
-	private List<Note> notes;
-	
-	private List<Activity> activities;
 	
 	
 }
