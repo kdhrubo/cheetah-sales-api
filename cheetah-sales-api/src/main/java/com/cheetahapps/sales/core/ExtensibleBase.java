@@ -5,11 +5,9 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
+
 @EqualsAndHashCode(callSuper = true)
 public class ExtensibleBase extends Base{
 	
@@ -24,8 +22,8 @@ public class ExtensibleBase extends Base{
 
 	// getter
 	@JsonAnyGetter
-	public Object get(String name) {
-		return extra.get(name);
+	public Map<String, String> get() {
+		return extra;
 	}
 
 }
