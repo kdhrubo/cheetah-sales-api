@@ -1,7 +1,6 @@
 package com.cheetahapps.sales.contact;
 
 import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,7 +8,6 @@ import com.cheetahapps.sales.account.Account;
 import com.cheetahapps.sales.core.ExtensibleBase;
 import com.cheetahapps.sales.domain.Address;
 import com.cheetahapps.sales.domain.Team;
-import com.cheetahapps.sales.picklist.PickList;
 import com.cheetahapps.sales.user.User;
 
 import lombok.AllArgsConstructor;
@@ -29,8 +27,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 public class Contact extends ExtensibleBase {
 
-	@DBRef
-	private PickList salutation;
+	private String salutationId;
 
 	private String firstName;
 
@@ -60,15 +57,15 @@ public class Contact extends ExtensibleBase {
 
 	private Contact reportsTo;
 
-	private PickList leadSource;
+	private String leadSourceId;
 
 	private User assignedUser;
 
 	private Team assignedTeam;
 
-	private PickList contactType;
+	private String contactTypeId;
 
-	private PickList contactStatus;
+	private String contactStatusId;
 
 	private boolean donotCall;
 

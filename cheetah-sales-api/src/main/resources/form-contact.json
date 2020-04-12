@@ -12,7 +12,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "salutation.id",
+					"key": "salutationId",
 					"templateOptions": {
 						"label": "Salutation",
 						"valueProp": "id",
@@ -194,7 +194,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "leadSource.id",
+					"key": "leadSourceId",
 					"templateOptions": {
 						"label": "Lead Source",
 						"valueProp": "id",
@@ -209,7 +209,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "contactType.id",
+					"key": "contactTypeId",
 					"templateOptions": {
 						"label": "Contact Type",
 						"valueProp": "id",
@@ -223,7 +223,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "contactStatus.id",
+					"key": "contactStatusId",
 					"templateOptions": {
 						"label": "Contact Status",
 						"valueProp": "id",
