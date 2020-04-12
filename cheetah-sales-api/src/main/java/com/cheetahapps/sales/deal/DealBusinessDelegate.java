@@ -1,7 +1,7 @@
-package com.cheetahapps.sales.note;
+package com.cheetahapps.sales.deal;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
@@ -15,24 +15,22 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class NoteBusinessDelegate extends AbstractBaseBusinessDelegate<Note, String> {
-
-	private final NoteRepository repository;
-
+public class DealBusinessDelegate extends AbstractBaseBusinessDelegate<Deal, String> {
+	private final DealRepository repository;
+	
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
-	public NoteBusinessDelegate(NoteRepository repository) {
+	public DealBusinessDelegate(DealRepository repository) {
 		super(repository);
 		this.repository = repository;
 	}
-
-	public List<Note> searchAll(String rsql) {
-		// "firstName==Paul;age==30"
-		// "deleted==false"
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Note.class);
-		Criteria criteria = condition.query(new MongoVisitor());
-
-		return repository.searchAll(criteria, Note.class);
+	
+	public Page<Deal> search(String rsql, Pageable pageable) {
+		//"firstName==Paul;age==30"
+		//"deleted==false"
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Deal.class);
+	    Criteria criteria = condition.query(new MongoVisitor());
+		
+		return repository.search(criteria, pageable, Deal.class);
 	}
-
 }

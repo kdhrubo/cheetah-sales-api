@@ -2,7 +2,7 @@ package com.cheetahapps.sales.event;
 
 import org.springframework.context.ApplicationEvent;
 
-import com.cheetahapps.sales.domain.User;
+import com.cheetahapps.sales.user.User;
 
 import lombok.Getter;
 

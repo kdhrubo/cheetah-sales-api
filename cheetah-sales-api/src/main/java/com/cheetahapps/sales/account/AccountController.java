@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.controller.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractBaseController;
 
 @RestController
 @RequestMapping("/accounts")

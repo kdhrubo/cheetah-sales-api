@@ -4,8 +4,8 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.cheetahapps.sales.domain.Base;
-import com.cheetahapps.sales.domain.PickList;
+import com.cheetahapps.sales.core.Base;
+import com.cheetahapps.sales.picklist.PickList;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

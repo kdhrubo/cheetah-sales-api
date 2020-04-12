@@ -1,6 +1,4 @@
-package com.cheetahapps.sales.note;
-
-
+package com.cheetahapps.sales.picklist;
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,18 +11,33 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Document("Note")
+@Document("PickList")
 @Data
-@TypeAlias("Note")
+@TypeAlias("PickList")
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Note extends Base{
-
-	private String description;
-
+public class PickList extends Base{
 	
-	private String relatedEntity;
-	private String relatedEntityId;
+	
+
+	private String domain;
+	private String value; 
+	
+	
+	
+	
+	//contactstatus
+	//contacttype
+	//industry
+	//leadsource
+	//leadtype
+	//lostreason
+	//opportunitytype
+	//rating
+	//salesstage
+	//salution
+	
+	
 }
