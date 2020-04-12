@@ -1,4 +1,0 @@
-name,success_url
-ADMIN,/lead/new?form=formLead
-USER,/lead/new?form=formLead
-CUSTOMER,/case/list?listView=caseListView

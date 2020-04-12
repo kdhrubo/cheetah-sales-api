@@ -11,14 +11,15 @@
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"type": "pickList",
+					"type": "select",
 					"key": "salutation.id",
 					"templateOptions": {
 						"label": "Salutation",
-						"cKey": "salutation",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "SALUTATION",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "LEAD_SOURCE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
@@ -153,14 +154,12 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "pickList",
-					"key": "title.id",
+					"type": "input",
+					"key": "designation",
 					"templateOptions": {
 						"label": "Title",
-						"cKey": "title",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "TITLE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
@@ -191,42 +190,47 @@
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
+				
 				{
 					"className": "col-md-3",
-					"type": "pickList",
+					"type": "select",
 					"key": "leadSource.id",
 					"templateOptions": {
 						"label": "Lead Source",
-						"cKey": "leadSource",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "LEAD_SOURCE",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "LEAD_SOURCE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
+				
 				{
 					"className": "col-md-3",
-					"type": "pickList",
+					"type": "select",
 					"key": "contactType.id",
 					"templateOptions": {
 						"label": "Contact Type",
-						"cKey": "contactType",
+						"valueProp": "id",
+        				"labelProp": "value",
+        				"domain": "CONTACT_TYPE",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "CONTACT_TYPE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
 					"className": "col-md-3",
-					"type": "pickList",
+					"type": "select",
 					"key": "contactStatus.id",
 					"templateOptions": {
 						"label": "Contact Status",
-						"cKey": "contactStatus",
+						"valueProp": "id",
+        				"labelProp": "value",
+        				"domain": "CONTACT_STATUS",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "CONTACT_STATUS"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
