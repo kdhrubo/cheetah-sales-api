@@ -1,11 +1,9 @@
 package com.cheetahapps.sales.lead;
 
 import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.cheetahapps.sales.core.ExtensibleBase;
-import com.cheetahapps.sales.picklist.PickList;
 import com.cheetahapps.sales.user.User;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Lead extends ExtensibleBase {
-	private String salutation;
+	private String salutationId;
 	private String firstName;
 	private String lastName;
 	
@@ -42,9 +40,9 @@ public class Lead extends ExtensibleBase {
 	private String otherEmail;
 	private String otherPhone;
 
-	private String industry;
-	private String leadSource;
-	private String leadStatus;
+	private String industryId;
+	private String leadSourceId;
+	private String leadStatusId;
 	
 
 	private String primaryStreet;

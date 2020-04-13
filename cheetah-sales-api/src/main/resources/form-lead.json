@@ -12,7 +12,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "salutation",
+					"key": "salutationId",
 					"templateOptions": {
 						"label": "Salutation",
 						"valueProp": "id",
@@ -199,7 +199,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "industry",
+					"key": "industryId",
 					"templateOptions": {
 						"label": "Industry",
 						"valueProp": "id",
@@ -213,7 +213,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "leadSource",
+					"key": "leadSourceId",
 					"templateOptions": {
 						"label": "Lead Source",
 						"valueProp": "id",
@@ -227,7 +227,7 @@
 				{
 					"className": "col-md-3",
 					"type": "select",
-					"key": "leadStatus",
+					"key": "leadStatusId",
 					"templateOptions": {
 						"label": "Lead Status",
 						"valueProp": "id",
