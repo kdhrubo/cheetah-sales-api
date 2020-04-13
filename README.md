@@ -186,6 +186,25 @@ The activity status has following values:
 
 ## Lead
 
+Leads are people who are interested in your product and service. Converting leads to loyal customers will provide success within a business. 
+By managing your leads in a systematic and structured way, you can increase both the numbers of leads you generate and how many leads you convert.
+
+### Associated Lists
+
+*  Activities 
+    *  Meetings (0 to many)
+    *  Tasks (0 to many)
+    *  Activity Log (0 to many)
+*  Notes (0 to many)
+*  Files (0 to many)
+*  Campaigns (0 to many - because multiple campaings can generate same lead)
+*  Emails (optional)
+*  Product (0 to many)
+
+
+The activities can be shown in a calendar or timeline form.   
+
+
 ### Converting Lead
 
 Once a Lead is qualified and determined to be a potential sale, it is considered as a Hot Lead and can be converted to a Deal. 
