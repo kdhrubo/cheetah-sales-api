@@ -132,7 +132,7 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "Phone",
+					"key": "phone",
 					"templateOptions": {
 						"label": "Phone",
 						"attributes": {
