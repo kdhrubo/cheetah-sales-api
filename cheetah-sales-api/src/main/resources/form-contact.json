@@ -143,8 +143,8 @@
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"type": "input",
-					"key": "account.id",
+					"type": "accountLookup",
+					"key": "accountId",
 					"templateOptions": {
 						"label": "Account",
 						"attributes": {
