@@ -4,7 +4,7 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.cheetahapps.sales.account.Account;
+
 import com.cheetahapps.sales.core.ExtensibleBase;
 import com.cheetahapps.sales.domain.Address;
 import com.cheetahapps.sales.domain.Team;
@@ -48,7 +48,7 @@ public class Contact extends ExtensibleBase {
 
 	private String fax;
 
-	private Account account;
+	private String accountId;
 
 	
 	private String designation;

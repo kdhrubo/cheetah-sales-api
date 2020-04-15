@@ -11,7 +11,7 @@ import com.cheetahapps.sales.core.AbstractBaseController;
 
 @RestController
 @RequestMapping("/accounts")
-public class AccountController extends AbstractBaseController<Account, String> {
+class AccountController extends AbstractBaseController<Account, String> {
 	
 	private final AccountBusinessDelegate accountBusinessDelegate;
 
