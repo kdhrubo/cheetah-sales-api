@@ -6,14 +6,7 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.cheetahapps.sales.account.Account;
-import com.cheetahapps.sales.contact.Contact;
 import com.cheetahapps.sales.core.ExtensibleBase;
-import com.cheetahapps.sales.domain.Team;
-import com.cheetahapps.sales.lead.Lead;
-import com.cheetahapps.sales.picklist.PickList;
-import com.cheetahapps.sales.user.User;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,37 +26,50 @@ public class Deal extends ExtensibleBase {
 
 	private double amount;
 
-	private Contact contact;
+	private String contactId; //association 1:1
 
-	private Account account;
+	private String accountId; //association 1:1
 
 	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate expectedClose;
 
-	private PickList salesStage;
+	private String salesStageId; //pl
 
-	private User assignedUser;
+	private String assignedUserId;
 
-	private PickList leadSource;
+	private String leadSourceId; //pl
 
 	private String nextStep;
 
-	private PickList opportunityType;
+	private String dealTypeId; //pl
 
-	private int probablity;
+	private int probablity; 
 
 	private double forecastAmount;
 
 	private String email;
 
-	private PickList lostReason;
+	private String lostReasonId; //pl
+	
+	private String lostNotes; //description
+	
+	private String teamId; // association 1:1
+	
 
 	// Keep a reference to the lead from which it was (if it was) converted
-	private Lead lead;
-
-	Team assignedTeam;
+	private String leadId; // association 1:1 , never allowed to modify not shown in create
+	
+	private boolean convertedFromLead;
+	
+	private String campaignId; //association 1:1
 
 	private String description;
+	
+	//TBD
+	// private String pipelineId; 
+	// private double weightedRevenue;
+	
+	
 
 }
