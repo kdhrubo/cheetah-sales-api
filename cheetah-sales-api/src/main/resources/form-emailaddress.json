@@ -1,0 +1,23 @@
+{
+	"name": "form-emailaddress",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "value",
+					"templateOptions": {
+						"placeholder": "Enter Email",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "email"
+						}
+					}
+				}
+			]
+		}
+	]
+}
