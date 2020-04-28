@@ -1,0 +1,87 @@
+{
+	"name": "address-form",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "select",
+					"key": "addressTypeId",
+					"templateOptions": {
+						"label": "Type",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "ADDRESS_TYPE",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+			
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "zip",
+					"templateOptions": {
+						"label": "Zip",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "state",
+					"templateOptions": {
+						"label": "State",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "city",
+					"templateOptions": {
+						"label": "City",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "country",
+					"templateOptions": {
+						"label": "Country",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "textarea",
+					"key": "street",
+					"templateOptions": {
+						"label": "Street",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}

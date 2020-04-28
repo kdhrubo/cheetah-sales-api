@@ -1,0 +1,163 @@
+{
+	"name": "task-form",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "subject",
+					"templateOptions": {
+						"label": "Subject",
+						
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+				
+				
+			]
+		},
+		
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "dueDate",
+					"templateOptions": {
+						"label": "Due Date",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "dueTime",
+					"templateOptions": {
+						"label": "Time",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "time"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "estimatedTimeInHr",
+					"templateOptions": {
+						"label": "Estimate (Hr)",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "actualTimeInHr",
+					"templateOptions": {
+						"label": "Actual (Hr)",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "assignedTo.id",
+					"templateOptions": {
+						"label": "Assigned To",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "statusId",
+					"templateOptions": {
+						"label": "Status",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "TASK_STATUS",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "priorityId",
+					"templateOptions": {
+						"label": "Priority",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "TASK_PRIORITY",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "typeId",
+					"templateOptions": {
+						"label": "Type",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "TASK_TYPE",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+				
+			]
+		},
+		
+		
+		
+
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Agenda",
+						"rows": "4",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,8 +1,8 @@
 package com.cheetahapps.sales.task;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import com.cheetahapps.sales.core.AbstractBaseController;
@@ -21,8 +21,8 @@ public class TaskController extends AbstractBaseController<Task, String> {
 	}
 
 	@GetMapping("/q")
-	public Page<Task> search(@RequestParam("rsql") String rsql, Pageable pageable) {
-		return taskBusinessDelegate.search(rsql, pageable);
+	public List<Task> search(@RequestParam("rsql") String rsql) {
+		return taskBusinessDelegate.searchAll(rsql);
 	}
 
 }
