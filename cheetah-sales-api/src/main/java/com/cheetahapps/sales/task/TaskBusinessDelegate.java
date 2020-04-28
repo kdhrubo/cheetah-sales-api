@@ -1,7 +1,7 @@
 package com.cheetahapps.sales.task;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
+
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
@@ -27,13 +27,13 @@ public class TaskBusinessDelegate extends AbstractBaseBusinessDelegate<Task, Str
 	}
 	
 	
-	public Page<Task> search(String rsql, Pageable pageable) {
+	public List<Task> searchAll(String rsql) {
 		//"firstName==Paul;age==30"
 		//"deleted==false"
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Task.class);
 	    Criteria criteria = condition.query(new MongoVisitor());
 		
-		return repository.search(criteria, pageable, Task.class);
+		return repository.searchAll(criteria, Task.class);
 	}
 	
 }

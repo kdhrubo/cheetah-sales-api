@@ -20,14 +20,20 @@ public class Task extends Base{
 	
 	private String subject;
 	private String description;
-	private LocalDateTime start;
-	private LocalDateTime end;
+	
+	private LocalDateTime dueDate;
 	
 	private User assigedTo; //Owner of the task
 	
-	private String relatedTo;
-	private String relatedToId;
+	private int estimatedTimeInHr;
+	private int actualTimeInHr;
 
-	private TaskStatus status;
+	private String statusId; //task status id
+	private String priorityId;
+	private String typeId;
+	
+	
+	private String relatedEntity;
+	private String relatedEntityId;
 	
 }
