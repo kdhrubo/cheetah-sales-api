@@ -1,24 +1,11 @@
 {
-	"name": "address-form",
+	"name": "form-address",
 	"fields": [
 		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
-				{
-					"className": "col-md-4",
-					"type": "select",
-					"key": "addressTypeId",
-					"templateOptions": {
-						"label": "Type",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "ADDRESS_TYPE",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
+				
 			
 				{
 					"className": "col-md-4",
@@ -78,10 +65,12 @@
 						"label": "Street",
 						"attributes": {
 							"class": "form-control form-control-sm"
+							
 						}
 					}
 				}
 			]
 		}
+		
 	]
 }
