@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.emailaddress;
+package com.cheetahapps.sales.link;
 
 import java.util.List;
 
@@ -15,25 +15,25 @@ import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
 
 @Component
 @Slf4j
-public class EmailAddressBusinessDelegate extends AbstractBaseBusinessDelegate<EmailAddress, String> {
+public class LinkBusinessDelegate extends AbstractBaseBusinessDelegate<Link, String> {
 
-	private EmailAddressRepository emailAddressRepository;
+	private LinkRepository linkRepository;
 
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
-	public EmailAddressBusinessDelegate(EmailAddressRepository repository) {
+	public LinkBusinessDelegate(LinkRepository repository) {
 		super(repository);
-		this.emailAddressRepository = repository;
+		this.linkRepository = repository;
 	}
 
-	public List<EmailAddress> searchAll(String rsql) {
+	public List<Link> searchAll(String rsql) {
 		// "firstName==Paul;age==30"
 		// "deleted==false"
 		log.debug("Searching EmailAddress - {}", rsql);
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, EmailAddress.class);
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Link.class);
 		Criteria criteria = condition.query(new MongoVisitor());
 
-		return emailAddressRepository.searchAll(criteria, EmailAddress.class);
+		return linkRepository.searchAll(criteria, Link.class);
 	}
 
 }
