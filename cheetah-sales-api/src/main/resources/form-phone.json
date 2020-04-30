@@ -1,0 +1,22 @@
+{
+	"name": "form-phone",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "value",
+					"templateOptions": {
+						"placeholder": "Enter Phone",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
