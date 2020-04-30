@@ -1,11 +1,7 @@
 {
-	"name": "contact-form",
+	"name": "form-contact-create",
 	"fields": [
-		{
-			"className": "section-label",
-			"template": "<div><strong>Basic Information</strong></div>",
-			"sectionLabel": "Basic Information"
-		},
+		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
@@ -60,84 +56,8 @@
 				}
 			]
 		},
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "email",
-					"templateOptions": {
-						"label": "Email",
-						"attributes": {
-							"class": "form-control form-control-sm",
-							"type": "email"
-						}
-					}
-				},
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "mobile",
-					"templateOptions": {
-						"label": "Mobile",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "officePhone",
-					"templateOptions": {
-						"label": "Phone",
-						"attributes": {
-							"class": "form-control  form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "otherEmail",
-					"templateOptions": {
-						"label": "Secondary Email",
-						"attributes": {
-							"class": "form-control form-control-sm",
-							"type": "email"
-						}
-					}
-				},
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "otherPhone",
-					"templateOptions": {
-						"label": "Secondary Phone",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "fax",
-					"templateOptions": {
-						"label": "Fax",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				}
-			]
-		},
-		{
-			"className": "section-label",
-			"template": "<div><strong>Account Information</strong></div>",
-			"sectionLabel": "Account Information"
-		},
+
+		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
@@ -260,39 +180,6 @@
 							"class": "form-control form-control-sm"
 						}
 					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "twitter",
-					"templateOptions": {
-						"label": "Twitter",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "facebook",
-					"templateOptions": {
-						"label": "Facebook",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "linkedIn",
-					"templateOptions": {
-						"label": "LinkedIn",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
 				}
 			]
 		},
@@ -335,11 +222,6 @@
 		},
 		
 		
-		{
-			"className": "section-label",
-			"template": "<div><strong>Description</strong></div>",
-			"sectionLabel": "Description"
-		},
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
