@@ -1,0 +1,274 @@
+{
+	"name": "deal-form",
+	"fields": [
+		{
+			"className": "section-label",
+			"template": "<div><strong>Basic Information</strong></div>",
+			"sectionLabel": "Basic Information"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "name",
+					"templateOptions": {
+						"label": "Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "amount",
+					"templateOptions": {
+						"label": "Amount",
+						"required": "true",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "contactId",
+					"templateOptions": {
+						"label": "Contact Id",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "accountId",
+					"templateOptions": {
+						"label": "Account Id",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "expectedClose",
+					"templateOptions": {
+						"label": "Expected Close",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesStageId",
+					"templateOptions": {
+						"label": "Sales StageId",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "assignedUserId",
+					"templateOptions": {
+						"label": "Assigned UserId",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},				
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "leadSourceId",
+					"templateOptions": {
+						"label": "Lead Source",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "LEAD_SOURCE",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "nextStep",
+					"templateOptions": {
+						"label": "next Step",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "email"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "dealTypeId",
+					"templateOptions": {
+						"label": "Deal TypeId",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "probablity",
+					"templateOptions": {
+						"label": "Probablity",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "forecastAmount",
+					"templateOptions": {
+						"label": "Forecast Amount",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "email",
+					"templateOptions": {
+						"label": "Email",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "email"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "lostReasonId",
+					"templateOptions": {
+						"label": "Lost ReasonId",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Lead Information</strong></div>",
+			"section": true,
+			"sectionLabel": "Lead Information"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "lostNotes",
+					"templateOptions": {
+						"label": "Lost Notes",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "teamId",
+					"templateOptions": {
+						"label": "TeamId",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "LeadId",
+					"templateOptions": {
+						"label": "lead Id",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "convertedFromLead",
+					"templateOptions": {
+						"label": "convertedFromLead",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"key": "convertedFromLead",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Converted FromLead"
+					}
+				}	
+			]
+		},
+
+		
+		{
+			"className": "section-label",
+			"template": "<div><strong>Description</strong></div>",
+			"sectionLabel": "Description"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "2",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
