@@ -5,7 +5,6 @@ import java.util.Date;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
-import com.cheetahapps.sales.contact.Contact;
 import com.cheetahapps.sales.core.Base;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,45 +41,107 @@ public class Product extends Base {
 	private Date doa;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateCreated;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date recordModified;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateCostPrice;
 	
-	private String defaultPricingFormula;
+	private String productName;
 	
-	private String description;
+	private boolean isActive;
+	
+	private int prodPartNo;
 	
 	private String manufacturerName;
 	
 	private int manufacturerPartNo;
 	
-	private String productName;
+	private int prodSerialNo;
+	
+	private String vendorName;
+	
+	private int vendPartNo;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date salesStartDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date salesEndDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date supportStartDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date supportEndDate;
 	
 	private String productUrl;
 	
+	private int generalLedgerAccount;
+	
+	private String productSheetpath;
+	
+	private String productSku;
+	
+	private String barCode;
+	
+	private String externalDisplayUrl;
+	
+	private String externalDataSource;
+	
+	private String externalId;
+	
+	private String prodCurrency;
+	
+	private String description;
+	
+	private String billingType;
+	
+	private String usageUnits;
+	
+	private int quantityPerUnit;
+	
 	private int stockUnits;
 	
-	private String contact;
+	private String reorderLevel;
 	
-	//in Terms of no of months
+	private int qtyInDemand;
+	
+	private String handler;
+	
+	private String supportContact;
+	
+	private String supportDesc;
+	
+	private String supportName;
+	
+	//in terms of no of months
 	private String supportTerm;
 	
 	private String tags;
+	
+	private String prodImagePath;
+	
+	private int commissionRate;
+	
+	private boolean qtySchedulingEnabled;
+	
+	private boolean revenueSchedulingEnabled;
 	
 	private String taxClass;
 	
 	private String productType;
 	
-	private int unitPrice;
+	private String prodHeight;
 	
-	private int vendorPartNo;
+	private float prodHeightUnit;
 	
-	private float weight;
-
-	private int order;
+	private String prodLength;
+	
+	private float prodLengthUnit;
+	
+	private String prodWidth;
+	
+	private float prodWidthUnit;
+	
+	private String prodWeight;
+	
+	private float prodWeightUnit;
 
 }
