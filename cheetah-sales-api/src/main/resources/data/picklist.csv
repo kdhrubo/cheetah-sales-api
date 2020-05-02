@@ -80,3 +80,5 @@ CONTACT_STATUS,Active
 CONTACT_STATUS,Not Active
 CONTACT_STATUS,Intermittent
 CONTACT_STATUS,Others
+DEAL_TYPE,Existing Business
+DEAL_TYPE,New Business
