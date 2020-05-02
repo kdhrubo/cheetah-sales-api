@@ -9,6 +9,7 @@
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
+			
 				
 				{
 					"className": "col-md-3",
@@ -38,7 +39,7 @@
 					"type": "input",
 					"key": "contactId",
 					"templateOptions": {
-						"label": "Contact Id",
+						"label": "Contact",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -49,7 +50,7 @@
 					"type": "input",
 					"key": "accountId",
 					"templateOptions": {
-						"label": "Account Id",
+						"label": "Account",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -60,29 +61,34 @@
 					"type": "input",
 					"key": "expectedClose",
 					"templateOptions": {
-						"label": "Expected Close",
+						"label": "Date",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "salesStageId",
+					"templateOptions": {
+						"label": "Sales Stage",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "SALES_STAGE",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "salesStageId",
-					"templateOptions": {
-						"label": "Sales StageId",
-						"attributes": {
-							"class": "form-control  form-control-sm"
-						}
-					}
-				},
+				
 				{
 					"className": "col-md-3",
 					"type": "input",
 					"key": "assignedUserId",
 					"templateOptions": {
-						"label": "Assigned UserId",
+						"label": "Assigned User",
 						"attributes": {
 							"class": "form-control  form-control-sm"
 						}
@@ -112,19 +118,21 @@
 					"type": "input",
 					"key": "nextStep",
 					"templateOptions": {
-						"label": "next Step",
+						"label": "Next Step",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"type": "email"
+							"class": "form-control form-control-sm"						
 						}
 					}
 				},
 				{
 					"className": "col-md-3",
-					"type": "input",
+					"type": "select",
 					"key": "dealTypeId",
 					"templateOptions": {
-						"label": "Deal TypeId",
+						"label": "Deal Type",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "DEAL_TYPE",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -132,15 +140,19 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "input",
+					"type": "select",
 					"key": "probablity",
 					"templateOptions": {
 						"label": "Probablity",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "PROBABLITY",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
+
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -166,23 +178,21 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "input",
+					"type": "select",
 					"key": "lostReasonId",
 					"templateOptions": {
-						"label": "Lost ReasonId",
+						"label": "Lost Reason",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "LOST_REASON",
 						"attributes": {
-							"class": "form-control  form-control-sm"
+							"class": "form-control form-control-sm"
 						}
 					}
 				}
 			]
 		},
-		{
-			"className": "section-label",
-			"template": "<div><strong>Lead Information</strong></div>",
-			"section": true,
-			"sectionLabel": "Lead Information"
-		},
+		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
@@ -203,56 +213,17 @@
 					"type": "input",
 					"key": "teamId",
 					"templateOptions": {
-						"label": "TeamId",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "LeadId",
-					"templateOptions": {
-						"label": "lead Id",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "convertedFromLead",
-					"templateOptions": {
-						"label": "convertedFromLead",
+						"label": "Assigned Team",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				}
+				
+				
 			]
 		},
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				{
-					"className": "col-md-3",
-					"key": "convertedFromLead",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Converted FromLead"
-					}
-				}	
-			]
-		},
-
 		
-		{
-			"className": "section-label",
-			"template": "<div><strong>Description</strong></div>",
-			"sectionLabel": "Description"
-		},
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
