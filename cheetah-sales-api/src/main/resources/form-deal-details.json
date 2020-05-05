@@ -1,9 +1,9 @@
 {
-	"name": "deal-form",
+	"name": "form-deal-details",
 	"fields": [
 		{
 			"className": "section-label",
-			"template": "<div><strong>Basic Information</strong></div>",
+			"template": "<div><strong>Deal Basic Information</strong></div>",
 			"sectionLabel": "Basic Information"
 		},
 		{
@@ -152,6 +152,18 @@
 						}
 					}
 				},
+
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "forecastAmount",
+					"templateOptions": {
+						"label": "Forecast Amount",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -198,6 +210,22 @@
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "leadId",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Lead"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "convertedFromLead",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Converted From Lead"
 					}
 				}
 			]
