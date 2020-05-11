@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class ContactList {
+class Contacts {
 	
 	private List<Contact> contacts;
 
