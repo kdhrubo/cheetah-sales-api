@@ -103,5 +103,48 @@ public class ContactBusinessDelegate extends AbstractBaseBusinessDelegate<Contac
 		}
 		return contact;
 	}
+	
+	public Contact addLink(String id, Link link) {
+		Contact contact = null;
+		Optional<Contact> ocontact = findById(id);
+		if(ocontact.isPresent()) {
+			contact = ocontact.get();
+			List<Link> links = contact.getLinks();
+			
+			if(links == null) {
+				links = new ArrayList<>();
+				
+			}
+			links.add(link);
+			contact.setLinks(links);
+			this.repository.save(contact);
+			
+			log.info("Link added to contact");
+			
+		}
+		return contact;
+	}
+	
+	public Contact addNote(String id, Note note) {
+		Contact contact = null;
+		Optional<Contact> ocontact = findById(id);
+		if(ocontact.isPresent()) {
+			contact = ocontact.get();
+			List<Note> notes = contact.getNotes();
+			
+			if(notes == null) {
+				notes = new ArrayList<>();
+				
+			}
+			notes.add(note);
+			contact.setNotes(notes);
+			this.repository.save(contact);
+			
+			log.info("Note added to contact");
+			
+		}
+		return contact;
+	}
+	
 
 }
