@@ -61,11 +61,11 @@ public class ContactBusinessDelegate extends AbstractBaseBusinessDelegate<Contac
 		return contact;
 	}
 	
-	public boolean addPhone(String id, Phone phone) {
-		boolean saved = false;
+	public Contact addPhone(String id, Phone phone) {
+		Contact contact = null;
 		Optional<Contact> ocontact = findById(id);
 		if(ocontact.isPresent()) {
-			Contact contact = ocontact.get();
+			contact = ocontact.get();
 			List<Phone> phones = contact.getPhones();
 			
 			if(phones == null) {
@@ -75,19 +75,19 @@ public class ContactBusinessDelegate extends AbstractBaseBusinessDelegate<Contac
 			phones.add(phone);
 			contact.setPhones(phones);
 			this.repository.save(contact);
-			saved = true;
+			
 			
 			log.info("Phone added to contact");
 			
 		}
-		return saved;
+		return contact;
 	}
 	
-	public boolean addAddress(String id, Address address) {
-		boolean saved = false;
+	public Contact addAddress(String id, Address address) {
+		Contact contact = null;
 		Optional<Contact> ocontact = findById(id);
 		if(ocontact.isPresent()) {
-			Contact contact = ocontact.get();
+			contact = ocontact.get();
 			List<Address> addresses = contact.getAddresses();
 			
 			if(addresses == null) {
@@ -97,12 +97,11 @@ public class ContactBusinessDelegate extends AbstractBaseBusinessDelegate<Contac
 			addresses.add(address);
 			contact.setAddresses(addresses);
 			this.repository.save(contact);
-			saved = true;
 			
 			log.info("Address added to contact");
 			
 		}
-		return saved;
+		return contact;
 	}
 
 }

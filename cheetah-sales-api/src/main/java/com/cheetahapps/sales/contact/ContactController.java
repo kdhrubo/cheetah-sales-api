@@ -44,12 +44,12 @@ public class ContactController extends AbstractBaseController<Contact, String> {
 	}
 	
 	@PostMapping("/{id}/phones")
-	public boolean addPhone(@PathVariable String id, @RequestBody @Valid Phone phone) {
+	public Contact addPhone(@PathVariable String id, @RequestBody @Valid Phone phone) {
 		return this.contactBusinessDelegate.addPhone(id, phone);
 	}
 	
 	@PostMapping("/{id}/addresses")
-	public boolean addAddress(@PathVariable String id, @RequestBody @Valid Address address) {
+	public Contact addAddress(@PathVariable String id, @RequestBody @Valid Address address) {
 		return this.contactBusinessDelegate.addAddress(id, address);
 	}
 
