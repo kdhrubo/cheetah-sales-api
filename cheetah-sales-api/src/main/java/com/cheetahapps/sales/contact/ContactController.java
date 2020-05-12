@@ -52,5 +52,15 @@ public class ContactController extends AbstractBaseController<Contact, String> {
 	public Contact addAddress(@PathVariable String id, @RequestBody @Valid Address address) {
 		return this.contactBusinessDelegate.addAddress(id, address);
 	}
+	
+	@PostMapping("/{id}/links")
+	public Contact addLinks(@PathVariable String id, @RequestBody @Valid Link link) {
+		return this.contactBusinessDelegate.addLink(id, link);
+	}
+	
+	@PostMapping("/{id}/notes")
+	public Contact addNotes(@PathVariable String id, @RequestBody @Valid Note note) {
+		return this.contactBusinessDelegate.addNote(id, note);
+	}
 
 }

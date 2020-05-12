@@ -68,4 +68,8 @@ public class Contact extends ExtensibleBase {
 	private List<Address> addresses;
 	
 	private List<Phone> phones;
+	
+	private List<Link> links;
+	
+	private List<Note> notes;
 }
