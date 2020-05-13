@@ -53,22 +53,33 @@ public class Account extends ExtensibleBase{
 
 	private boolean emailOptOut;
 
-	private String assignedUser;
-
-	private PickList industry;
-
-	private PickList leadType;
+	private String assignedUserId;
 	
-	private PickList rating;
+	private String assignedUserName;
+
+	private String industryId;
 	
-	private Team assignedTeam;
+	private String industryName;
+
+	private String leadTypeId;
+	
+	private String leadTypeName;
+	
+	private String ratingId;
+	
+	private String ratingValue;
+	
+	private String assignedTeamId;
 
 	private Address primaryAddress;
+	
 	private Address secondaryAddress;
 
 	private String description;
 
-	private User linkedUser;
+	private String linkedUserId;
+	
+	private String linkedUserName;
 
 	
 }
