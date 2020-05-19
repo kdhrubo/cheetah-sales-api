@@ -11,8 +11,10 @@ import org.springframework.data.annotation.LastModifiedDate;
 import com.cheetahapps.sales.user.User;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(of = {"id"})
 public class Base {
 	
 	@Id
