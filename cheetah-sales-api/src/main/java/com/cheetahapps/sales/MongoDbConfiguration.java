@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.net.UnknownHostException;
@@ -17,7 +17,7 @@ public class MongoDbConfiguration {
 
 	@Bean
 	@Primary
-	public MongoDbFactory mongoDbFactory() throws UnknownHostException {
+	public MongoDatabaseFactory mongoDbFactory() throws UnknownHostException {
 
 		return new MultiTenantMongoDbFactory(mongoUri);
 	}
