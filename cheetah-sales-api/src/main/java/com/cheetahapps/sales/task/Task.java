@@ -1,6 +1,7 @@
 package com.cheetahapps.sales.task;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import com.cheetahapps.sales.core.Base;
 import com.cheetahapps.sales.user.User;
@@ -18,20 +19,14 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class Task extends Base{
 	
-	private String subject;
-	private String description;
+	private String title;
 	
-	private LocalDateTime dueDate;
+	private LocalDate dueDate;
+	private LocalTime dueTime;
 	
-	private User assigedTo; //Owner of the task
+	private User assigedTo; 
 	
-	private int estimatedTimeInHr;
-	private int actualTimeInHr;
-
-	private String statusId; //task status id
-	private String priorityId;
-	private String typeId;
-	
+	private boolean done;
 	
 	private String relatedEntity;
 	private String relatedEntityId;
