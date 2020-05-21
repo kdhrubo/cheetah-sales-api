@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.cheetahapps.sales.core.Base;
-import com.cheetahapps.sales.picklist.PickList;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,9 +40,9 @@ public class Activity extends Base {
 	
 	private LocalTime endTime;
 
-	private PickList activityType;
-	private PickList status;
-	private PickList priority;
+	private String activityTypeId;
+	private String statusId;
+	private String priorityId;
 
 	private String assignedTo;
 	

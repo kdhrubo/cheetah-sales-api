@@ -36,6 +36,8 @@ public class Contact extends ExtensibleBase {
 	private Date dob;
 
 	private String accountId;
+	
+	private String accountName;
 
 	private String designation;
 

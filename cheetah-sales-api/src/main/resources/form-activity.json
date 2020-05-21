@@ -97,36 +97,7 @@
 				}
 			]
 		},
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "endDate",
-					"templateOptions": {
-						"label": "End Date",
-						"attributes": {
-							"class": "form-control form-control-sm",
-							"type": "date"
-						}
-					}
-				},
-				
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "endTime",
-					"templateOptions": {
-						"label": "End Time",
-						"attributes": {
-							"class": "form-control form-control-sm",
-							"type": "time"
-						}
-					}
-				}
-			]
-		},
+		
 		
 		{
 			"fieldGroupClassName": "row",
@@ -146,40 +117,43 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "pickList",
-					"key": "salutation.id",
+					"type": "select",
+					"key": "activityTypeId",
 					"templateOptions": {
-						"label": "Salutation",
-						"cKey": "salutation",
+						"label": "Type",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "ACTIVITY_TYPE",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "LEAD_SOURCE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
 					"className": "col-md-3",
-					"type": "pickList",
-					"key": "salutation.id",
+					"type": "select",
+					"key": "statusId",
 					"templateOptions": {
-						"label": "Salutation",
-						"cKey": "salutation",
+						"label": "Status",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "ACTIVITY_STATUS",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "LEAD_SOURCE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
 					"className": "col-md-3",
-					"type": "pickList",
-					"key": "salutation.id",
+					"type": "select",
+					"key": "priorityIdId",
 					"templateOptions": {
 						"label": "Salutation",
-						"cKey": "salutation",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "ACTIVITY_PRIORITY",
 						"attributes": {
-							"class": "form-control form-control-sm",
-							"pickList": "LEAD_SOURCE"
+							"class": "form-control form-control-sm"
 						}
 					}
 				}
