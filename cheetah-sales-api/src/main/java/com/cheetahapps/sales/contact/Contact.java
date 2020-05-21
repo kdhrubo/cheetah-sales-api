@@ -27,6 +27,8 @@ import java.util.List;
 public class Contact extends ExtensibleBase {
 
 	private String salutationId;
+	
+	private String salutation;
 
 	private String firstName;
 
