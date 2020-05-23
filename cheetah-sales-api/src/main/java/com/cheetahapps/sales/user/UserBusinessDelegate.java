@@ -21,7 +21,7 @@ public class UserBusinessDelegate extends AbstractBaseBusinessDelegate<User, Str
 	
 	@EventListener
 	public void provision(ProvisionTenantEvent event) {
-		log.info("== Provisioning new users. ===");
+		log.info("Provisioning new users.");
 		userRepository.save(event.getUser());
 	}
 

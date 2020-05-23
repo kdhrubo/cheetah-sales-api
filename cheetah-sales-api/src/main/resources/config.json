@@ -1,0 +1,12 @@
+{
+  "boxAppSettings": {
+    "clientID": "eav6ko628ukv8xekx5sye31qe5igvofz",
+    "clientSecret": "IkEnvbJpxwL5Z5AmH7yVpc6wRmcSSX9D",
+    "appAuth": {
+      "publicKeyID": "sec2204z",
+      "privateKey": "-----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIOw6LiGBScPMCAggA\nMBQGCCqGSIb3DQMHBAhVxR1BGdvVMgSCBMh+JzS9Pe+5Iof6Al+HgjOT5l3uQfCT\nopHHYbrvrW0skK0RCPU7Yr7gGsvZSnVobgNhmSBJhjHtE1G8Lpr9L/ZSb/SFHo7U\nYTCFtbwLcPJhsSRUT0KDFiIJRrTgOTQnurxHZEtjiwMcsXFRV1hvlr9NRRv0/XJO\nRBOpoH5uAVaMuILXurPw5Vjh9oHIbidJujF1BYCGb1gg0HvZi6GOp8CotwrVchqg\nbpCT2u7TBlQK8C4muW1Ga/XSkWUD/aGay18YL0HmyPFjxiTL9pnPye6OAbiBEOIa\njTTQcsABBKWrR3gBMh6ZR7H7HBMmtstWKqm09rrknt9UVEKsvLJ/LWk7rQUIiVum\nTNQwuDFTgqzap6cOzIiCRZGgQwJ75G5caq+fSjgErGDU/d51VZDzvoY+cUtbBmfj\nQ5grCS2khbUagTU+X8Y+ynyXFrDfKf7/fDcPHkNuBh9HYce9fYmxvLz3UJXERMJG\nG7zaZaRf7S1DRzYIub/Y6n7+WN4jUjEzzrj8draM+GMmzFx9O7l/gG4U8oJru36y\nYZgA5bCLq+sgVKW848OYQ4raRP1mMjiINRMbrcOwBoUJl4dVqaM8HVQ6Cut1Cxj3\na+KO3E9b36sFJ37wl2z7xH0xBqslSARAoDJwc1n4/DwCV91zutnZ0AhpluF33caD\nYu02CB07bVMhiJTt/ktvnnn2g+mFva/XrwL99XAiE0c6SU/gCDh34KMXL83dEpzj\nZbCIyAy9Tbk7/wbTXyPwlPCryCGXtg/q+1ccnzrbHLhmzz7+M6EPDV9zD5A4HalR\n7Jl0yaYdIPQatMJoSvcP2pRsA1Vr624FXBm7/PEsdQM4GmO5KyRD5el0S0Q6JgDJ\naUYKn/4HKdFAOmVdKeBcSLfdC3g4RAImpDsHwkrxfiAI3CjgiON7iTwuQOys3CHg\nh4bXvsWaoGwBEc3kpN8VEkw5Nq3XG8w5cKxpOKVwYozRipJ3sMkRjq9y1L2rDtdx\n/ijXvQnc4Q7Ct9s+tFhBn+XezNXZTr2oMM0hktK4HdO3cq2yWlvMkUx13tAhf6yC\nTCxEqm0KGgtMCsOk1edTTBwe5cfeuK5l9wXaDPydqgBoqLNDH95jy/wB4hacMfcq\nsqxvEx5H7FkyUMxXyx31ZB9d74IRi77UCxCLoqTBDAsI5dey6vtqdjxJvFpNTwi5\n041z1GAkJItpgxRJCgI999F1RbPiqd+QBJ95nwNSpxD32VdcZXF4k0XSucncSlr0\neXbGJmEdftEE4IMIQmVQdTwzUoK1uPRi6Sz6urbZETpKIjcWjzWLnlNzeasQTcwl\nAjdFYSAlVfrSe9qCvtn/TbJvnuiaa8gF7DDlh9l93E+6aHGNlwip3nLMFpk8YLJI\n3Uhxc62AGXpGtQVR4GFQsaPTapR0whyhtI8CvqmviwJFcr+RHlHJ0KTldHT2x1I8\n7wKgeJxvLKmN/e4gxKgH0H+M8btP+HTF4P6u+fNM7pfZdlzxwiSQDYjYC8Xu2V8p\n+xqP8gpnJo5oQlPSYwsm+oNStJ1Wsoszz9mGXemrNZY6sIOoaZhyyZE7D8dX0cro\n777XC1VGgJoyp3HbHn/eiqVQesvMF2UCm/jG/VA93O7sOaut1Q6r720iKO2fyRQM\nTOA=\n-----END ENCRYPTED PRIVATE KEY-----\n",
+      "passphrase": "72ab99a63836cc3e5cf319652b03773b"
+    }
+  },
+  "enterpriseID": "325896148"
+}

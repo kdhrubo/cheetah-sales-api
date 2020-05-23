@@ -27,6 +27,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	
+	
+	
+	
+	
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -45,7 +49,13 @@ dependencies {
 	compile 'org.springframework.security:spring-security-oauth2-jose'	
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	
-	compile group: 'com.github.seratch', name: 'jslack-api-client', version: '3.3.0'
+	//integration packs
+	
+	implementation 'com.github.seratch:jslack-api-client:3.3.0'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.11.788'
+	
+	compile group: 'com.box', name: 'box-java-sdk', version: '2.47.0'
+	
 	
 	
 	compile group: 'org.jodd', name: 'jodd-core', version: '5.1.4'

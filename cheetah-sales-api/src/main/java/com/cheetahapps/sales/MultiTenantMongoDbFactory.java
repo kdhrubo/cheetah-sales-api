@@ -4,7 +4,6 @@ import com.mongodb.client.MongoDatabase;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -16,24 +15,29 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 		super(connectionString);
 	}
 
-	public String DEFAULT_DB = "cheetah-user-db";
+	public String DEFAULT_DB = "coredb";
 
 	@Override
-	public MongoDatabase getMongoDatabase() throws DataAccessException {
-		
+	public MongoDatabase getMongoDatabase()  {
+
 		log.info("Getting Mongo DB");
 
 		// Check the RequestContext
-		Object tenant = RequestContextHolder.getRequestAttributes().getAttribute("tenantId",
-				RequestAttributes.SCOPE_REQUEST);
+		if (RequestContextHolder.getRequestAttributes() != null) {
+			Object tenant = RequestContextHolder.getRequestAttributes().getAttribute("tenantId",
+					RequestAttributes.SCOPE_REQUEST);
 
-		if (tenant instanceof String) {
-			return getMongoDatabase(tenant.toString());
+			if (tenant instanceof String) {
+				return getMongoDatabase(tenant.toString());
+			}
+
 		}
-		
-		log.info("returning - {}" , DEFAULT_DB);
+
+		log.info("returning - {}", DEFAULT_DB);
 		// Return a default DB
-		return super.getMongoDatabase(DEFAULT_DB);
+		MongoDatabase db = getMongoDatabase(DEFAULT_DB);
+		
+		return db;
 	}
 
 	@Override
@@ -41,7 +45,5 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 
 		return DEFAULT_DB;
 	}
-	
-	
 
 }
