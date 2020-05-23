@@ -31,21 +31,21 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
 	
 	
 	
 	compile 'io.vavr:vavr:0.10.2'
 	compile 'org.springframework.security:spring-security-oauth2-resource-server'
 	
-	
 	 
 	compile 'org.springframework.security:spring-security-oauth2-jose'	
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	
-	compile group: 'com.github.seratch', name: 'jslack-api-client', version: '3.3.0'
+	//integration packs
+	
+	implementation 'com.github.seratch:jslack-api-client:3.3.0'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.11.788'
+	implementation 'com.box:box-java-sdk:2.47.0'
 	
 	
 	compile group: 'org.jodd', name: 'jodd-core', version: '5.1.4'
@@ -56,9 +56,13 @@ dependencies {
 	
 	compile group: 'com.github.rutledgepaulv', name: 'rest-query-engine', version: '0.7.1'
 	
-	compile group: 'org.jeasy', name: 'easy-flows', version: '0.2'
 	
 	runtime("org.springframework.boot:spring-boot-properties-migrator")
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	
 	
 	
 }

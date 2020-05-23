@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.core.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractController;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/picklists")
 @Slf4j
-public class PickListController extends AbstractBaseController<PickList, String> {
+public class PickListController extends AbstractController<PickList, String> {
 
 	private PickListBusinessDelegate pickListBusinessDelegate;
 

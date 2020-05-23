@@ -35,11 +35,11 @@ public class FormBusinessDelegate {
 	public void init() throws Exception{
 		log.info("== loading forms ===");
 		for(Resource r : formResources) {
-			log.info("@@@@ Loading form - {}", r.getFilename());
+			
 			
 			Form form = objectMapper.readValue(r.getInputStream(), Form.class);
 			
-			log.info("@@@@ The form - {}", form);
+			
 			
 			forms.put(form.getName(), form);
 		}

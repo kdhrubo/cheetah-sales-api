@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
-import com.cheetahapps.sales.core.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractController;
 
 /**
  * 
@@ -20,7 +20,7 @@ import com.cheetahapps.sales.core.AbstractBaseController;
 @RestController
 @RequestMapping("/pricebookentry")
 @Slf4j
-public class PriceBookEntryController extends AbstractBaseController<PriceBookEntry, String>{
+public class PriceBookEntryController extends AbstractController<PriceBookEntry, String>{
 
 	
 	private final PriceBookEntryBusinessDelegate priceBookEntryBusinessDelegate;

@@ -11,6 +11,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @NoArgsConstructor
@@ -23,6 +24,7 @@ public class User {
 
 	@Id
 	private String id;
+	@Indexed(unique = true)
 	private String email;
 	private String mobile;
 
@@ -31,7 +33,9 @@ public class User {
 
 	private Role role;
 
-	private Tenant tenant;
+	private String tenantId;
+	private String tenantName;
+	private String tenantCode;
 
 	private boolean deleted;
 

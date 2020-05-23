@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.core.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.LeadConvertedEvent;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-class LeadBusinessDelegate extends AbstractBaseBusinessDelegate<Lead, String> {
+class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 
 	private final LeadRepository repository;
 

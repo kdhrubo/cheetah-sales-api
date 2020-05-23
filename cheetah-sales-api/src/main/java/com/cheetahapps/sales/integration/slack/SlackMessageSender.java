@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.integration;
+package com.cheetahapps.sales.integration.slack;
 
 import org.springframework.remoting.RemoteAccessException;
 import org.springframework.stereotype.Component;

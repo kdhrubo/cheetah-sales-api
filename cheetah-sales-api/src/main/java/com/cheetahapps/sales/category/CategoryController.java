@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 
-import com.cheetahapps.sales.core.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractController;
 
 /**
  * 
@@ -18,7 +18,7 @@ import com.cheetahapps.sales.core.AbstractBaseController;
 @RestController
 @RequestMapping("/category")
 @Slf4j
-public class CategoryController extends AbstractBaseController<Category, String>{
+public class CategoryController extends AbstractController<Category, String>{
 
 	
 	private final CategoryBusinessDelegate categoryBusinessDelegate;

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.core.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -18,9 +18,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class TerritoryBusinessDelegate extends AbstractBaseBusinessDelegate<Territory, String> {
+public class TerritoryBusinessDelegate extends AbstractBusinessDelegate<Territory, String> {
 
-	private TerritoryRepository repository;
+	private TerritoryRepository territoryRepository;
 
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
@@ -35,12 +35,12 @@ public class TerritoryBusinessDelegate extends AbstractBaseBusinessDelegate<Terr
 		log.info("Inside territory search");
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Territory.class);
 		Criteria criteria = condition.query(new MongoVisitor());
-		return repository.search(criteria, pageable, Territory.class);
+		return territoryRepository.search(criteria, pageable, Territory.class);
 	}
 	
 	public List<Territory> listAllTerritory() {
 		log.info("Fectching territory from database.");
-		return repository.findAll();
+		return territoryRepository.findAll();
 	}
 
 }

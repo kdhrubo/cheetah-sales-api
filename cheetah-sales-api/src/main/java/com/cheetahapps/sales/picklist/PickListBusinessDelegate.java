@@ -11,14 +11,14 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cheetahapps.sales.core.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ProvisionTenantEvent;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class PickListBusinessDelegate extends AbstractBaseBusinessDelegate<PickList, String> {
+public class PickListBusinessDelegate extends AbstractBusinessDelegate<PickList, String> {
 
 	private PickListRepository repository;
 
@@ -33,7 +33,7 @@ public class PickListBusinessDelegate extends AbstractBaseBusinessDelegate<PickL
 	@Transactional(readOnly = true)
 	public List<PickList> findByDomain(String domain) {
 
-		log.info("Getting domain values - " + domain);
+		log.debug("Getting domain values - " + domain);
 
 		return repository.findByDomain(domain);
 	}

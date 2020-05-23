@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
-import com.cheetahapps.sales.core.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class TaskBusinessDelegate extends AbstractBaseBusinessDelegate<Task, String> {
+public class TaskBusinessDelegate extends AbstractBusinessDelegate<Task, String> {
 	
 	private TaskRepository repository;
 	
