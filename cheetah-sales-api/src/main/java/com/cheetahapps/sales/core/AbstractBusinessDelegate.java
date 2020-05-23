@@ -14,7 +14,7 @@ import jodd.bean.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public abstract class AbstractBaseBusinessDelegate<T, Id> {
+public abstract class AbstractBusinessDelegate<T, Id> {
 
 	protected MongoRepository<T, Id> repository;
 
@@ -27,7 +27,7 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 		eventPublisher.publishEvent(event);
 	}
 
-	public AbstractBaseBusinessDelegate(MongoRepository<T, Id> repository) {
+	public AbstractBusinessDelegate(MongoRepository<T, Id> repository) {
 
 		this.repository = repository;
 
@@ -36,8 +36,7 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 	// create , update
 	@Transactional
 	public T save(T t) {
-		T r = repository.save(t);
-		return r;
+		return repository.save(t);
 	}
 
 	// read
@@ -56,9 +55,9 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 	@Transactional
 	public void delete(Id id) {
 
-		T t = findById(id).get();
+		Optional<T> t = findById(id);
 
-		if (t == null) {
+		if (!t.isPresent()) {
 			throw new RuntimeException(
 					"Record with id = " + id + " not found. May be it is already deleted or purged. ");
 		}
@@ -71,7 +70,7 @@ public abstract class AbstractBaseBusinessDelegate<T, Id> {
 			throw new RuntimeException("Entity cannot be deleted (soft delete) - " + e.getLocalizedMessage()
 					+ ". Check if deleted field is present.");
 		}
-		repository.save(t);
+		repository.save(t.get());
 
 	}
 

@@ -35,6 +35,7 @@ public class User {
 
 	private String tenantId;
 	private String tenantName;
+	private String tenantCode;
 
 	private boolean deleted;
 

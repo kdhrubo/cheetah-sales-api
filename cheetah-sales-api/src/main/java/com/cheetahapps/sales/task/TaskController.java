@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.core.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractController;
 
 @RestController
 @RequestMapping("/tasks")
 
-public class TaskController extends AbstractBaseController<Task, String> {
+public class TaskController extends AbstractController<Task, String> {
 
 	private TaskBusinessDelegate taskBusinessDelegate;
 

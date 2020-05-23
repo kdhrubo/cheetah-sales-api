@@ -6,8 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.core.AbstractBaseController;
-import com.cheetahapps.sales.lead.Lead;
+import com.cheetahapps.sales.core.AbstractController;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/deals")
 
-public class DealController extends AbstractBaseController<Deal, String> {
+public class DealController extends AbstractController<Deal, String> {
 
 	DealBusinessDelegate dealBusinessDelegate;
 	

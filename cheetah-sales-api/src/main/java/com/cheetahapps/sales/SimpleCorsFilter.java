@@ -3,6 +3,7 @@ package com.cheetahapps.sales;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class SimpleCorsFilter implements Filter {
+public class SimpleCorsFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -29,11 +30,5 @@ public class SimpleCorsFilter implements Filter {
         }
     }
 
-    @Override
-    public void init(FilterConfig filterConfig) {
-    }
-
-    @Override
-    public void destroy() {
-    }
+    
 }

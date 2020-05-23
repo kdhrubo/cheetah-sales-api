@@ -6,10 +6,6 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.cheetahapps.sales.core.ExtensibleBase;
-import com.cheetahapps.sales.domain.Address;
-import com.cheetahapps.sales.domain.Team;
-import com.cheetahapps.sales.picklist.PickList;
-import com.cheetahapps.sales.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -9,14 +9,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.core.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractController;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/contacts")
 @Slf4j
-public class ContactController extends AbstractBaseController<Contact, String> {
+public class ContactController extends AbstractController<Contact, String> {
 
 	private ContactBusinessDelegate contactBusinessDelegate;
 

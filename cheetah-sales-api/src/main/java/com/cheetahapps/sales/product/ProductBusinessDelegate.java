@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
-import com.cheetahapps.sales.core.AbstractBaseBusinessDelegate;
+import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -19,7 +19,7 @@ import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
  */
 @Component
 @Slf4j
-public class ProductBusinessDelegate extends AbstractBaseBusinessDelegate<Product, String> {
+public class ProductBusinessDelegate extends AbstractBusinessDelegate<Product, String> {
 
 	private ProductRepository productRepository;
 

@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cheetahapps.sales.core.AbstractBaseController;
+import com.cheetahapps.sales.core.AbstractController;
 
 @RestController
 @RequestMapping("/activities")
-public class ActvityController extends AbstractBaseController<Activity, String> {
+public class ActvityController extends AbstractController<Activity, String> {
 
 	private final ActivityBusinessDelegate activityBusinessDelegate;
 

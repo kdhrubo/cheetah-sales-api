@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public abstract class AbstractBaseController<T, I> {
+public abstract class AbstractController<T, I> {
 
-	protected AbstractBaseBusinessDelegate<T, I> businessDelegate;
+	protected AbstractBusinessDelegate<T, I> businessDelegate;
 
 	public void publishEvent(ApplicationEvent event) {
 		businessDelegate.publishEvent(event);
 	}
 
-	public AbstractBaseController(AbstractBaseBusinessDelegate<T, I> businessDelegate) {
+	public AbstractController(AbstractBusinessDelegate<T, I> businessDelegate) {
 		this.businessDelegate = businessDelegate;
 	}
 

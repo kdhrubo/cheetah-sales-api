@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.domain;
+package com.cheetahapps.sales.account;
 
 
 import lombok.AllArgsConstructor;
