@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 public class ExtensibleBase extends Base{
 	
 	
-	private Map<String, String> extra = new HashMap<String, String>();
+	private Map<String, String> extra = new HashMap<>();
 
 	// setter
 	@JsonAnySetter

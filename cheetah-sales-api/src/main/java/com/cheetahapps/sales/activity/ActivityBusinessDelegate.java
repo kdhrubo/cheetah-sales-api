@@ -17,13 +17,13 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 class ActivityBusinessDelegate extends AbstractBusinessDelegate<Activity, String> {
 	
-	private final ActivityRepository repository;
+	private final ActivityRepository activityRepository;
 	
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 	
 	public ActivityBusinessDelegate(ActivityRepository repository) {
 		super(repository);
-		this.repository = repository;
+		this.activityRepository = repository;
 	}
 	
 	
@@ -33,7 +33,7 @@ class ActivityBusinessDelegate extends AbstractBusinessDelegate<Activity, String
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Activity.class);
 	    Criteria criteria = condition.query(new MongoVisitor());
 		
-		return repository.searchAll(criteria, Activity.class);
+		return activityRepository.searchAll(criteria, Activity.class);
 	}
 	
 }

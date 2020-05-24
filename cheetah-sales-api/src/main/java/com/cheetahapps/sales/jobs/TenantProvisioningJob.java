@@ -26,7 +26,7 @@ public class TenantProvisioningJob {
 
 	@Scheduled(fixedDelay = 5000)
 	public void execute() {
-		log.info("Attempting to provision");
+		
 
 		Try.of(() -> provision());
 
@@ -35,16 +35,15 @@ public class TenantProvisioningJob {
 	private Tenant provision() {
 		Option<Tenant> tenant = this.tenantBusinessDelegate.findFirstUnProvisioned();
 
-		tenant.onEmpty(() -> {
-			log.info("No new tenant to provision");
-		}).peek(t -> {
+		tenant.onEmpty(() -> 
+			log.debug("No new tenant to provision")
+		).peek(t -> 
 			// get user
-			userBusinessDelegate.findByTenantId(t.getId()).onEmpty(() -> {
-				log.info("Missing user for new tenant. Admin help required");
-				//TODO Notify slack, support by logging error
-			})
+			userBusinessDelegate.findByTenantId(t.getId()).onEmpty(() -> 
+				log.info("Missing user for new tenant. Admin help required") 
+			) //notify slack support failure
 			.peek(u -> {
-				log.info("User located. Creating provisioning event");
+				log.debug("User located. Creating provisioning event");
 				
 				//create fake request context for thread local db handling
 				
@@ -59,10 +58,10 @@ public class TenantProvisioningJob {
 				
 				this.tenantBusinessDelegate.updateProvisionStatus(t);
 				
-				log.info("Completed provisioning of tenant - {}", t.getName());
-			});
+				log.debug("Completed provisioning of tenant - {}", t.getName());
+			})
 			
-		});
+		);
 
 		return tenant.getOrNull();
 	}

@@ -22,13 +22,13 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, String> {
 
-	private ContactRepository repository;
+	private ContactRepository contactRepository;
 
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
 	public ContactBusinessDelegate(ContactRepository repository) {
 		super(repository);
-		this.repository = repository;
+		this.contactRepository = repository;
 	}
 
 	public Page<Contact> search(String rsql, Pageable pageable) {
@@ -37,7 +37,7 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Contact.class);
 		Criteria criteria = condition.query(new MongoVisitor());
 
-		return repository.search(criteria, pageable, Contact.class);
+		return contactRepository.search(criteria, pageable, Contact.class);
 	}
 
 	public Contact addEmailAddress(String id, EmailAddress emailAddress) {
@@ -53,7 +53,7 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 			
 			emailAddresses.add(emailAddress);
 			contact.setEmailAddresses(emailAddresses);
-			this.repository.save(contact);
+			this.save(contact);
 			
 			log.info("Email added to contact");
 			
@@ -74,7 +74,7 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 			}
 			phones.add(phone);
 			contact.setPhones(phones);
-			this.repository.save(contact);
+			this.save(contact);
 			
 			
 			log.info("Phone added to contact");
@@ -96,7 +96,7 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 			}
 			addresses.add(address);
 			contact.setAddresses(addresses);
-			this.repository.save(contact);
+			this.save(contact);
 			
 			log.info("Address added to contact");
 			
@@ -117,7 +117,7 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 			}
 			links.add(link);
 			contact.setLinks(links);
-			this.repository.save(contact);
+			this.save(contact);
 			
 			log.info("Link added to contact");
 			
@@ -138,7 +138,7 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 			}
 			notes.add(note);
 			contact.setNotes(notes);
-			this.repository.save(contact);
+			this.save(contact);
 			
 			log.info("Note added to contact");
 			

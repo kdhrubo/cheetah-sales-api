@@ -42,8 +42,10 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	// read
 	@Transactional(readOnly = true)
 	public Optional<T> findById(Id id) {
-		return repository.findById(id);
+		return repository.findById(id); // better error handling required with problem spec
 	}
+	
+	
 
 	// bulk create, import
 	@Transactional

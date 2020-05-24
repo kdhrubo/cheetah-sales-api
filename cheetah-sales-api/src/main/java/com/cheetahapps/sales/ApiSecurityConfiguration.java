@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 
 import com.cheetahapps.sales.security.MultiTenantNimbusJwtDecoder;
 
@@ -19,17 +21,12 @@ import com.cheetahapps.sales.security.MultiTenantNimbusJwtDecoder;
 @RequiredArgsConstructor
 
 public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
+
 	@Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
 	private String jwkSetUri;
 
-	private static final String[] AUTHENTICATION_WHITELIST = { 
-			"/swagger-resources/**",
-	        "/swagger-ui.html",
-	        "/v2/api-docs",
-	        "/webjars/**",
-	        "/users/provision"
-	};
+	private static final String[] AUTHENTICATION_WHITELIST = { "/swagger-resources/**", "/swagger-ui.html",
+			"/v2/api-docs", "/webjars/**" };
 
 	@Bean
 	public BCryptPasswordEncoder bcryptPasswordEncoder() {
@@ -45,17 +42,24 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// .authenticationEntryPoint(problemSupport)
 				// .accessDeniedHandler(problemSupport)
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.authorizeRequests().antMatchers(AUTHENTICATION_WHITELIST).permitAll().and().authorizeRequests()
-				.anyRequest().authenticated().and().oauth2ResourceServer()
-				// .authenticationEntryPoint(problemSupport)
-				// .accessDeniedHandler(problemSupport)
-				.jwt();
+				.authorizeRequests().antMatchers(AUTHENTICATION_WHITELIST).permitAll().mvcMatchers("/tenants")
+				.hasAuthority("SCOPE_ROLE_COMPANY_ADMIN").anyRequest().authenticated().and().oauth2ResourceServer(
+						oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())));
 		// @formatter:on
 	}
-	
+
+	JwtAuthenticationConverter jwtAuthenticationConverter() {
+		JwtGrantedAuthoritiesConverter grantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+		grantedAuthoritiesConverter.setAuthoritiesClaimName("authorities");
+
+		JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
+		jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(grantedAuthoritiesConverter);
+		return jwtAuthenticationConverter;
+	}
+
 	@Bean
 	public JwtDecoder jwtDecoder() {
-	    return MultiTenantNimbusJwtDecoder.withJwkSetUri(this.jwkSetUri); //TODO fix code design
+		return MultiTenantNimbusJwtDecoder.withJwkSetUri(this.jwkSetUri); // TODO fix code design
 	}
 
 }
