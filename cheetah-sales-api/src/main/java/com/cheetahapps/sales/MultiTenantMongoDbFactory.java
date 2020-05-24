@@ -20,7 +20,7 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 	@Override
 	public MongoDatabase getMongoDatabase()  {
 
-		log.info("Getting Mongo DB");
+		log.debug("Getting Mongo DB");
 
 		// Check the RequestContext
 		if (RequestContextHolder.getRequestAttributes() != null) {
@@ -33,11 +33,7 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 
 		}
 
-		log.info("returning - {}", DEFAULT_DB);
-		// Return a default DB
-		MongoDatabase db = getMongoDatabase(DEFAULT_DB);
-		
-		return db;
+		return getMongoDatabase(DEFAULT_DB);
 	}
 
 	@Override

@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +15,10 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/contacts")
 @Slf4j
-public class ContactController extends AbstractController<Contact, String> {
+class ContactController extends AbstractController<Contact, String> {
 
 	private ContactBusinessDelegate contactBusinessDelegate;
 
-	@Autowired
 	public ContactController(ContactBusinessDelegate contactBusinessDelegate) {
 		super(contactBusinessDelegate);
 		this.contactBusinessDelegate = contactBusinessDelegate;

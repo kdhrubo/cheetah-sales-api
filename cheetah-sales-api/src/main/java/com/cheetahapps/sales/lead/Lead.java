@@ -59,7 +59,8 @@ public class Lead extends ExtensibleBase {
 	private String secondaryCountry;
 	
 	
-	private User assignedTo; //TODO Change remove association
+	private String assignedTo;
+	
 
 	private Long assignedTeam;
 

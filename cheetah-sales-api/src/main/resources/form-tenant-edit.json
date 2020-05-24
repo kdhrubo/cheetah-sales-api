@@ -1,0 +1,64 @@
+{
+	"name": "form-tenant-edit",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "id",
+					"templateOptions": {
+						"label": "Id",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "name",
+					"templateOptions": {
+						"label": "Company",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "Code",
+					"templateOptions": {
+						"label": "code",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "createdDate",
+					"templateOptions": {
+						"label": "Created On",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "date"
+						}
+					}
+				}
+			]
+		}
+
+	]
+}

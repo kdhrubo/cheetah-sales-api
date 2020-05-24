@@ -16,13 +16,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 public class DealBusinessDelegate extends AbstractBusinessDelegate<Deal, String> {
-	private final DealRepository repository;
+	private final DealRepository dealRepository;
 	
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
 	public DealBusinessDelegate(DealRepository repository) {
 		super(repository);
-		this.repository = repository;
+		this.dealRepository = repository;
 	}
 	
 	public Page<Deal> search(String rsql, Pageable pageable) {
@@ -31,6 +31,6 @@ public class DealBusinessDelegate extends AbstractBusinessDelegate<Deal, String>
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Deal.class);
 	    Criteria criteria = condition.query(new MongoVisitor());
 		
-		return repository.search(criteria, pageable, Deal.class);
+		return dealRepository.search(criteria, pageable, Deal.class);
 	}
 }

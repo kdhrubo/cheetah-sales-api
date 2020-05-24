@@ -63,7 +63,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	
-	
+	compile group: 'org.zalando', name: 'problem-spring-web', version: '0.25.2'
 	
 }
 
