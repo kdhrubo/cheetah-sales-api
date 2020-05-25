@@ -1,8 +1,12 @@
 package com.cheetahapps.sales.tenant;
 
+import javax.validation.Valid;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,10 +23,19 @@ class TenantController {
 	
 	
 	@GetMapping("/findOne")
-	public TenantView foo(@AuthenticationPrincipal Jwt jwt) {
+	public TenantView findByCode(@AuthenticationPrincipal Jwt jwt) {
 		
 		String code = (String) jwt.getClaims().get("tenantId");
 		
 	    return tenantBusinessDelegate.findByCode(code);
+	}
+	
+	@PostMapping("/box")
+	public TenantView saveBox(@AuthenticationPrincipal Jwt jwt, @Valid @RequestBody BoxSettings boxSettings) {
+		log.info("Setting box config - {}", boxSettings);
+		String code = (String) jwt.getClaims().get("tenantId");
+		// RZlUbWK4YTPsFBmxamkdb71hZbNvVlEW
+		return tenantBusinessDelegate.addBoxSettings(code, boxSettings);
+		
 	}
 }

@@ -44,5 +44,20 @@ public class TenantBusinessDelegate extends AbstractBusinessDelegate<Tenant, Str
 	public TenantView findByCode(String code) {
 		return tenantRepository.findByCode(code);
 	}
+	
+	@Transactional
+	public TenantView addBoxSettings(String code, BoxSettings boxSettings) {
+		Option<Tenant> t = this.tenantRepository.findFirstByProvisioned(true);
+		
+		t.peek( i -> {
+			Tenant localTenant = t.get();
+			localTenant.setBoxSettings(boxSettings);
+			save(localTenant);
+		}).onEmpty(() -> {
+			//throw exception highly unlikely.
+		});
+		
+		return findByCode(code);
+	}
 
 }

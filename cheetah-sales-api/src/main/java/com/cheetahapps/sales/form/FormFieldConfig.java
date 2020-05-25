@@ -18,7 +18,7 @@ public class FormFieldConfig {
 	private String defaultValue;
 	private boolean hide;
 	private boolean hideExpression;
-	private boolean expressionProperties;
+	
 	private boolean	focus;
 	
 	
@@ -28,7 +28,7 @@ public class FormFieldConfig {
 	private String fieldGroupClassName;
 	
 	private Map templateOptions;
-	
+	private Map expressionProperties;
 	
 	private boolean section; //external use
 	private String sectionLabel; //external use
