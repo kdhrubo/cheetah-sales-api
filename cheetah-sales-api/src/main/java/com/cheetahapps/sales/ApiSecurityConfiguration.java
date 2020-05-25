@@ -42,7 +42,7 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// .authenticationEntryPoint(problemSupport)
 				// .accessDeniedHandler(problemSupport)
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.authorizeRequests().antMatchers(AUTHENTICATION_WHITELIST).permitAll().mvcMatchers("/tenants")
+				.authorizeRequests().antMatchers(AUTHENTICATION_WHITELIST).permitAll().mvcMatchers("/cockpit/**")
 				.hasAuthority("SCOPE_ROLE_COMPANY_ADMIN").anyRequest().authenticated().and().oauth2ResourceServer(
 						oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())));
 		// @formatter:on

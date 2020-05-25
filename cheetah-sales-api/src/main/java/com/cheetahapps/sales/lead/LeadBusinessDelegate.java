@@ -20,16 +20,16 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 
-	private final LeadRepository repository;
+	private final LeadRepository leadRepository;
 
 	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 
 	public LeadBusinessDelegate(LeadRepository repository) {
 		super(repository);
-		this.repository = repository;
+		this.leadRepository = repository;
 	}
 
-	// TODO Handle lead conversion to account, opportunity, contact using event
+	
 
 	public Page<Lead> search(String rsql, Pageable pageable) {
 		// "firstName==Paul;age==30"
@@ -40,7 +40,7 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Lead.class);
 		Criteria criteria = condition.query(new MongoVisitor());
 
-		return repository.search(criteria, pageable, Lead.class);
+		return leadRepository.search(criteria, pageable, Lead.class);
 	}
 
 	public Lead convert(String id, boolean createDeal, boolean createAccount, boolean createContact) {

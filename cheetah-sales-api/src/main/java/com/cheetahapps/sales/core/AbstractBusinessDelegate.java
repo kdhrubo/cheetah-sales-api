@@ -20,6 +20,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
+	
 
 	@Async
 	public void publishEvent(Object event) {
