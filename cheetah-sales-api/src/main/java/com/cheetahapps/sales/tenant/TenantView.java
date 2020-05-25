@@ -2,6 +2,7 @@ package com.cheetahapps.sales.tenant;
 
 import java.time.LocalDateTime;
 
+import com.cheetahapps.sales.integration.box.BoxSetting;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Value;
@@ -19,5 +20,5 @@ public class TenantView {
 	
 	LocalDateTime lastModifiedDate, createdDate;
 	
-	BoxSettings boxSettings;
+	BoxSetting boxSettings;
 }
