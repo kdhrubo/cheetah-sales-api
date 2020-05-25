@@ -1,7 +1,6 @@
 {
 	"name": "form-tenant-edit",
 	"fields": [
-		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
@@ -14,8 +13,12 @@
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
+					},
+					"expressionProperties": {
+						"templateOptions.disabled": "formState.disabled"
 					}
 				},
+					
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -25,26 +28,26 @@
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
+					},
+					"expressionProperties": {
+						"templateOptions.disabled": "formState.disabled"
 					}
 				},
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "Code",
+					"key": "code",
 					"templateOptions": {
-						"label": "code",
+						"label": "Code",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
+					},
+					
+					"expressionProperties": {
+						"templateOptions.disabled": "formState.disabled"
 					}
-				}
-			]
-		},
-
-		
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
+				},
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -55,10 +58,14 @@
 							"class": "form-control form-control-sm",
 							"type": "date"
 						}
+					},
+					"expressionProperties": {
+						"templateOptions.disabled": "formState.disabled"
 					}
+					
 				}
+				
 			]
 		}
-
 	]
 }

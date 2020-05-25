@@ -3,8 +3,10 @@ package com.cheetahapps.sales;
 import java.io.FileReader;
 import java.io.Reader;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.box.sdk.BoxAPIConnection;
@@ -12,6 +14,7 @@ import com.box.sdk.BoxConfig;
 import com.box.sdk.BoxDeveloperEditionAPIConnection;
 import com.box.sdk.BoxFolder;
 import com.box.sdk.BoxItem;
+import com.box.sdk.BoxTransactionalAPIConnection;
 import com.box.sdk.BoxUser;
 import com.box.sdk.CreateUserParams;
 
@@ -20,9 +23,13 @@ import lombok.extern.slf4j.Slf4j;
 //@Component
 @Slf4j
 public class BoxTester implements ApplicationRunner {
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		/*
 		log.info("## getting box connection");
 		Reader reader = new FileReader(
 				"/Users/dhrubo/git/cheetah-sales-api/cheetah-sales-api/src/main/resources/config.json");
@@ -44,7 +51,7 @@ public class BoxTester implements ApplicationRunner {
 			System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());
 		}
 		
-		/*
+		
 		CreateUserParams params = new CreateUserParams();
 		params.setSpaceAmount(1073741824); // 1 GB
 		// This optional param can be used to store any id, like an email, of the user
@@ -54,10 +61,32 @@ public class BoxTester implements ApplicationRunner {
 
 		System.out.format("User created with name %s and id %s\n\n", "test1", user.getID());
 		*/
+		
+		enterprise();
+	}
+	
+	private void enterprise() throws Exception{
+		Reader reader = new FileReader(
+				"/Users/dhrubo/git/cheetah-sales-api/cheetah-sales-api/src/main/resources/config.json");
+		BoxConfig boxConfig = BoxConfig.readFrom(reader);
+		
+		//BoxDeveloperEditionAPIConnection api = BoxDeveloperEditionAPIConnection.getAppEnterpriseConnection(boxConfig);
+		
+		//BoxAPIConnection api = new BoxAPIConnection("ifTFsN58fvltgojjCj4S0hWJ330PzWof");
+		
+		BoxTransactionalAPIConnection api = new BoxTransactionalAPIConnection("ifTFsN58fvltgojjCj4S0hWJ330PzWof");
+		
+		BoxFolder rootFolder = BoxFolder.getRootFolder(api);
+		
+		log.info("Root folder -> {}", rootFolder.getInfo().getID());
+		/*
+		for (BoxItem.Info itemInfo : rootFolder) {
+			System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());
+		}*/
+		
+		BoxFolder.Info testFolder = rootFolder.createFolder("test3");
+		
+		log.info("Root folder -> {}", testFolder.getName());
 	}
 
 }
-/*
- * App Name d5 Client ID eav6ko628ukv8xekx5sye31qe5igvofz
- * name test1 and id 12826040749
- */

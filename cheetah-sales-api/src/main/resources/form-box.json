@@ -1,0 +1,24 @@
+{
+	"name": "form-box",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "accessToken",
+					"templateOptions": {
+						"label": "Access Token",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+		
+	]
+}

@@ -19,5 +19,5 @@ public class TenantView {
 	
 	LocalDateTime lastModifiedDate, createdDate;
 	
-	BoxSettings settings;
+	BoxSettings boxSettings;
 }

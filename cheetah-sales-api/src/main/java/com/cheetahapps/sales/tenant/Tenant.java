@@ -43,6 +43,6 @@ public class Tenant {
 	@CreatedDate
 	private LocalDateTime createdDate;
 	
-	private BoxSettings settings;
+	private BoxSettings boxSettings;
 
 }
