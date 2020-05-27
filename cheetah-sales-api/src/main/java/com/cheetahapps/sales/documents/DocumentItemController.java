@@ -29,10 +29,18 @@ class DocumentItemController extends AbstractController<DocumentItem, String> {
 	}
 	
 	@PostMapping("/folders")
-	public DocumentItem createFolder(@Valid @RequestBody CreateFolderRequest request) {
+	public DocumentItem createFolder(@Valid @RequestBody CreateDocumentItemRequest request) {
 		
 		return documentItemBusinessDelegate.createFolder(request.getParentId(),request.getFolder(), request.getDocumentSource(), 
-				request.getDocumentSourceId());
+				request.getDocumentSourceId(), request.getDocumentType(), request.getDocumentTypeId());
+		
+	}
+	
+	@PostMapping("/link")
+	public DocumentItem createLink(@Valid @RequestBody CreateDocumentItemRequest request) {
+		
+		return documentItemBusinessDelegate.createFolder(request.getParentId(),request.getFolder(), request.getDocumentSource(), 
+				request.getDocumentSourceId(), request.getDocumentType(), request.getDocumentTypeId());
 		
 	}
 	

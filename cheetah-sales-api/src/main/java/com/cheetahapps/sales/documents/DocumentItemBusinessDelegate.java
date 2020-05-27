@@ -39,14 +39,44 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 	}
 	
 	@Transactional
-	public DocumentItem createFolder(String parent, String folder, String documentSource, String documentSourceId) {
-		CreateFolderEvent event = CreateFolderEvent.builder().parent(Option.of(parent))
+	public DocumentItem createFolder( String parentId, String folder, String documentSource, String documentSourceId, String documentType, String documentTypeId) {
+		CreateFolderEvent event = CreateFolderEvent.builder().parent(Option.of(parentId))
 				.folder(folder).documentSource(documentSource).documentSourceId(documentSourceId).
 				build();
 		this.eventPublisher.publishEvent(event);
 		
 		log.info("Event - {}", event);
 		
-		return null;
+		DocumentItem item = DocumentItem.builder().documentSource(documentSourceId)
+				.documentSourceId(documentSourceId)
+				.documentType(documentType)
+				.documentTypeId(documentTypeId)
+				.externalId(event.getExternalId())
+				.externalParentId(event.getExternalParentId())
+				.externalParentName(event.getExternalParentName())
+				.name(folder)
+				.title(folder).build();
+		
+		
+		return documentItemRepository.save(item);
+	}
+	
+	public DocumentItem createExternalFileLink(String title, String parentId, String link, String documentType, String documentTypeId) {
+		DocumentItem item = DocumentItem.builder()
+				.documentType(documentType)
+				.documentTypeId(documentTypeId)
+				
+				.externalParentId(parentId)
+				.name(title)
+				.title(title).build();
+		
+		
+		return documentItemRepository.save(item);
+		
+		
 	}
 }
+
+
+
+
