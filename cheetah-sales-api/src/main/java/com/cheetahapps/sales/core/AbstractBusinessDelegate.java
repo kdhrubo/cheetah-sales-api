@@ -19,7 +19,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	protected MongoRepository<T, Id> repository;
 
 	@Autowired
-	private ApplicationEventPublisher eventPublisher;
+	protected ApplicationEventPublisher eventPublisher;
 	
 
 	@Async
