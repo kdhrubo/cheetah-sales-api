@@ -7,6 +7,7 @@ import com.box.sdk.BoxFolder;
 import com.box.sdk.BoxTransactionalAPIConnection;
 import com.cheetahapps.sales.documents.CreateFolderEvent;
 
+import io.vavr.control.Option;
 import jodd.util.StringUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,20 +40,25 @@ public class BoxConnector {
 	private void createFolder(BoxSetting box, CreateFolderEvent event) {
 		BoxTransactionalAPIConnection api = new BoxTransactionalAPIConnection(box.getAccessToken());
 
-		event.getParent().onEmpty(() -> {
+		event.getExternalParentId().onEmpty(() -> { //"root"
+			log.info("Box root");
 			BoxFolder parentFolder = BoxFolder.getRootFolder(api);
-			BoxFolder.Info childFolder = parentFolder.createFolder(event.getFolder());
+			BoxFolder.Info childFolder = parentFolder.createFolder(event.getName());
 
 			event.setExternalId(childFolder.getID());
-			log.info("Name - {} , Type - {}, Parent - name - {}, Parent id - {}", childFolder.getName(),
-					childFolder.getType(), childFolder.getParent().getName(), childFolder.getParent().getID());
-
+			event.setExternalParentId(Option.none());
+			event.setExternalParentName(Option.none());
+			
 		}).peek(pid -> {
+			log.info("Box not root");
 			BoxFolder parentFolder = new BoxFolder(api, pid);
 
-			BoxFolder.Info childFolder = parentFolder.createFolder(event.getFolder());
+			BoxFolder.Info childFolder = parentFolder.createFolder(event.getName());
 
 			event.setExternalId(childFolder.getID());
+			event.setExternalParentId(Option.of(childFolder.getParent().getID()));
+			event.setExternalParentName(Option.of(childFolder.getParent().getName()));
+			
 		});
 
 	}

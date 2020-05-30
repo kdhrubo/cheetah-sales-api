@@ -11,16 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateFolderEvent {
-
-	private Option<String> parent;
-	private String folder;
+	
+	private String name;
 	
 	private String documentSourceId;
 	private String documentSource;
 
 	private String externalId;
-
-	private String externalParentId;
-
-	private String externalParentName;
+	private Option<String> externalParentId;
+	private Option<String> externalParentName;
 }
