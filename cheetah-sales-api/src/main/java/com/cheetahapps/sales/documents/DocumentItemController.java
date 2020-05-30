@@ -1,10 +1,10 @@
 package com.cheetahapps.sales.documents;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import com.cheetahapps.sales.core.AbstractController;
@@ -24,25 +24,25 @@ class DocumentItemController extends AbstractController<DocumentItem, String> {
 	}
 	
 	@GetMapping("/q")
-	public Page<DocumentItem> search(@RequestParam("rsql") String rsql, Pageable pageable) {
-		return documentItemBusinessDelegate.search(rsql, pageable);
+	public List<DocumentItem> search(@RequestParam("rsql") String rsql) {
+		log.info("RSQL - {}", rsql);
+		return documentItemBusinessDelegate.searchAll(rsql);
 	}
 	
 	@PostMapping("/folders")
 	public DocumentItem createFolder(@Valid @RequestBody CreateDocumentItemRequest request) {
 		
-		return documentItemBusinessDelegate.createFolder(request.getParentId(),request.getFolder(), request.getDocumentSource(), 
-				request.getDocumentSourceId(), request.getDocumentType(), request.getDocumentTypeId());
+		return documentItemBusinessDelegate.createFolder(request);
 		
 	}
-	
+	/*
 	@PostMapping("/link")
 	public DocumentItem createLink(@Valid @RequestBody CreateDocumentItemRequest request) {
 		
 		return documentItemBusinessDelegate.createFolder(request.getParentId(),request.getFolder(), request.getDocumentSource(), 
 				request.getDocumentSourceId(), request.getDocumentType(), request.getDocumentTypeId());
 		
-	}
+	}*/
 	
 	
 }

@@ -23,6 +23,7 @@ class DocumentItem extends ExtensibleBase{
 	private String title;
 	
 	private String name;
+	private String parentName;
 	
 	private String externalId;
 	
