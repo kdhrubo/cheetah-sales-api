@@ -29,7 +29,7 @@ public class CategoryController extends AbstractController<Category, String>{
 	}
 
 	
-	@GetMapping("/q")
+	@GetMapping("/search")
 	public Page<Category> search(@RequestParam("rsql") String rsql, Pageable pageable) {
 		log.debug("Search category");
 		return categoryBusinessDelegate.search(rsql, pageable);
