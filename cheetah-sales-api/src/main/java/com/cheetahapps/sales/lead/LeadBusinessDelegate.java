@@ -22,21 +22,13 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 
 	private final LeadRepository leadRepository;
 
-	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
-
 	public LeadBusinessDelegate(LeadRepository repository) {
 		super(repository);
 		this.leadRepository = repository;
 	}
 
-	
-
 	public Page<Lead> search(String rsql, Pageable pageable) {
-		// "firstName==Paul;age==30"
-		// "deleted==false"
-
-		log.info("Inside search");
-
+		QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Lead.class);
 		Criteria criteria = condition.query(new MongoVisitor());
 
@@ -51,7 +43,7 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 			Lead l = lead.get();
 			l.setConverted(true);
 			repository.save(l);
-			this.publishEvent(LeadConvertedEvent.of(l, createDeal, createAccount, createContact));
+			this.publish(LeadConvertedEvent.of(l, createDeal, createAccount, createContact));
 
 			return l;
 		} else {

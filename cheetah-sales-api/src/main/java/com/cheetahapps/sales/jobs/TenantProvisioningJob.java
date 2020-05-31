@@ -36,7 +36,9 @@ public class TenantProvisioningJob {
 		Option<Tenant> tenant = this.tenantBusinessDelegate.findFirstUnProvisioned();
 
 		tenant.onEmpty(() -> 
-			log.debug("No new tenant to provision")
+			{
+				//log.debug("No new tenant to provision");
+			}
 		).peek(t -> 
 			// get user
 			userBusinessDelegate.findByTenantId(t.getId()).onEmpty(() -> 

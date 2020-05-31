@@ -20,7 +20,7 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 	@Override
 	public MongoDatabase getMongoDatabase()  {
 
-		log.debug("Getting Mongo DB");
+		log.trace("Getting Mongo DB");
 
 		// Check the RequestContext
 		if (RequestContextHolder.getRequestAttributes() != null) {

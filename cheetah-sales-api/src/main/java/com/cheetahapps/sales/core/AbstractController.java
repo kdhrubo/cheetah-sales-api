@@ -1,7 +1,6 @@
 package com.cheetahapps.sales.core;
 
 import javax.validation.Valid;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,10 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 public abstract class AbstractController<T, I> {
 
 	protected AbstractBusinessDelegate<T, I> businessDelegate;
-
-	public void publishEvent(ApplicationEvent event) {
-		businessDelegate.publishEvent(event);
-	}
 
 	public AbstractController(AbstractBusinessDelegate<T, I> businessDelegate) {
 		this.businessDelegate = businessDelegate;
