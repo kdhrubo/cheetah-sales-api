@@ -21,9 +21,13 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	@Autowired
 	protected ApplicationEventPublisher eventPublisher;
 	
+	public void publish(Object event) {
+
+		eventPublisher.publishEvent(event);
+	}
 
 	@Async
-	public void publishEvent(Object event) {
+	public void publishAsync(Object event) {
 
 		eventPublisher.publishEvent(event);
 	}

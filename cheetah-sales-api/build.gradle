@@ -65,6 +65,9 @@ dependencies {
 	
 	compile group: 'org.zalando', name: 'problem-spring-web', version: '0.25.2'
 	
+	
+	compile group: 'org.zalando', name: 'logbook-core', version: '2.1.0'
+	
 }
 
 test {

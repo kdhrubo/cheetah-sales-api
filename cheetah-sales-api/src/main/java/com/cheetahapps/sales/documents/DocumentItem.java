@@ -40,5 +40,5 @@ class DocumentItem extends ExtensibleBase{
 	private String documentTypeId;
 	
 	
-	 
+	private String extension; 
 }

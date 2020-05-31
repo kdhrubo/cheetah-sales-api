@@ -35,6 +35,16 @@ class DocumentItemController extends AbstractController<DocumentItem, String> {
 		return documentItemBusinessDelegate.createFolder(request);
 		
 	}
+	
+	@PostMapping("/files")
+	public DocumentItem createFile(CreateMultipartDocumentItemRequest request) {
+		log.info("request -> " + request);
+		
+		return documentItemBusinessDelegate.createFile(request);
+		
+		
+	}
+	
 	/*
 	@PostMapping("/link")
 	public DocumentItem createLink(@Valid @RequestBody CreateDocumentItemRequest request) {
