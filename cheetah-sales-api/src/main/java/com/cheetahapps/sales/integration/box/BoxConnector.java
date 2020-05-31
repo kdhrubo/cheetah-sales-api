@@ -29,7 +29,7 @@ public class BoxConnector {
 		if (StringUtil.equals(event.getDocumentSource(), "Box")) {
 
 			this.boxSettingRepository.findFirstByDeleted(false).peek(box -> {
-				// use try of in case of missing parent or duplicate
+				
 				createFolder(box, event);
 			}).onEmpty(() -> {
 				log.info("Box not configured yet.");
