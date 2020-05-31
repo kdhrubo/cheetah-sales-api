@@ -1,0 +1,75 @@
+{
+	"name": "Category-form",
+	"fields": [
+		{
+			"className": "section-label",
+			"template": "<div><strong>Basic Information</strong></div>",
+			"sectionLabel": "Basic Information"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "name",
+					"templateOptions": {
+						"label": "Category Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "parent",
+					"templateOptions": {
+						"label": "Category",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "CATEGORY",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "order",
+					"templateOptions": {
+						"label": "Order",
+						"required": "true",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+					
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Description</strong></div>",
+			"sectionLabel": "Description"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "2",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
