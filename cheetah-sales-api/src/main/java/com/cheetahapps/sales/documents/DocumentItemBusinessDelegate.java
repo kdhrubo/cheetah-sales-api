@@ -88,7 +88,7 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 	
 	@Transactional
 	public DocumentItem createFile(CreateMultipartDocumentItemRequest request) {
-		log.info("Request - {}", request);
+		log.info("Request - {}", (request.getParentId() == null));
 		
 		
 		String fileNameOriginal = request.getFile().getOriginalFilename();
@@ -100,7 +100,8 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 		log.info("extension - {}", extension);
 
 		CreateFileEvent event = null;
-		if (StringUtil.isEmpty(request.getParentId())) {
+		
+		if ("null".equals(request.getParentId()) || request.getParentId() == null) { // change this check
 
 			log.info("Parent id -null");
 
