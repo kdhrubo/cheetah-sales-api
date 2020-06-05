@@ -36,9 +36,10 @@ class ContactController extends AbstractController<Contact, String> {
 		return this.contactBusinessDelegate.saveAll(contactWrapper.getContacts());
 	}
 	
+	
 	@PostMapping("/{id}/emails")
-	public Contact addEmailAddress(@PathVariable String id, @RequestBody @Valid EmailAddress emailAddress) {
-		return this.contactBusinessDelegate.addEmailAddress(id, emailAddress);
+	public Contact addEmailAddress(@PathVariable String id, @RequestBody @Valid Emails emails) {
+		return this.contactBusinessDelegate.addEmailAddressNew(id, emails);
 	}
 	
 	@PostMapping("/{id}/phones")

@@ -1,5 +1,5 @@
 {
-	"name": "form-emailaddress",
+	"name": "form-emails",
 	"fields": [
 		
 		{
@@ -8,9 +8,46 @@
 				{
 					"className": "col-md-12",
 					"type": "input",
-					"key": "value",
+					"key": "primaryEmail",
 					"templateOptions": {
-						"placeholder": "Enter Email",
+						"label": "Primary Email",
+						"placeholder": "Enter Primary Email",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "email"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "secondaryEmail",
+					"templateOptions": {
+						"label": "Secondary Email",
+						"placeholder": "Enter Secondary Email",
+						"attributes": {
+							"class": "form-control form-control-sm",
+							"type": "email"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "otherEmail",
+					"templateOptions": {
+						"label": "Other Email",
+						"placeholder": "Enter Other Email",
 						"attributes": {
 							"class": "form-control form-control-sm",
 							"type": "email"

@@ -67,7 +67,10 @@ public class Contact extends ExtensibleBase {
 
 	private String description;
 	
+	@Deprecated
 	private List<EmailAddress> emailAddresses;
+	
+	private Emails emails;
 	
 	private List<Address> addresses;
 	

@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
@@ -56,6 +59,24 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 			this.save(contact);
 			
 			log.info("Email added to contact");
+			
+		}
+		return contact;
+	}
+	
+	@Transactional
+	public Contact addEmailAddressNew(String id, @Valid Emails emails) {
+		Contact contact = null;
+		Optional<Contact> ocontact = findById(id);
+		
+		if(ocontact.isPresent()) {
+			contact = ocontact.get();
+			
+			contact.setEmails(emails);
+			
+			this.save(contact);
+			
+			log.info("Emails added to contact");
 			
 		}
 		return contact;
@@ -145,6 +166,8 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 		}
 		return contact;
 	}
+
+	
 	
 
 }

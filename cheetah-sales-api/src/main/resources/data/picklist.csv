@@ -93,7 +93,10 @@ PROBABLITY,80
 PROBABLITY,90
 PROBABLITY,100
 DOC_SOURCE,Box
-DOC_TYPE,File
-DOC_TYPE,Folder
-DOC_TYPE,External Link
-DOC_TYPE,Uploaded File
+Designation,CEO
+Designation,CTO
+Designation,VP
+Designation,Sr Director
+Designation,Director
+Designation,Manager
+Designation,Team Lead
