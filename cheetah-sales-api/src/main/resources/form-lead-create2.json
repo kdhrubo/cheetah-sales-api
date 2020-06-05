@@ -1,5 +1,5 @@
 {
-	"name": "form-lead-detail",
+	"name": "form-lead-create2",
 	"fields": [
 		
 		{
@@ -47,15 +47,13 @@
 					"key": "designationId",
 					"templateOptions": {
 						"label": "Designation",
-						"val": "designation",
+						"val": "salutation",
 						"domain": "Designation",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				}
-				
-				
 			]
 		},
 		
@@ -63,7 +61,6 @@
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
-				
 				
 				{
 					"className": "col-md-3",
@@ -115,54 +112,8 @@
 		},
 		
 		
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				
-				{
-					"className": "col-md-3",
-					"type": "picklist",
-					"key": "industryId",
-					"templateOptions": {
-						"label": "Industry",
-						"val": "industry",
-						"domain": "INDUSTRY",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				
-				{
-					"className": "col-md-3",
-					"type": "picklist",
-					"key": "leadSourceId",
-					"templateOptions": {
-						"label": "Lead Source",
-						"val": "leadSource",
-						"domain": "LEAD_SOURCE",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				
-				{
-					"className": "col-md-3",
-					"type": "picklist",
-					"key": "leadStatusId",
-					"templateOptions": {
-						"label": "Lead Status",
-						"val": "leadStatus",
-						"domain": "LEAD_STATUS",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				}
-				
-			]
-		},
+		
+		
 		
 		{
 			"fieldGroupClassName": "row",
@@ -170,80 +121,41 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "assignedToId",
+					"key": "email",
 					"templateOptions": {
-						"label": "Assigned To",
+						"label": "Email",
 						"attributes": {
-							"class": "form-control form-control-sm"
+							"class": "form-control form-control-sm",
+							"type": "email"
 						}
 					}
 				},
-				
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "assignedTeam",
+					"key": "phone",
 					"templateOptions": {
-						"label": "Assigned Team",
+						"label": "Phone",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
-				
 				{
 					"className": "col-md-3",
-					"key": "converted",
-					"type": "checkbox",
-					
+					"type": "input",
+					"key": "mobile",
 					"templateOptions": {
-						
-						"label": "Converted"
-					}
-				}
-			]
-		},
-		
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				{
-					"className": "col-md-3",
-					"key": "donotCall",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Donot Call"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "emailOptIn",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Email Opt-in"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "smsOptIn",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "SMS Opt-in"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "notifyOwner",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Notify Owner"
+						"label": "Mobile",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
 					}
 				}
 				
+				
 			]
 		},
-		
-		
 		
 		{
 			"fieldGroupClassName": "row",
