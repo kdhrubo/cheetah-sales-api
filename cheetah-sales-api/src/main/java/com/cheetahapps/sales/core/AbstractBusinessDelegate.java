@@ -10,6 +10,8 @@ import org.springframework.scheduling.annotation.Async;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cheetahapps.sales.problem.NoDataFoundProblem;
+
 import jodd.bean.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 
@@ -65,7 +67,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		Optional<T> t = findById(id);
 
 		if (!t.isPresent()) {
-			throw new RuntimeException(
+			throw new NoDataFoundProblem(
 					"Record with id = " + id + " not found. May be it is already deleted or purged. ");
 		}
 
@@ -116,5 +118,37 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		}
 		return repository.save(t);
 	}
+	
+	@Transactional
+	public T copy(Id id) {
+		Optional<T> t = findById(id);
+
+		if (!t.isPresent()) {
+			throw new NoDataFoundProblem(
+					"Record with given id not found.");
+		}
+		
+		T copied = t.get();
+		
+		//try
+		
+		BeanUtil.declaredSilent.setProperty(copied, "id", null);
+		BeanUtil.declaredSilent.setProperty(copied, "createdDate", null);
+		BeanUtil.declaredSilent.setProperty(copied, "lastModifiedDate", null);
+		BeanUtil.declaredSilent.setProperty(copied, "deleted", false);
+		
+		beforeCopy(copied);
+		
+		save(copied);
+		
+		afterCopy(copied);
+		
+		return copied;
+	}
+	
+	protected void beforeSave(T toBecopied) {}
+	protected void afterSave(T toBecopied) {}
+	protected void beforeCopy(T toBecopied) {}
+	protected void afterCopy(T toBecopied) {}
 
 }

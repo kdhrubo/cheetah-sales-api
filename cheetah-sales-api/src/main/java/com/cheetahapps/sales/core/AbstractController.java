@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jodd.bean.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -39,7 +39,7 @@ public abstract class AbstractController<T, I> {
 
 	}
 
-	@RequestMapping("/findAll/{deleted}")
+	@GetMapping("/findAll/{deleted}")
 	public Page<T> findAllByDeleted(@PathVariable boolean deleted, Pageable pageable) {
 
 		return null;
@@ -67,6 +67,14 @@ public abstract class AbstractController<T, I> {
 
 		return businessDelegate.restore(id);
 
+	}
+	
+
+	@PostMapping("/copy/{id}")
+	public T copy(@PathVariable("id") I id) {
+		log.info("Copy object with id = {}", id);
+		return businessDelegate.copy(id);
+		
 	}
 
 }

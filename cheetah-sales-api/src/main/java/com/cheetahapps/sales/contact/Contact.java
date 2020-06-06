@@ -27,7 +27,7 @@ import java.util.List;
 public class Contact extends ExtensibleBase {
 
 	private String salutationId;
-	
+
 	private String salutation;
 
 	private String firstName;
@@ -38,7 +38,7 @@ public class Contact extends ExtensibleBase {
 	private Date dob;
 
 	private String accountId;
-	
+
 	private String accountName;
 
 	private String designation;
@@ -66,17 +66,28 @@ public class Contact extends ExtensibleBase {
 	private boolean notifyOwner;
 
 	private String description;
-	
-	@Deprecated
-	private List<EmailAddress> emailAddresses;
-	
-	private Emails emails;
-	
+
 	private List<Address> addresses;
-	
-	private List<Phone> phones;
-	
-	private List<Link> links;
-	
+
 	private List<Note> notes;
+
+	private String email;
+	private String otherEmail;
+
+	private String phone;
+	private String otherPhone;
+
+	private String mobile;
+	private String fax;
+
+	// social
+
+	private String website;
+
+	private String twitter;
+
+	private String facebook;
+
+	private String linkedIn;
+
 }
