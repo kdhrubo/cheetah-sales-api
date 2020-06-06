@@ -1,0 +1,56 @@
+{
+	"name": "form-social",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "website",
+					"templateOptions": {
+						"label": "Website",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "twitter",
+					"templateOptions": {
+						"label": "Twitter",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "facebook",
+					"templateOptions": {
+						"label": "Facebook",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "linkedIn",
+					"templateOptions": {
+						"label": "LinkedIn",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}

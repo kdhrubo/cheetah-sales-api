@@ -4,7 +4,6 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.cheetahapps.sales.core.ExtensibleBase;
-import com.cheetahapps.sales.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +23,10 @@ public class Lead extends ExtensibleBase {
 	private String firstName;
 	private String lastName;
 	
+	private String designationId;
 	private String designation;
+	
+	
 	private String department;
 	private String company;
 	private int noOfEmployees;
@@ -41,9 +43,13 @@ public class Lead extends ExtensibleBase {
 	private String otherPhone;
 
 	private String industryId;
-	private String leadSourceId;
-	private String leadStatusId;
+	private String industry;
 	
+	private String leadSourceId;
+	private String leadSource;
+	
+	private String leadStatusId;
+	private String leadStatus;
 
 	private String primaryStreet;
 	private String primaryZip;
@@ -60,6 +66,7 @@ public class Lead extends ExtensibleBase {
 	
 	
 	private String assignedTo;
+	private String assignedToId;
 	
 
 	private Long assignedTeam;

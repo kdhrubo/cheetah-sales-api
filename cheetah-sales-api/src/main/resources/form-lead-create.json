@@ -47,7 +47,7 @@
 					"key": "designationId",
 					"templateOptions": {
 						"label": "Designation",
-						"val": "salutation",
+						"val": "designation",
 						"domain": "Designation",
 						"attributes": {
 							"class": "form-control form-control-sm"
