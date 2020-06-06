@@ -16,12 +16,12 @@ public class NoDataFoundProblem extends AbstractThrowableProblem {
 	@Getter
 	private final String errorCode = "DATA-001";
  
-    public NoDataFoundProblem(String id) {
+    public NoDataFoundProblem(String msg) {
         super(
           TYPE,
           "No data found",
           Status.NOT_FOUND,
-          String.format("No data found for id - %s", id));
+          msg);
     }
  
 }

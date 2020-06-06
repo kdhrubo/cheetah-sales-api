@@ -37,25 +37,11 @@ class ContactController extends AbstractController<Contact, String> {
 	}
 	
 	
-	@PostMapping("/{id}/emails")
-	public Contact addEmailAddress(@PathVariable String id, @RequestBody @Valid Emails emails) {
-		return this.contactBusinessDelegate.addEmailAddressNew(id, emails);
-	}
-	
-	@PostMapping("/{id}/phones")
-	public Contact addPhone(@PathVariable String id, @RequestBody @Valid Phone phone) {
-		return this.contactBusinessDelegate.addPhone(id, phone);
-	}
-	
 	@PostMapping("/{id}/addresses")
 	public Contact addAddress(@PathVariable String id, @RequestBody @Valid Address address) {
 		return this.contactBusinessDelegate.addAddress(id, address);
 	}
 	
-	@PostMapping("/{id}/links")
-	public Contact addLinks(@PathVariable String id, @RequestBody @Valid Link link) {
-		return this.contactBusinessDelegate.addLink(id, link);
-	}
 	
 	@PostMapping("/{id}/notes")
 	public Contact addNotes(@PathVariable String id, @RequestBody @Valid Note note) {

@@ -34,6 +34,14 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 
 		return leadRepository.search(criteria, pageable, Lead.class);
 	}
+	
+	
+
+	@Override
+	protected void beforeCopy(Lead toBecopied) {
+		toBecopied.setFirstName("Copied " + toBecopied.getFirstName());
+		
+	}
 
 	public Lead convert(String id, boolean createDeal, boolean createAccount, boolean createContact) {
 		Optional<Lead> lead = this.repository.findById(id);
