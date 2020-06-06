@@ -32,15 +32,19 @@ public class Lead extends ExtensibleBase {
 	private int noOfEmployees;
 	
 	private double annualRevenue;
-	private String website;
-	private String fax;
+	
+	//currency associated with annual revenue required.
 	
 	private String email;
-	private String phone;
-	private String mobile;
-	
 	private String otherEmail;
+	
+	private String phone;
 	private String otherPhone;
+	
+	private String mobile;
+	private String fax;
+	
+	
 
 	private String industryId;
 	private String industry;
@@ -67,20 +71,16 @@ public class Lead extends ExtensibleBase {
 	
 	private String assignedTo;
 	private String assignedToId;
-	
-
 	private Long assignedTeam;
 
 	private String description;
 
 	private boolean donotCall;
-
 	private boolean emailOptIn;
-	
 	private boolean smsOptIn;
-
 	private boolean notifyOwner;
 	
+	private String website;
 	private String twitter;
 	private String facebook;
 	private String linkedin;
