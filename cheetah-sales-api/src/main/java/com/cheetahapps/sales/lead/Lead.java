@@ -45,7 +45,6 @@ public class Lead extends ExtensibleBase {
 	private String fax;
 	
 	
-
 	private String industryId;
 	private String industry;
 	
@@ -55,19 +54,8 @@ public class Lead extends ExtensibleBase {
 	private String leadStatusId;
 	private String leadStatus;
 
-	private String primaryStreet;
-	private String primaryZip;
-	private String primaryCity;
-	private String primaryState;
-	private String primaryCountry;
-
-	
-	private String secondaryStreet;
-	private String secondaryZip;
-	private String secondaryCity;
-	private String secondaryState;
-	private String secondaryCountry;
-	
+	private Address primaryAddress;
+	private Address secondaryAddress;
 	
 	private String assignedTo;
 	private String assignedToId;
