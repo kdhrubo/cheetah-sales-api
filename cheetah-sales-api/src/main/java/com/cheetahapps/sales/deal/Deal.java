@@ -40,12 +40,13 @@ public class Deal extends ExtensibleBase {
 	private LocalDate expectedClose;
 
 	private String salesStageId; //pl
-	
+	private String salesStage;
 	
 	private String assignedUserId;
 	private String assignedUser;
 	
 	private String leadSourceId; //pl
+	private String leadSource;
 
 	private String nextStep;
 
@@ -55,7 +56,6 @@ public class Deal extends ExtensibleBase {
 
 	private double forecastAmount;
 
-	private String email;
 
 	private String lostReasonId; //pl
 	
