@@ -33,4 +33,12 @@ public class DealBusinessDelegate extends AbstractBusinessDelegate<Deal, String>
 		
 		return dealRepository.search(criteria, pageable, Deal.class);
 	}
+
+	@Override
+	protected void beforeCopy(Deal toBecopied) {
+		log.debug("Copy deal.");
+		toBecopied.setName("Copied " + toBecopied.getName());
+	}
+	
+	
 }

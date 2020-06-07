@@ -24,20 +24,27 @@ public class Deal extends ExtensibleBase {
 
 	private String name;
 
+	
 	private double amount;
 
-	private String contactId; //association 1:1
+	//association 1:1
+	private String contactId; 
+	private String contactName; 
 
-	private String accountId; //association 1:1
+	private String accountId;
+	private String accountName;
+	//association 1:1
 
 	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate expectedClose;
 
 	private String salesStageId; //pl
-
+	
+	
 	private String assignedUserId;
-
+	private String assignedUser;
+	
 	private String leadSourceId; //pl
 
 	private String nextStep;
