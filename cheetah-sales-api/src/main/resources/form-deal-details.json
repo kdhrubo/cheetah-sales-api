@@ -2,15 +2,8 @@
 	"name": "form-deal-details",
 	"fields": [
 		{
-			"className": "section-label",
-			"template": "<div><strong>Deal Basic Information</strong></div>",
-			"sectionLabel": "Basic Information"
-		},
-		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
-			
-				
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -36,7 +29,7 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "input",
+					"type": "contactLookup",
 					"key": "contactId",
 					"templateOptions": {
 						"label": "Contact",
@@ -44,7 +37,7 @@
 							"class": "form-control form-control-sm"
 						}
 					}
-				},				
+				},
 				{
 					"className": "col-md-3",
 					"type": "accountLookup",
@@ -55,13 +48,18 @@
 							"class": "form-control form-control-sm"
 						}
 					}
-				},				
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
 				{
 					"className": "col-md-3",
 					"type": "input",
 					"key": "expectedClose",
 					"templateOptions": {
-						"label": "Date",
+						"label": "Expected Close Date",
 						"attributes": {
 							"class": "form-control form-control-sm",
 							"type": "date"
@@ -75,14 +73,13 @@
 					"templateOptions": {
 						"label": "Sales Stage",
 						"valueProp": "id",
-        				"labelProp": "value",
+						"labelProp": "value",
 						"domain": "SALES_STAGE",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
-				
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -93,7 +90,7 @@
 							"class": "form-control  form-control-sm"
 						}
 					}
-				},				
+				},
 				{
 					"className": "col-md-3",
 					"type": "select",
@@ -101,7 +98,7 @@
 					"templateOptions": {
 						"label": "Lead Source",
 						"valueProp": "id",
-        				"labelProp": "value",
+						"labelProp": "value",
 						"domain": "LEAD_SOURCE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -120,7 +117,7 @@
 					"templateOptions": {
 						"label": "Next Step",
 						"attributes": {
-							"class": "form-control form-control-sm"						
+							"class": "form-control form-control-sm"
 						}
 					}
 				},
@@ -131,7 +128,7 @@
 					"templateOptions": {
 						"label": "Deal Type",
 						"valueProp": "id",
-        				"labelProp": "value",
+						"labelProp": "value",
 						"domain": "DEAL_TYPE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -145,14 +142,13 @@
 					"templateOptions": {
 						"label": "Probablity",
 						"valueProp": "id",
-        				"labelProp": "value",
+						"labelProp": "value",
 						"domain": "PROBABLITY",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
-
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -166,24 +162,12 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "input",
-					"key": "email",
-					"templateOptions": {
-						"label": "Email",
-						"attributes": {
-							"class": "form-control  form-control-sm",
-							"type": "email"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
 					"type": "select",
 					"key": "lostReasonId",
 					"templateOptions": {
 						"label": "Lost Reason",
 						"valueProp": "id",
-        				"labelProp": "value",
+						"labelProp": "value",
 						"domain": "LOST_REASON",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -211,25 +195,9 @@
 							"class": "form-control form-control-sm"
 						}
 					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "leadId",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Lead"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "convertedFromLead",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Converted From Lead"
-					}
 				}
 			]
-		},		
+		},
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [

@@ -1,11 +1,7 @@
 {
-	"name": "deal-form",
+	"name": "form-deal-create",
 	"fields": [
-		{
-			"className": "section-label",
-			"template": "<div><strong>Basic Information</strong></div>",
-			"sectionLabel": "Basic Information"
-		},
+		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
@@ -29,6 +25,7 @@
 					"templateOptions": {
 						"label": "Amount",
 						"required": "true",
+						"type": "number",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -61,7 +58,7 @@
 					"type": "input",
 					"key": "expectedClose",
 					"templateOptions": {
-						"label": "Date",
+						"label": "Expected Close Date",
 						"attributes": {
 							"class": "form-control form-control-sm",
 							"type": "date"
@@ -82,18 +79,7 @@
 						}
 					}
 				},
-				
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "assignedUserId",
-					"templateOptions": {
-						"label": "Assigned User",
-						"attributes": {
-							"class": "form-control  form-control-sm"
-						}
-					}
-				},				
+						
 				{
 					"className": "col-md-3",
 					"type": "select",
@@ -137,69 +123,8 @@
 							"class": "form-control form-control-sm"
 						}
 					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "select",
-					"key": "probablity",
-					"templateOptions": {
-						"label": "Probablity",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "PROBABLITY",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "email",
-					"templateOptions": {
-						"label": "Email",
-						"attributes": {
-							"class": "form-control  form-control-sm",
-							"type": "email"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "select",
-					"key": "lostReasonId",
-					"templateOptions": {
-						"label": "Lost Reason",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "LOST_REASON",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "lostNotes",
-					"templateOptions": {
-						"label": "Lost Notes",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "teamId",
-					"templateOptions": {
-						"label": "Assigned Team",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
 				}
+				
 			]
 		},		
 		{
