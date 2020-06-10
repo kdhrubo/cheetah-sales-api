@@ -97,7 +97,7 @@ public class Product extends Base {
 	
 	private int quantityPerUnit;
 	
-	private int stockUnits;
+	private String stockUnits;
 	
 	private String reorderLevel;
 	
@@ -128,20 +128,20 @@ public class Product extends Base {
 	
 	private String productType;
 	
-	private String prodHeight;
+	private float prodHeight;
 	
-	private float prodHeightUnit;
+	private String prodHeightUnit;
 	
-	private String prodLength;
+	private float prodLength;
 	
-	private float prodLengthUnit;
+	private String prodLengthUnit;
 	
-	private String prodWidth;
+	private float prodWidth;
 	
-	private float prodWidthUnit;
+	private String prodWidthUnit;
 	
-	private String prodWeight;
+	private float prodWeight;
 	
-	private float prodWeightUnit;
+	private String prodWeightUnit;
 
 }
