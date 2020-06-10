@@ -18,7 +18,7 @@ import com.cheetahapps.sales.core.AbstractController;
  * 
  */
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 @Slf4j
 public class ProductController extends AbstractController<Product, String>{
 
@@ -31,7 +31,7 @@ public class ProductController extends AbstractController<Product, String>{
 	}
 
 	
-	@GetMapping("/q")
+	@GetMapping("/search")
 	public Page<Product> search(@RequestParam("rsql") String rsql, Pageable pageable) {
 		log.debug("Search category");
 		return productBusinessDelegate.search(rsql, pageable);
