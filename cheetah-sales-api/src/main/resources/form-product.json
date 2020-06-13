@@ -11,13 +11,10 @@
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"type": "select",
-					"key": "salutationId",
+					"type": "input",
+					"key": "productName",
 					"templateOptions": {
-						"label": "Salutation",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "SALUTATION",
+						"label": "Product Name",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -26,9 +23,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "firstName",
+					"key": "cost",
 					"templateOptions": {
-						"label": "First Name",
+						"label": "Cost",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -37,9 +34,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "lastName",
+					"key": "prodPartNo",
 					"templateOptions": {
-						"label": "Last Name",
+						"label": "Product Part Number",
 						"required": "true",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -49,9 +46,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "designation",
+					"key": "prodSerialNo",
 					"templateOptions": {
-						"label": "Designation",
+						"label": "Product Serial Number",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -60,9 +57,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "department",
+					"key": "manufacturerName",
 					"templateOptions": {
-						"label": "Department",
+						"label": "Manufacturer Name",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -71,9 +68,39 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "company",
+					"key": "manufacturerPartNo",
 					"templateOptions": {
-						"label": "Company",
+						"label": "Manufacturer Part #",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "availability",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Availability"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "isActive",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "isActive"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "parent",
+					"templateOptions": {
+						"label": "Category",
+						"valueProp": "id",
+						"labelProp": "value",
+						"domain": "CATEGORY",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -82,9 +109,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "noOfEmployees",
+					"key": "currency",
 					"templateOptions": {
-						"label": "# of Employees",
+						"label": "Currency",
 						"attributes": {
 							"class": "form-control  form-control-sm"
 						}
@@ -93,93 +120,129 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "annualRevenue",
+					"key": "doa",
 					"templateOptions": {
-						"label": "AnnualRevenue",
-						"attributes": {
-							"class": "form-control  form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "website",
-					"templateOptions": {
-						"label": "Website",
-						"attributes": {
-							"class": "form-control  form-control-sm"
-						}
-					}
-				}
-			]
-		},
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "email",
-					"templateOptions": {
-						"label": "Email",
-						"attributes": {
-							"class": "form-control form-control-sm",
-							"type": "email"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "phone",
-					"templateOptions": {
-						"label": "Phone",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "mobile",
-					"templateOptions": {
-						"label": "Mobile",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "fax",
-					"templateOptions": {
-						"label": "Fax",
-						"attributes": {
-							"class": "form-control  form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "otherEmail",
-					"templateOptions": {
-						"label": "Other Email",
+						"label": "Date of Availability",
 						"attributes": {
 							"class": "form-control  form-control-sm",
-							"type": "email"
+							"type": "date"
 						}
 					}
 				},
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "otherPhone",
+					"key": "dateCostPrice",
 					"templateOptions": {
-						"label": "Other Phone",
+						"label": "Purchase Date",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "vendorName",
+					"templateOptions": {
+						"label": "Vendor Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "vendPartNo",
+					"templateOptions": {
+						"label": "Vendor PartNo",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesStartDate",
+					"templateOptions": {
+						"label": "Sales Start Date",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesEndDate",
+					"templateOptions": {
+						"label": "Sales End Date",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "supportEndDate",
+					"templateOptions": {
+						"label": "Support End Datee",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "productUrl",
+					"templateOptions": {
+						"label": "Product Url",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "generalLedgerAccount",
+					"templateOptions": {
+						"label": "generalLedgerAccount",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "productSheetpath",
+					"templateOptions": {
+						"label": "Product Sheet Path",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "productSku",
+					"templateOptions": {
+						"label": "Product Stock Unit",
 						"attributes": {
 							"class": "form-control  form-control-sm"
 						}
@@ -189,50 +252,19 @@
 		},
 		{
 			"className": "section-label",
-			"template": "<div><strong>Lead Information</strong></div>",
+			"template": "<div><strong>Product Information</strong></div>",
 			"section": true,
-			"sectionLabel": "Lead Information"
+			"sectionLabel": "Product Information"
 		},
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"type": "select",
-					"key": "industryId",
+					"type": "input",
+					"key": "barCode",
 					"templateOptions": {
-						"label": "Industry",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "INDUSTRY",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "select",
-					"key": "leadSourceId",
-					"templateOptions": {
-						"label": "Lead Source",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "LEAD_SOURCE",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "select",
-					"key": "leadStatusId",
-					"templateOptions": {
-						"label": "Lead Status",
-						"valueProp": "id",
-        				"labelProp": "value",
-						"domain": "LEAD_STATUS",
+						"label": "Bar Code",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -241,9 +273,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "assignedTo.id",
+					"key": "externalDisplayUrl",
 					"templateOptions": {
-						"label": "Assigned To",
+						"label": "External Display Url",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -252,9 +284,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "assignedTeam",
+					"key": "externalDataSource",
 					"templateOptions": {
-						"label": "Assigned Team",
+						"label": "External Data Source",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -263,31 +295,9 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "twitter",
+					"key": "externalId",
 					"templateOptions": {
-						"label": "Twitter",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "facebook",
-					"templateOptions": {
-						"label": "Facebook",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-3",
-					"type": "input",
-					"key": "linkedIn",
-					"templateOptions": {
-						"label": "LinkedIn",
+						"label": "External Id",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -300,105 +310,142 @@
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"key": "donotCall",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Donot Call"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "emailOptIn",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Email Opt-in"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "smsOptIn",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "SMS Opt-in"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "notifyOwner",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Notify Owner"
-					}
-				},
-				{
-					"className": "col-md-3",
-					"key": "converted",
-					"type": "checkbox",
-					"templateOptions": {
-						"label": "Converted"
-					}
-				}
-			]
-		},
-		{
-			"className": "section-label",
-			"template": "<div><strong>Primary Address</strong></div>",
-			"section": true,
-			"sectionLabel": "Primary Address"
-		},
-		{
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
-				{
-					"className": "col-md-2",
 					"type": "input",
-					"key": "primaryZip",
+					"key": "ProdCurrency",
 					"templateOptions": {
-						"label": "Primary Zip",
+						"label": "Product Currency",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
-					"className": "col-md-2",
+					"className": "col-md-3",
 					"type": "input",
-					"key": "primaryState",
+					"key": "billingType",
 					"templateOptions": {
-						"label": "Primary State",
+						"label": "Billing Type",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
-					"className": "col-md-2",
+					"className": "col-md-3",
 					"type": "input",
-					"key": "primaryCity",
+					"key": "usageUnits",
 					"templateOptions": {
-						"label": "Primary City",
+						"label": "Usage Units",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
-					"className": "col-md-2",
+					"className": "col-md-3",
 					"type": "input",
-					"key": "primaryCountry",
+					"key": "quantityPerUnit",
 					"templateOptions": {
-						"label": "Primary Country",
+						"label": "Quantity PerUnit",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
 				},
 				{
-					"className": "col-md-4",
-					"type": "textarea",
-					"key": "primaryStreet",
+					"className": "col-md-3",
+					"type": "input",
+					"key": "stockUnits",
 					"templateOptions": {
-						"label": "Primary Street",
+						"label": "Stock Units",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "reorderLevel",
+					"templateOptions": {
+						"label": "reorder Level",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "qtyInDemand",
+					"templateOptions": {
+						"label": "QtyIn Demand",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "handler",
+					"templateOptions": {
+						"label": "Handler",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "supportContact",
+					"templateOptions": {
+						"label": "Support Contact",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "supportDesc",
+					"templateOptions": {
+						"label": "Support Desc",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "supportName",
+					"templateOptions": {
+						"label": "Support Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "tags",
+					"templateOptions": {
+						"label": "Tags",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "prodImagePath",
+					"templateOptions": {
+						"label": "Product Image Path",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -408,9 +455,9 @@
 		},
 		{
 			"className": "section-label",
-			"template": "<div><strong>Secondary Address</strong></div>",
+			"template": "<div><strong>Product Description</strong></div>",
 			"section": true,
-			"sectionLabel": "Secondary Address"
+			"sectionLabel": "Product Details"
 		},
 		{
 			"fieldGroupClassName": "row",
@@ -418,9 +465,9 @@
 				{
 					"className": "col-md-2",
 					"type": "input",
-					"key": "secondaryZip",
+					"key": "commissionRate",
 					"templateOptions": {
-						"label": "Secondary Zip",
+						"label": "Commission Rate",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -429,9 +476,36 @@
 				{
 					"className": "col-md-2",
 					"type": "input",
-					"key": "secondaryState",
+					"key": "taxClass",
 					"templateOptions": {
-						"label": "Secondary State",
+						"label": "Tax Class",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "qtySchedulingEnabled",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Qty Scheduling Enabled"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "revenueSchedulingEnabled",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "revenue Scheduling Enabled"
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "productType",
+					"templateOptions": {
+						"label": "Product Type",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -440,20 +514,9 @@
 				{
 					"className": "col-md-2",
 					"type": "input",
-					"key": "secondaryCity",
+					"key": "prodHeight",
 					"templateOptions": {
-						"label": "Secondary City",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-2",
-					"type": "input",
-					"key": "secondaryCountry",
-					"templateOptions": {
-						"label": "Secondary Country",
+						"label": "product Height",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -461,10 +524,65 @@
 				},
 				{
 					"className": "col-md-4",
-					"type": "textarea",
-					"key": "secondaryStreet",
+					"type": "input",
+					"key": "prodHeightUnit",
 					"templateOptions": {
-						"label": "Secondary Street",
+						"label": "product Heigh tUnit",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "prodLength",
+					"templateOptions": {
+						"label": "Product Length",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "prodLengthUnit",
+					"templateOptions": {
+						"label": "Product Length Unit",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "prodWidth",
+					"templateOptions": {
+						"label": "Product Width",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-2",
+					"type": "input",
+					"key": "prodWidthUnit",
+					"templateOptions": {
+						"label": "Product Width Unit",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "prodWeight",
+					"templateOptions": {
+						"label": "Product Weight",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
