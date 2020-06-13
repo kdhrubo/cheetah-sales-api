@@ -6,7 +6,8 @@ import io.vavr.control.Option;
 
 interface TenantRepository extends MongoRepository<Tenant, String> {
 	
-	Option<Tenant> findFirstByProvisioned(boolean provisioned);
 	TenantView findByCode(String code);
+	
+	Option<Tenant> findByName(String name);
 	
 }

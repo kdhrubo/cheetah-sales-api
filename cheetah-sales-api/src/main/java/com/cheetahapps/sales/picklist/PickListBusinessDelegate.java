@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
-import com.cheetahapps.sales.event.ProvisionTenantEvent;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,8 +43,8 @@ public class PickListBusinessDelegate extends AbstractBusinessDelegate<PickList,
 		return repository.findByDomain(domain);
 	}
 
-	@EventListener
-	public void provision(ProvisionTenantEvent event) {
+	@Transactional
+	public void provision() {
 		log.info("Provisioning picklist -- {}", resource);
 
 		// reading csv file into stream, try-with-resources

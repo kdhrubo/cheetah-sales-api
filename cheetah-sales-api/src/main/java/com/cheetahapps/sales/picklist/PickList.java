@@ -27,17 +27,4 @@ public class PickList extends Base{
 	
 	
 	
-	
-	//contactstatus
-	//contacttype
-	//industry
-	//leadsource
-	//leadtype
-	//lostreason
-	//opportunitytype
-	//rating
-	//salesstage
-	//salution
-	
-	
 }
