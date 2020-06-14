@@ -49,6 +49,9 @@ dependencies {
 	
 	compile group: 'org.jodd', name: 'jodd-core', version: '5.1.4'
 	compile group: 'org.jodd', name: 'jodd-bean', version: '5.1.4'
+	compile group: 'org.jodd', name: 'jodd-mail', version: '5.1.4'
+	
+	compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
 	
 	
 	compile group: 'com.github.rutledgepaulv', name: 'rest-query-engine', version: '0.7.1'
