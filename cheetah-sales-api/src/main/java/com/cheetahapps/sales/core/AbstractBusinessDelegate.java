@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.scheduling.annotation.Async;
 
@@ -13,15 +14,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cheetahapps.sales.problem.NoDataFoundProblem;
 
 import jodd.bean.BeanUtil;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AbstractBusinessDelegate<T, Id> {
 
+	private static final String DELETED = "deleted";
 	protected MongoRepository<T, Id> repository;
+	@Getter
+	@Autowired
+	private MongoOperations mongoOperations;
 
 	@Autowired
-	protected ApplicationEventPublisher eventPublisher;
+	private ApplicationEventPublisher eventPublisher;
 	
 	public void publish(Object event) {
 
@@ -73,7 +79,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 
 		try {
 
-			BeanUtil.declaredForcedSilent.setProperty(t, "deleted", true);
+			BeanUtil.declaredForcedSilent.setProperty(t, DELETED, true);
 		} catch (Exception e) {
 			log.error("Error while setting deleted property in restore - {}", e);
 			throw new RuntimeException("Entity cannot be deleted (soft delete) - " + e.getLocalizedMessage()
@@ -110,7 +116,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 
 		try {
 
-			BeanUtil.declaredForcedSilent.setProperty(t, "deleted", false);
+			BeanUtil.declaredForcedSilent.setProperty(t, DELETED, false);
 		} catch (Exception e) {
 			log.error("Error while setting deleted property in restore - {}", e);
 			throw new RuntimeException("Entity cannot be deleted (soft delete) - " + e.getLocalizedMessage()
@@ -135,7 +141,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		BeanUtil.declaredSilent.setProperty(copied, "id", null);
 		BeanUtil.declaredSilent.setProperty(copied, "createdDate", null);
 		BeanUtil.declaredSilent.setProperty(copied, "lastModifiedDate", null);
-		BeanUtil.declaredSilent.setProperty(copied, "deleted", false);
+		BeanUtil.declaredSilent.setProperty(copied, DELETED, false);
 		
 		beforeCopy(copied);
 		

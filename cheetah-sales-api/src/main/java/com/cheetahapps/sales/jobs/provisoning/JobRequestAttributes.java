@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.jobs;
+package com.cheetahapps.sales.jobs.provisoning;
 
 import java.util.HashMap;
 import java.util.Map;
