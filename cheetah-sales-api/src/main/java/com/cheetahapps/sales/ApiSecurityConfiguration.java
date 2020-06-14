@@ -26,7 +26,7 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private String jwkSetUri;
 
 	private static final String[] AUTHENTICATION_WHITELIST = { "/swagger-resources/**", "/swagger-ui.html",
-			"/v2/api-docs", "/webjars/**" };
+			"/v2/api-docs", "/webjars/**",  "/users/register" };
 
 	@Bean
 	public BCryptPasswordEncoder bcryptPasswordEncoder() {

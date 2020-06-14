@@ -33,7 +33,8 @@ public class User implements Serializable{
 	@Indexed(unique = true)
 	private String email;
 	private String mobile;
-
+	
+	private String password;
 	private String firstName;
 	private String lastName;
 

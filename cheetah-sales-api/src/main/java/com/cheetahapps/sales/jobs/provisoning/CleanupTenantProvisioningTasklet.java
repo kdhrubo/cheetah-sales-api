@@ -1,34 +1,32 @@
 package com.cheetahapps.sales.jobs.provisoning;
 
-import java.util.Map;
 
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
 
-import com.cheetahapps.sales.tenant.Tenant;
-import com.cheetahapps.sales.tenant.TenantBusinessDelegate;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Component
 @RequiredArgsConstructor
-@Deprecated
-public class ProvisionTenantTasklet implements Tasklet {
+public class CleanupTenantProvisioningTasklet implements Tasklet{
+
 	
-	private final TenantBusinessDelegate tenantBusinessDelegate;
 
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-		Map<String,Object> jobExecutionContext = chunkContext.getStepContext().getJobExecutionContext();
-		Tenant tenant = (Tenant)jobExecutionContext.get("tenant");
 		
-		tenantBusinessDelegate.provision(tenant);
+		log.info("Ending provisioning activities.");
 		
+		RequestContextHolder.setRequestAttributes(null);
 		return RepeatStatus.FINISHED;
 	}
-
+	
+	
 }

@@ -3,6 +3,7 @@ package com.cheetahapps.sales.picklist;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -50,16 +51,14 @@ public class PickListBusinessDelegate extends AbstractBusinessDelegate<PickList,
 		// reading csv file into stream, try-with-resources
 		try (Stream<String> stream = Files.lines(Paths.get(resource.getURI()))) {
 
-			stream.map(i -> {
+			List<PickList> fullList = stream.map(i -> {
 
 				String s[] = i.split(",");
 				return PickList.builder().domain(s[0]).value(s[1]).build();
-			}).forEach(i -> {
-
-				this.repository.findByDomainAndValue(i.getDomain(), i.getValue())
-						.onEmpty(() -> this.repository.save(i));
-
-			});
+			}).collect(Collectors.toList());
+			
+			
+			this.repository.saveAll(fullList);
 
 		} catch (Exception e) {
 			log.error("Error loading picklist file - {}", e);

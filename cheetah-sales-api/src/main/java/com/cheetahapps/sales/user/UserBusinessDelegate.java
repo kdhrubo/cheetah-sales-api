@@ -1,5 +1,7 @@
 package com.cheetahapps.sales.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class UserBusinessDelegate extends AbstractBusinessDelegate<User, String>{
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	private UserRepository userRepository;
 	
@@ -36,26 +41,33 @@ public class UserBusinessDelegate extends AbstractBusinessDelegate<User, String>
 			String tenantCode, String tenantName, Role role) {
 		Option<User> usr = findByEmail(email);
 		User user = null;
+		String encryptedPwd = this.passwordEncoder.encode(password);
 		if(usr.isEmpty()) {
 			//create new user with given role
 			
+			log.info("Creating new user.");
+			
 			if(role.isAdmin()) {
-				user = User.builder().email(email).firstName(firstName).lastName(lastName)
+				log.info("admin level.");
+				user = User.builder().email(email).firstName(firstName).lastName(lastName).password(encryptedPwd)
 						.role(role).tenantId(tenantId).tenantCode(tenantCode).tenantName(tenantName)
 						.build();
+				
 			}
 			else {
-				user = User.builder().deleted(true).email(email).firstName(firstName).lastName(lastName)
+				log.info("team member level.");
+				user = User.builder().deleted(true).email(email).firstName(firstName).lastName(lastName).password(encryptedPwd)
 						.role(role).tenantId(tenantId).tenantCode(tenantCode).tenantName(tenantName)
 						.build();
 			}
 		}
 		else {
 			//error - user exists
+			log.info("User already exists - ERROR!!!!");
 		}
 		
 		
-		return user;
+		return save(user);
 	}
 	
 	

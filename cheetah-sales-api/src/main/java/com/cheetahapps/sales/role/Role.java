@@ -1,5 +1,6 @@
 package com.cheetahapps.sales.role;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -20,7 +21,10 @@ import lombok.NoArgsConstructor;
 @Data
 @Document("Role")
 @TypeAlias("Role")
-public class Role {
+public class Role implements Serializable{
+
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String id;

@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.cheetahapps.sales.picklist.PickListBusinessDelegate;
-import com.cheetahapps.sales.role.RoleBusinessDelegate;
 import com.cheetahapps.sales.tenant.Tenant;
 import com.cheetahapps.sales.tenant.TenantBusinessDelegate;
 import com.cheetahapps.sales.user.User;
@@ -29,17 +28,32 @@ public class TenantProvisioningJobConfiguration {
 	private final StepBuilderFactory stepBuilderFactory;
 	private final TenantBusinessDelegate tenantBusinessDelegate;
 	private final UserBusinessDelegate userBusinessDelegate;
-	private final RoleBusinessDelegate roleBusinessDelegate;
 	private final PickListBusinessDelegate pickListBusinessDelegate;
-
-	@Bean("tenantProvisioningJob2")
+	
+	private final CreateUserTasklet createUserTasklet;
+	private final CreateTenantTasklet createTenantTasklet;
+	private final CheckTenantTasklet checkTenantTasklet;
+	private final PrepareTenantProvisioningTasklet prepareTenantProvisioningTasklet;
+	private final CleanupTenantProvisioningTasklet cleanupTenantProvisioningTasklet;
+	
+	
+	//provision ROLE
+	//provision Forms
+	//Provision default price book
+	//Send mail processing 
+	
+	@Bean("tenantProvisioningJob")
 	public Job tenantProvisoningJob() {
-		return this.jobBuilderFactory.get("tenantProvisoningJob2").start(checkTenantStep()).next(createTenantStep())
+		return this.jobBuilderFactory.get("tenantProvisoningJob").start(checkTenantStep()).next(createTenantStep())
 				.next(createUserStep()).next(prepareTenantProvisioningStep()).next(provisionTenantStep())
-				.next(provisionUserStep()).next(provisionPickListStep())
+				.next(provisionUserStep()).next(provisionPickListStep()).next(cleanupTenantProvisioningStep())
 				.build();
 	}
-
+	
+	@Bean
+	public Step cleanupTenantProvisioningStep() {
+		return stepBuilderFactory.get("cleanupTenantProvisioningStep").tasklet(cleanupTenantProvisioningTasklet).build();
+	}
 	
 	@Bean
 	public Step provisionPickListStep() {
@@ -59,25 +73,25 @@ public class TenantProvisioningJobConfiguration {
 
 	@Bean
 	public Step prepareTenantProvisioningStep() {
-		return stepBuilderFactory.get("prepareTenantProvisioningStep").tasklet(prepareTenantProvisioningTasklet())
+		return stepBuilderFactory.get("prepareTenantProvisioningStep").tasklet(prepareTenantProvisioningTasklet)
 				.listener(promotionListener()).build();
 	}
 
 	@Bean
 	public Step createUserStep() {
-		return stepBuilderFactory.get("createUserStep").tasklet(createUserTasklet()).listener(promotionListener())
+		return stepBuilderFactory.get("createUserStep").tasklet(createUserTasklet).listener(promotionListener())
 				.build();
 	}
 
 	@Bean
 	public Step createTenantStep() {
-		return stepBuilderFactory.get("createTenantStep").tasklet(createTenantTasklet()).listener(promotionListener())
+		return stepBuilderFactory.get("createTenantStep").tasklet(createTenantTasklet).listener(promotionListener())
 				.build();
 	}
 
 	@Bean
 	public Step checkTenantStep() {
-		return stepBuilderFactory.get("checkTenantStep").tasklet(checkTenantTasklet()).listener(promotionListener())
+		return stepBuilderFactory.get("checkTenantStep").tasklet(checkTenantTasklet).listener(promotionListener())
 				.build();
 	}
 	
@@ -109,30 +123,6 @@ public class TenantProvisioningJobConfiguration {
 		return adapter;
 	}
 
-	/*
-	 * @Bean public ProvisionTenantTasklet provisionTenantTasklet() { return new
-	 * ProvisionTenantTasklet(this.tenantBusinessDelegate); }
-	 */
-
-	@Bean
-	public PrepareTenantProvisioningTasklet prepareTenantProvisioningTasklet() {
-		return new PrepareTenantProvisioningTasklet();
-	}
-
-	@Bean
-	public CheckTenantTasklet checkTenantTasklet() {
-		return new CheckTenantTasklet(this.tenantBusinessDelegate);
-	}
-
-	@Bean
-	public CreateTenantTasklet createTenantTasklet() {
-		return new CreateTenantTasklet(this.tenantBusinessDelegate);
-	}
-
-	@Bean
-	public CreateUserTasklet createUserTasklet() {
-		return new CreateUserTasklet(this.userBusinessDelegate, this.roleBusinessDelegate);
-	}
 
 	@Bean
 	public ExecutionContextPromotionListener promotionListener() {
