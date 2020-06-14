@@ -29,7 +29,6 @@ public class BatchConfiguration {
 
 	@Bean
 	public JobLauncher asyncJobLauncher() throws Exception {
-		System.out.println("======= config async job launcher =====");
 		SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
 
 		jobLauncher.setJobRepository(jobRepository);

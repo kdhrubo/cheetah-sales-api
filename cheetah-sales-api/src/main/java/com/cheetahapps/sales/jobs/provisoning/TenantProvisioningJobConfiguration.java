@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.cheetahapps.sales.picklist.PickListBusinessDelegate;
+import com.cheetahapps.sales.templates.TemplateBusinessDelegate;
 import com.cheetahapps.sales.tenant.Tenant;
 import com.cheetahapps.sales.tenant.TenantBusinessDelegate;
 import com.cheetahapps.sales.user.User;
@@ -24,17 +25,20 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 public class TenantProvisioningJobConfiguration {
 
+	private static final String PROVISION = "provision";
 	private final JobBuilderFactory jobBuilderFactory;
 	private final StepBuilderFactory stepBuilderFactory;
 	private final TenantBusinessDelegate tenantBusinessDelegate;
 	private final UserBusinessDelegate userBusinessDelegate;
 	private final PickListBusinessDelegate pickListBusinessDelegate;
+	private final TemplateBusinessDelegate mailTemplateBusinessDelegate;
 	
 	private final CreateUserTasklet createUserTasklet;
 	private final CreateTenantTasklet createTenantTasklet;
 	private final CheckTenantTasklet checkTenantTasklet;
 	private final PrepareTenantProvisioningTasklet prepareTenantProvisioningTasklet;
 	private final CleanupTenantProvisioningTasklet cleanupTenantProvisioningTasklet;
+	private final SystemMailServerProvisioningTasklet systemMailServerProvisioningTasklet;
 	
 	
 	//provision ROLE
@@ -45,9 +49,20 @@ public class TenantProvisioningJobConfiguration {
 	@Bean("tenantProvisioningJob")
 	public Job tenantProvisoningJob() {
 		return this.jobBuilderFactory.get("tenantProvisoningJob").start(checkTenantStep()).next(createTenantStep())
-				.next(createUserStep()).next(prepareTenantProvisioningStep()).next(provisionTenantStep())
+				.next(createUserStep())
+				.next(systemMailServerProvisioningStep())
+				.next(prepareTenantProvisioningStep()) //from here data goes to tenant db
+				.next(provisionTenantStep())
 				.next(provisionUserStep()).next(provisionPickListStep()).next(cleanupTenantProvisioningStep())
+				.next(provisionMailTemplateStep())
 				.build();
+	}
+	
+	
+	
+	@Bean
+	public Step provisionMailTemplateStep() {
+		return stepBuilderFactory.get("cleanupTenantProvisioningStep").tasklet(cleanupTenantProvisioningTasklet).build();
 	}
 	
 	@Bean
@@ -76,6 +91,12 @@ public class TenantProvisioningJobConfiguration {
 		return stepBuilderFactory.get("prepareTenantProvisioningStep").tasklet(prepareTenantProvisioningTasklet)
 				.listener(promotionListener()).build();
 	}
+	
+	@Bean
+	public Step systemMailServerProvisioningStep() {
+		return stepBuilderFactory.get("systemMailServerProvisioningStep").tasklet(systemMailServerProvisioningTasklet).listener(promotionListener())
+				.build();
+	}
 
 	@Bean
 	public Step createUserStep() {
@@ -96,10 +117,19 @@ public class TenantProvisioningJobConfiguration {
 	}
 	
 	@Bean
+	public Tasklet provisionMailTemplateTasklet() {
+		MethodInvokingTaskletAdapter adapter = new MethodInvokingTaskletAdapter();
+		adapter.setTargetObject(this.mailTemplateBusinessDelegate);
+		adapter.setTargetMethod(PROVISION);
+		return adapter;
+	}
+	
+	
+	@Bean
 	public Tasklet provisionPickListTasklet() {
 		MethodInvokingTaskletAdapter adapter = new MethodInvokingTaskletAdapter();
 		adapter.setTargetObject(this.pickListBusinessDelegate);
-		adapter.setTargetMethod("provision");
+		adapter.setTargetMethod(PROVISION);
 		return adapter;
 	}
 	
@@ -108,7 +138,7 @@ public class TenantProvisioningJobConfiguration {
 	public Tasklet provisionUserTasklet(@Value("#{jobExecutionContext['user']}") User user) {
 		MethodInvokingTaskletAdapter adapter = new MethodInvokingTaskletAdapter();
 		adapter.setTargetObject(this.userBusinessDelegate);
-		adapter.setTargetMethod("provision");
+		adapter.setTargetMethod(PROVISION);
 		adapter.setArguments(new Object[] { user });
 		return adapter;
 	}
@@ -118,7 +148,7 @@ public class TenantProvisioningJobConfiguration {
 	public Tasklet provisionTenantTasklet(@Value("#{jobExecutionContext['tenant']}") Tenant tenant) {
 		MethodInvokingTaskletAdapter adapter = new MethodInvokingTaskletAdapter();
 		adapter.setTargetObject(this.tenantBusinessDelegate);
-		adapter.setTargetMethod("provision");
+		adapter.setTargetMethod(PROVISION);
 		adapter.setArguments(new Object[] { tenant });
 		return adapter;
 	}
