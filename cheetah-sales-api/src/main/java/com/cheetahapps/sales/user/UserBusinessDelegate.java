@@ -6,7 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
+import com.cheetahapps.sales.problem.DuplicateTenantProblem;
+import com.cheetahapps.sales.problem.DuplicateUserProblem;
 import com.cheetahapps.sales.role.Role;
+import com.cheetahapps.sales.role.RoleBusinessDelegate;
+import com.cheetahapps.sales.tenant.Tenant;
+import com.cheetahapps.sales.tenant.TenantBusinessDelegate;
 
 import io.vavr.control.Option;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +22,12 @@ public class UserBusinessDelegate extends AbstractBusinessDelegate<User, String>
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
 	private UserRepository userRepository;
+	
+	@Autowired
+	private TenantBusinessDelegate tenantBusinessDelegate;
+	@Autowired
+	private RoleBusinessDelegate roleBusinessDelegate;
 	
 	public UserBusinessDelegate(UserRepository userRepository) {
 		super(userRepository);
@@ -37,35 +46,42 @@ public class UserBusinessDelegate extends AbstractBusinessDelegate<User, String>
 	}
 	
 	@Transactional
-	public User create(String firstName, String lastName, String email, String password, String tenantId, 
-			String tenantCode, String tenantName, Role role) {
-		Option<User> usr = findByEmail(email);
-		User user = null;
-		String encryptedPwd = this.passwordEncoder.encode(password);
-		if(usr.isEmpty()) {
-			//create new user with given role
-			
-			log.info("Creating new user.");
-			
-			if(role.isAdmin()) {
-				log.info("admin level.");
-				user = User.builder().email(email).firstName(firstName).lastName(lastName).password(encryptedPwd)
-						.role(role).tenantId(tenantId).tenantCode(tenantCode).tenantName(tenantName)
-						.build();
-				
-			}
-			else {
-				log.info("team member level.");
-				user = User.builder().deleted(true).email(email).firstName(firstName).lastName(lastName).password(encryptedPwd)
-						.role(role).tenantId(tenantId).tenantCode(tenantCode).tenantName(tenantName)
-						.build();
-			}
+	public User register(UserDto userDto) {
+		//check tenant first
+		Option<Tenant> tenant = 
+				tenantBusinessDelegate.findByName(userDto.getCompany());
+	
+		if(!tenant.isEmpty()) {
+			throw new DuplicateTenantProblem("Please contact company admin to signup.");
 		}
-		else {
-			//error - user exists
-			log.info("User already exists - ERROR!!!!");
+				
+
+		Option<User> usr = findByEmail(userDto.getEmail());
+		
+		if(!usr.isEmpty()) {
+			throw new DuplicateUserProblem("User already exists. Forgot password link can be used to recover password.");
 		}
 		
+		//create new tenant
+		
+		Tenant t = tenantBusinessDelegate.create(userDto.getCompany());
+		String encryptedPwd = this.passwordEncoder.encode(userDto.getPassword());
+		Role role = roleBusinessDelegate.getTenantAdmin();
+		
+		return create(userDto, t, encryptedPwd, role);
+	}
+	
+	@Transactional
+	public User create(UserDto userDto, Tenant t, String encryptedPwd, Role role) {
+		
+		User user = User.builder().email(userDto.getEmail())
+				.firstName(userDto.getFirstName())
+				.lastName(userDto.getLastName())
+				.password(encryptedPwd)
+				.role(role)
+				.tenantId(t.getId())
+				.tenantCode(t.getCode())
+				.tenantName(t.getName()).build();
 		
 		return save(user);
 	}
