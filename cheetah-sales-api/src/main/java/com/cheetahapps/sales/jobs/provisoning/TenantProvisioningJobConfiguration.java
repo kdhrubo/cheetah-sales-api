@@ -33,9 +33,6 @@ public class TenantProvisioningJobConfiguration {
 	private final PickListBusinessDelegate pickListBusinessDelegate;
 	private final TemplateBusinessDelegate mailTemplateBusinessDelegate;
 	
-	private final CreateUserTasklet createUserTasklet;
-	private final CreateTenantTasklet createTenantTasklet;
-	private final CheckTenantTasklet checkTenantTasklet;
 	private final PrepareTenantProvisioningTasklet prepareTenantProvisioningTasklet;
 	private final CleanupTenantProvisioningTasklet cleanupTenantProvisioningTasklet;
 	private final SystemMailServerProvisioningTasklet systemMailServerProvisioningTasklet;
@@ -48,16 +45,14 @@ public class TenantProvisioningJobConfiguration {
 	
 	@Bean("tenantProvisioningJob")
 	public Job tenantProvisoningJob() {
-		return this.jobBuilderFactory.get("tenantProvisoningJob").start(checkTenantStep()).next(createTenantStep())
-				.next(createUserStep())
-				.next(systemMailServerProvisioningStep())
+		return this.jobBuilderFactory.get("tenantProvisoningJob").start(systemMailServerProvisioningStep())
+				
 				.next(prepareTenantProvisioningStep()) //from here data goes to tenant db
 				.next(provisionTenantStep())
 				.next(provisionUserStep()).next(provisionPickListStep()).next(cleanupTenantProvisioningStep())
 				.next(provisionMailTemplateStep())
 				.build();
 	}
-	
 	
 	
 	@Bean
@@ -98,23 +93,7 @@ public class TenantProvisioningJobConfiguration {
 				.build();
 	}
 
-	@Bean
-	public Step createUserStep() {
-		return stepBuilderFactory.get("createUserStep").tasklet(createUserTasklet).listener(promotionListener())
-				.build();
-	}
-
-	@Bean
-	public Step createTenantStep() {
-		return stepBuilderFactory.get("createTenantStep").tasklet(createTenantTasklet).listener(promotionListener())
-				.build();
-	}
-
-	@Bean
-	public Step checkTenantStep() {
-		return stepBuilderFactory.get("checkTenantStep").tasklet(checkTenantTasklet).listener(promotionListener())
-				.build();
-	}
+	
 	
 	@Bean
 	public Tasklet provisionMailTemplateTasklet() {
