@@ -55,7 +55,6 @@ public class TenantProvisioningJobConfiguration {
 	}
 	
 	
-	
 	@Bean
 	public Step provisionMailTemplateStep() {
 		return stepBuilderFactory.get("cleanupTenantProvisioningStep").tasklet(cleanupTenantProvisioningTasklet).build();
