@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
+import com.cheetahapps.sales.lead.Lead;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -37,6 +38,12 @@ public class ContactBusinessDelegate extends AbstractBusinessDelegate<Contact, S
 		Criteria criteria = condition.query(new MongoVisitor());
 
 		return contactRepository.search(criteria, pageable, Contact.class);
+	}
+	
+	@Override
+	protected void beforeCopy(Contact toBecopied) {
+		toBecopied.setFirstName("Copied " + toBecopied.getFirstName());
+		
 	}
 
 	public Contact addAddress(String id, Address address) {
