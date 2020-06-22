@@ -6,11 +6,13 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 
 import java.util.Objects;
 
+import org.springframework.context.event.EventListener;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
+import com.cheetahapps.sales.event.ProvisionTenantEvent;
 
 import io.vavr.control.Option;
 import lombok.extern.slf4j.Slf4j;
@@ -33,26 +35,36 @@ public class TenantBusinessDelegate extends AbstractBusinessDelegate<Tenant, Str
 	}
 	
 	@Transactional
-	public void provision(Tenant tenant) {
+	@EventListener
+	public void provision(ProvisionTenantEvent event) {
 		log.info("Provisioning tenant");
-		save(tenant);
+		
+		if(!event.isExistingTenant()) {
+			log.info("Tenant is being provisioned.");
+			save(event.getTenant());
+		}
+		
+	}
+	
+	
+	/**
+	 * Allows creation of a new tenant which is not provisioned.
+	 * @param tenantName
+	 * @return
+	 */
+	@Transactional
+	public Tenant create(String tenantName) {
+		Tenant t = Tenant.builder().name(tenantName).code("T_" + getTenantSeq()).build();
+		return save(t);
 	}
 
-	@Transactional
-	public void markAsProvisioned(Tenant t) {
-		t.setProvisioned(true);
-		save(t);
-	}
 
 	@Transactional(readOnly = true)
 	public TenantView findByCode(String code) {
 		return tenantRepository.findByCode(code);
 	}
 	
-	public Tenant create(String tenantName) {
-		Tenant t = Tenant.builder().name(tenantName).code("T_" + getTenantSeq()).build();
-		return this.tenantRepository.save(t);
-	}
+	
 	
 	private long getTenantSeq() {
 		TenantSequence counter = getMongoOperations().findAndModify(query(where("_id").is("tenant_sequence")),

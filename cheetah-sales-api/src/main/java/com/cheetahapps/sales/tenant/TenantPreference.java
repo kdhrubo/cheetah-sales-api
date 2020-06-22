@@ -1,13 +1,11 @@
 package com.cheetahapps.sales.tenant;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -19,23 +17,34 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-@Document("Tenant")
-@TypeAlias("Tenant")
-public class Tenant implements Serializable{
+@Document("TenantPreference")
+@TypeAlias("TenantPreference")
+public class TenantPreference {
 	
 	
-	private static final long serialVersionUID = 1L;
+	
 
 	@Id
-	private String id;
+	private String tenantId;
 	
-	@Indexed(unique = true)
-	private String name;
+	private String currencyId;
+	private String currency;
 	
-	private String code;
+	private String countryId;
+	private String country;
+	
+	private String timezoneId;
+	private String timeZone;
+	
+	private String languageId;
+	private String languate;
+	
+	private String dateFormatId;
+	private String dateFormat;
 	
 	
-	private boolean deleted;
+	private	Address address;
+	
 	
 	@LastModifiedDate
 	private LocalDateTime lastModifiedDate;

@@ -14,8 +14,6 @@ public class TenantView {
 
 	String id,name,code;
 	
-	Address address;
-	
 	boolean deleted, provisioned;
 	
 	LocalDateTime lastModifiedDate, createdDate;

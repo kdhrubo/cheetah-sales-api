@@ -20,7 +20,7 @@ public final class MultiTenantNimbusJwtDecoder implements JwtDecoder {
 	
 	
 	public static MultiTenantNimbusJwtDecoder withJwkSetUri(String jwkSetUri) {
-		log.info("*** Creating Multi tenant decoder ***");
+		log.debug("*** Creating Multi tenant decoder ***");
 		JwtDecoder ldecoder = NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build();
 		return new MultiTenantNimbusJwtDecoder(ldecoder);
 	}
@@ -30,11 +30,15 @@ public final class MultiTenantNimbusJwtDecoder implements JwtDecoder {
 		log.info("## Multi tenant decoder called ##");
 		Jwt jwt = decoder.decode(token);
 		String tenantId = (String) jwt.getClaims().get("tenantId");
+		String tenantCode = (String) jwt.getClaims().get("tenantCode");
+		String userId = (String) jwt.getClaims().get("userId");
+		String sub = (String) jwt.getClaims().get("sub");
 		
-		log.info("Tenant Id - {}", tenantId);
 		
 		RequestContextHolder.getRequestAttributes().setAttribute("tenantId", tenantId, RequestAttributes.SCOPE_REQUEST);
-		
+		RequestContextHolder.getRequestAttributes().setAttribute("tenantCode", tenantCode, RequestAttributes.SCOPE_REQUEST);
+		RequestContextHolder.getRequestAttributes().setAttribute("userId", userId, RequestAttributes.SCOPE_REQUEST);
+		RequestContextHolder.getRequestAttributes().setAttribute("sub", sub, RequestAttributes.SCOPE_REQUEST);
 		
 		return decoder.decode(token);
 	}
