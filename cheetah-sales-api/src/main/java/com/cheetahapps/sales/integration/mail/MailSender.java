@@ -9,6 +9,7 @@ import com.cheetahapps.sales.setting.Setting;
 import com.cheetahapps.sales.setting.SettingBusinessDelegate;
 import com.cheetahapps.sales.templates.TemplateBusinessDelegate;
 
+import io.vavr.control.Try;
 import jodd.mail.Email;
 import jodd.mail.MailServer;
 import jodd.mail.SendMailSession;
@@ -20,58 +21,46 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class MailSender {
-	
+
 	private final TemplateBusinessDelegate templateBusinessDelegate;
 	private final SettingBusinessDelegate settingBusinessDelegate;
-	
+
 	@Async
 	@EventListener
-	public <T> void send(SendEmailEvent<T> event) throws Exception{
-		
+	public <T> void send(SendEmailEvent<T> event) {
+
 		log.info("Trying to send email via System SMTP");
-		String body = templateBusinessDelegate.getMergedTemplate(event.getTemplateName(), event.getT());
-		
-		log.info("Body - {}", body);
-		Email email = Email.create()
-				.from(event.getName(), event.getFrom())
-				.to(event.getTo())
-				.replyTo(event.getTo())
-				.subject(event.getSubject())
-				.htmlMessage(body);
-		
-		Setting setting = settingBusinessDelegate.findByName(event.getSettingName());
-		
-        try {
-        log.info("Going ....");
-        
-		sendMail(MailSetting.from(setting), email);
-        
-		log.info("Gone ....");
-		
-        }
-        catch(Exception e) {
-        	log.error("Error sending email - ", e);
-        }
+
+		Try.run(() -> {
+
+			String body = templateBusinessDelegate.getMergedTemplate(event.getTemplateName(), event.getT());
+
+			log.info("Body - {}", body);
+			Email email = Email.create().from(event.getName(), event.getFrom()).to(event.getTo()).replyTo(event.getTo())
+					.subject(event.getSubject()).htmlMessage(body);
+
+			Setting setting = settingBusinessDelegate.findByName(event.getSettingName());
+
+			MailSetting mailSetting = new MailSetting();
+
+			sendMail(mailSetting.from(setting), email);
+
+		});
+
 	}
-	
+
 	private void sendMail(MailSetting mailSetting, Email email) {
 		SendMailSession session = smtpServer(mailSetting).createSession();
-	    session.open();
-	    session.sendMail(email);
-	    session.close();
+		session.open();
+		session.sendMail(email);
+		session.close();
 	}
-	
-	private  SmtpServer smtpServer(MailSetting mailSetting) {
-		return MailServer.create()
-	            .ssl(mailSetting.isAllowTls()).host(mailSetting.getServer())
-	            .port(mailSetting.getPort())
-	            .auth(mailSetting.getUser(), mailSetting.getPassword())
-	            .buildSmtpMailServer();
-		
-		
+
+	private SmtpServer smtpServer(MailSetting mailSetting) {
+		return MailServer.create().ssl(mailSetting.isAllowTls()).host(mailSetting.getServer())
+				.port(mailSetting.getPort()).auth(mailSetting.getUser(), mailSetting.getPassword())
+				.buildSmtpMailServer();
+
 	}
-	
 
 }
-
-

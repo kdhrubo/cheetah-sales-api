@@ -1,0 +1,35 @@
+app:
+  mongodb:
+    uri: mongodb+srv://umpun20:xqzeUgbrLiCd2aC3@cluster0-wsps7.mongodb.net/coredb?retryWrites=true&w=majority
+
+spring:
+  security: 
+    oauth2: 
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:7001/auth/.well-known/jwks.json
+
+  jackson:
+    default-property-inclusion: NON_ABSENT
+  
+  batch: 
+    initialize-schema: NEVER
+    job:
+      enabled: false
+      
+  
+smtp:
+  user: support@cheetahdesk.com
+  password: "@Kolkata84"
+  server: smtp.dreamhost.com
+  port: 465
+  useTls: true
+
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.data.mongodb: INFO
+    org.springframework.security: WARN
+    com.box.sdk: DEBUG
+    com.cheetahapps.sales: INFO
+    

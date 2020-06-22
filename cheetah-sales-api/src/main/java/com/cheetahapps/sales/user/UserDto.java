@@ -5,9 +5,18 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
+import com.cheetahapps.sales.role.Role;
+import com.cheetahapps.sales.tenant.Tenant;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto {
 	
 	private String id;
@@ -30,9 +39,11 @@ public class UserDto {
 	@NotEmpty
 	private String company;
 	
-	@NotEmpty
-	private String country;
+	private String tenantId;
+	private String tenantCode;
+	private String tenantName;
 	
+	private boolean deleted;
 	
-
+	private Role role;
 }

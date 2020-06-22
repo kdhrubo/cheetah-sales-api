@@ -15,7 +15,7 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 		super(connectionString);
 	}
 
-	public String DEFAULT_DB = "coredb";
+	public static final String DEFAULT_DB = "coredb";
 
 	@Override
 	public MongoDatabase getMongoDatabase()  {
@@ -24,7 +24,7 @@ public class MultiTenantMongoDbFactory extends SimpleMongoClientDatabaseFactory 
 
 		// Check the RequestContext
 		if (RequestContextHolder.getRequestAttributes() != null) {
-			Object tenant = RequestContextHolder.getRequestAttributes().getAttribute("tenantId",
+			Object tenant = RequestContextHolder.getRequestAttributes().getAttribute("tenantCode",
 					RequestAttributes.SCOPE_REQUEST);
 
 			if (tenant instanceof String) {

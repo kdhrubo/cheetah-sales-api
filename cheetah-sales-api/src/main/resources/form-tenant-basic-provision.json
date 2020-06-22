@@ -1,0 +1,87 @@
+{
+	"name": "form-tenant-basic-provision",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "currency",
+					"templateOptions": {
+						"label": "Basic Currency",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "country",
+					"templateOptions": {
+						"label": "Country",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "timezone",
+					"templateOptions": {
+						"label": "TimeZone",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				}
+				
+			]
+		},
+		
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "language",
+					"templateOptions": {
+						"label": "Language",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "dateFormat",
+					"templateOptions": {
+						"label": "Date Format",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-4",
+					"type": "input",
+					"key": "defaultPage",
+					"templateOptions": {
+						"label": "Default page",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
