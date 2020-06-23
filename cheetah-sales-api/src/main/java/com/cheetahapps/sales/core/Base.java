@@ -8,8 +8,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import com.cheetahapps.sales.user.User;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -25,7 +23,10 @@ public class Base {
 	private int version;
 
 	@CreatedBy
-	private User createdBy;
+	private String createdBy;
+	
+	@LastModifiedBy
+	private String lastModifiedBy;
 
 	@CreatedDate
 	private LocalDateTime createdDate;
@@ -33,7 +34,6 @@ public class Base {
 	@LastModifiedDate
 	private LocalDateTime lastModifiedDate;
 
-	@LastModifiedBy
-	private User lastModifiedBy;
+	
 
 }

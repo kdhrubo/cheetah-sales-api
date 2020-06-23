@@ -5,8 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.cheetahapps.sales.core.ExtensibleBase;
-import com.cheetahapps.sales.domain.Team;
-import com.cheetahapps.sales.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,47 +25,45 @@ import java.util.List;
 public class Contact extends ExtensibleBase {
 
 	private String salutationId;
-
 	private String salutation;
 
 	private String firstName;
-
 	private String lastName;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 
 	private String accountId;
-
 	private String accountName;
-
+	
+	private String designationId;
 	private String designation;
 
 	private String department;
 
-	private Contact reportsTo;
+	private String reportsTo;
+	private String reportsToId;
 
 	private String leadSourceId;
+	private String leadSource;
 
-	private User assignedUser;
-
-	private Team assignedTeam;
+	private String assignedUser;
+	private String assignedUserId;
+	//private Team assignedTeam;
 
 	private String contactTypeId;
 
 	private String contactStatusId;
 
 	private boolean donotCall;
-
 	private boolean emailOptIn;
-
 	private boolean smsOptIn;
-
 	private boolean notifyOwner;
 
 	private String description;
 
-	private List<Address> addresses;
+	private Address primaryAddress;
+	private Address secondaryAddress;
 
 	private List<Note> notes;
 
@@ -82,12 +78,9 @@ public class Contact extends ExtensibleBase {
 
 	// social
 
-	private String website;
-
+	//private String website; 
 	private String twitter;
-
 	private String facebook;
-
-	private String linkedIn;
+	private String linkedin;
 
 }

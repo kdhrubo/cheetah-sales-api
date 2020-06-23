@@ -1,0 +1,30 @@
+{
+	"name": "form-lead-convert",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-4",
+					"key": "createContact",
+					"defaultValue": "true",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Create Contact"
+					}
+				},
+				
+				{
+					"className": "col-md-4",
+					"key": "createAccount",
+					"defaultValue": "true",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Create Account"
+					}
+				}
+			]
+		}
+	]
+}
