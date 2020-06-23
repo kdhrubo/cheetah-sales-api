@@ -8,7 +8,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
-import com.cheetahapps.sales.event.LeadConvertedEvent;
+import com.cheetahapps.sales.event.ConvertLeadEvent;
+import com.cheetahapps.sales.problem.NoDataFoundProblem;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -45,17 +46,19 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 
 	public Lead convert(String id, boolean createDeal, boolean createAccount, boolean createContact) {
 		Optional<Lead> lead = this.repository.findById(id);
+		
 
 		if (lead.isPresent()) {
 			// update status
+			log.info("Starting conversion of lead.");
 			Lead l = lead.get();
 			l.setConverted(true);
 			repository.save(l);
-			this.publish(LeadConvertedEvent.of(l, createDeal, createAccount, createContact));
+			this.publish(ConvertLeadEvent.of(l, createDeal, createAccount, createContact));
 
 			return l;
 		} else {
-			throw new RuntimeException("");
+			throw new NoDataFoundProblem("Lead with given id not found.");
 		}
 
 	}

@@ -1,14 +1,17 @@
 package com.cheetahapps.sales.account;
 
+import java.util.Arrays;
+
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
-import com.cheetahapps.sales.event.LeadConvertedEvent;
+import com.cheetahapps.sales.event.ConvertLeadEvent;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -39,9 +42,34 @@ class AccountBusinessDelegate extends AbstractBusinessDelegate<Account, String> 
 		return repository.search(criteria, pageable, Account.class);
 	}
 	
-	@Async
+
 	@EventListener
-	public void handle(LeadConvertedEvent event) {
+	public void handle(ConvertLeadEvent event) {
+		
+		Iterable<String> fields = Arrays.asList("email", 
+				"otherEmail", "phone", "otherPhone", "mobile", "fax", 
+				"primaryAddress", "secondaryAddress", "description", 
+				"noOfEmployees", "annualRevenue",
+				"website", "twitter", "facebook", "linkedin", 
+				"donotCall", "emailOptIn", "smsOptIn"
+				
+				);
+		
+		if(event.isCreateAccount()) {
+			Account account = Account.builder().build();
+			
+			BeanWrapper srcWrap = PropertyAccessorFactory.forBeanPropertyAccess(event.getLead());
+			BeanWrapper trgWrap = PropertyAccessorFactory.forBeanPropertyAccess(account);
+			
+			fields.forEach(f -> trgWrap.setPropertyValue(f, srcWrap.getPropertyValue(f)));
+			
+			account.setName(event.getLead().getCompany());
+			
+			log.info("Converted account - {}", account);
+			
+			save(account);
+			
+		}
 		
 	}
 	

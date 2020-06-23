@@ -20,6 +20,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class Lead extends ExtensibleBase {
 	private String salutationId;
+	private String salutation;
+	
 	private String firstName;
 	private String lastName;
 	

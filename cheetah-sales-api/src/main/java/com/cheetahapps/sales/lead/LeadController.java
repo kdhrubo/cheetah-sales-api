@@ -2,11 +2,12 @@ package com.cheetahapps.sales.lead;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,12 +45,10 @@ public class LeadController extends AbstractController<Lead, String> {
 		return leadBusinessDelegate.saveAll(leadWrapper.getLeads());
 	}
 
-	@PostMapping("/convert/{id}")
-	public Lead convert(@PathVariable String id,
-			@RequestParam(name = "createDeal", defaultValue = "false") boolean createDeal,
-			@RequestParam(name = "createAccount", defaultValue = "false") boolean createAccount,
-			@RequestParam(name = "createContact", defaultValue = "false") boolean createContact) {
-
-		return null;
+	@PostMapping("/convert")
+	public Lead convert(@RequestBody @Valid ConvertLeadRequest request) {
+		log.info("Starting lead coversion process to deal");
+		return leadBusinessDelegate.convert(request.getId(), request.isCreateDeal(), 
+				request.isCreateAccount(), request.isCreateContact());
 	}
 }
