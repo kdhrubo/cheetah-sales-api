@@ -1,6 +1,7 @@
 package com.cheetahapps.sales.product;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -142,5 +143,7 @@ public class Product extends Base {
 	private float prodWeight;
 
 	private String prodWeightUnit;
+	
+	private List<Lead> leads;
 
 }

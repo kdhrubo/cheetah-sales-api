@@ -1,5 +1,7 @@
 package com.cheetahapps.sales.lead;
 
+import java.util.List;
+
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -77,5 +79,7 @@ public class Lead extends ExtensibleBase {
 	
 
 	private boolean converted;
+	
+	private List<Product> products;
 
 }
