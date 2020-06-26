@@ -1,11 +1,14 @@
 package com.cheetahapps.sales.lead;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ConvertLeadEvent;
@@ -44,10 +47,10 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 		
 	}
 
+	@Transactional
 	public Lead convert(String id, boolean createDeal, boolean createAccount, boolean createContact) {
 		Optional<Lead> lead = this.repository.findById(id);
 		
-
 		if (lead.isPresent()) {
 			// update status
 			log.info("Starting conversion of lead.");
@@ -61,6 +64,59 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 			throw new NoDataFoundProblem("Lead with given id not found.");
 		}
 
+	}
+	
+	@Transactional
+	public Lead addProduct(String id, Product product) {
+		Optional<Lead> lead = this.repository.findById(id);
+		if (lead.isPresent()) {
+			Lead l = lead.get();
+			List<Product> products = l.getProducts();
+			
+			if(products == null) {
+				products = new ArrayList<>();
+			}
+			
+			if(!products.contains(product)) {
+				products.add(product);
+				l.setProducts(products);
+				
+				this.repository.save(l);
+			}
+			
+			
+			
+			
+		} else {
+			throw new NoDataFoundProblem("Lead with given id not found.");
+		}
+
+		return lead.get();
+	}
+	
+	@Transactional
+	public Lead removeProduct(String id, String productId) {
+		Optional<Lead> lead = this.repository.findById(id);
+		Product p = Product.builder().id(productId).build();
+		if (lead.isPresent()) {
+			Lead l = lead.get();
+			List<Product> products = l.getProducts();
+			
+			if(products != null && products.contains(p)) {
+				boolean status = products.remove(p);
+				log.info("Product removed from lead - {}", status);
+				
+				if(status) {
+					this.repository.save(l);
+				}
+			}
+			
+			
+		} else {
+			throw new NoDataFoundProblem("Lead with given id not found.");
+		}
+
+		return lead.get();
 	}
 
 }

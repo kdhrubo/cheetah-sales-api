@@ -1,5 +1,7 @@
 package com.cheetahapps.sales.account;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,33 +23,78 @@ import lombok.NoArgsConstructor;
 public class Account extends ExtensibleBase {
 
 	private String name;
+	
+	private String email;
+	private String website;
+	private String phone;
+	
+	private int noOfEmployees;
+	
+	private String industryId;
+	private String industry;
 
 	private double annualRevenue;
-
-	private int noOfEmployees;
-
-	private String email;
+	
+	
+	// Customer, Competitor, Partner, Analyst, Vendor, Lead, Sales Qualified Lead
+	
+	private String accountType; 
+	private String accountTypeId; 
+	
+	private String ownerShip;
+	
+	private String tickerSymbol;
+	
+	private String assignedUserId;
+	private String assignedUserName;
+	
+	private boolean notifyOwner;
+	
+	private String sicCode;
+	
+	private String orgNum;
+	
+	private boolean fromLead;
+	
+	private String twitter;
+	
+	private String source;
+	private String externalId;
+	
+	private LocalDateTime lastContactedOn;
+	private String lastConcatedVia;
+	
+	private String slaId;
+	private String sla; 
+	
+	private String emailDomain;
+	
+	
+	//Active, Inactive
+	private String organizationStatusId;
+	private String organizationStatus;
+	
+	private String territoryId; //sometimes called region
+	private String territory;
+	
+	private int profileScore;
+	private float profileRating;
+	
+	
 	private String otherEmail;
 
-	private String phone;
+	
 	private String otherPhone;
 
 	private String mobile;
 	private String fax;
 
-
-	private String assignedUserId;
-	private String assignedUserName;
-	private String assignedTeamId;
-
-	private String industryId;
-	private String industry;
+	
 
 	private String leadTypeId;
 	private String leadTypeName;
 
-	private String ratingId;
-	private String ratingValue;
+	
 
 	
 
@@ -56,8 +103,8 @@ public class Account extends ExtensibleBase {
 
 	private String description;
 
-	private String website;
-	private String twitter;
+	
+	
 	private String facebook;
 	private String linkedin;
 	
@@ -65,5 +112,20 @@ public class Account extends ExtensibleBase {
 	private boolean emailOptIn;
 	private boolean smsOptIn;
 	
-
+	
+	//RELATIONS
+	//1. TASKS
+	//2. MEETINGS
+	//3. TODOS
+	//4. NOTES
+	//5. EMAILS
+	//6. WORKORDERS
+	//7. DOCUMENTS
+	//8. PRODUCTS
+	//9. SERVICE CONTRACTS
+	//10. EMAILLIST & CAMPAIGNS
+	//11. SMS
+	
+	
+	
 }
