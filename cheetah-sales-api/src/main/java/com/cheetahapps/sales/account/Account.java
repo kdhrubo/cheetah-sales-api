@@ -57,9 +57,7 @@ public class Account extends ExtensibleBase {
 	private boolean fromLead;
 	
 	private String twitter;
-	
-	private String source;
-	private String externalId;
+
 	
 	private LocalDateTime lastContactedOn;
 	private String lastConcatedVia;

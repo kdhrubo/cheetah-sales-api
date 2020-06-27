@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.documents;
+package com.cheetahapps.sales.document;
 
 import java.util.List;
 
@@ -17,7 +17,6 @@ import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
 
 import lombok.extern.slf4j.Slf4j;
 
-//TODO Better error chekcs and handling required.
 
 @Slf4j
 @Component

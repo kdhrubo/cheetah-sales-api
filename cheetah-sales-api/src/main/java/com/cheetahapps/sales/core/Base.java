@@ -34,6 +34,8 @@ public class Base {
 	@LastModifiedDate
 	private LocalDateTime lastModifiedDate;
 
+	private String source;
 	
+	private String externalSourceId;
 
 }

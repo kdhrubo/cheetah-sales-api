@@ -25,16 +25,11 @@ import lombok.NoArgsConstructor;
 public class PriceBook extends Base {
 	
 	
+	private String name;
 	
-	private String priceBookName;
-	
-	private boolean active;
+	private String description;
 	
 	private boolean isStandard;
 	
-	private String externalDataSrc;
 	
-	private String externalId;
-	
-	private String description;
 }
