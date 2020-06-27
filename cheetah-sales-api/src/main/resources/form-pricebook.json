@@ -1,0 +1,81 @@
+{
+	"name": "form-price-book",
+	"fields": [
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "priceBookName",
+					"templateOptions": {
+						"label": "Price Book Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "externalDataSrc",
+					"templateOptions": {
+						"label": "External Data Source",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "externalId",
+					"templateOptions": {
+						"label": "External Id",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"key": "active",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Active"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "isStandard",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Standard"
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "2",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
