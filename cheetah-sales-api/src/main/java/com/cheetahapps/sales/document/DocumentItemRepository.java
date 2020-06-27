@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.documents;
+package com.cheetahapps.sales.document;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;

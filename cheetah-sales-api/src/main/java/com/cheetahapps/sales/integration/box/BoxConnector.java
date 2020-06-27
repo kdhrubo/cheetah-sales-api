@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import com.box.sdk.BoxFile;
 import com.box.sdk.BoxFolder;
 import com.box.sdk.BoxTransactionalAPIConnection;
-import com.cheetahapps.sales.documents.CreateFileEvent;
-import com.cheetahapps.sales.documents.CreateFolderEvent;
+import com.cheetahapps.sales.document.CreateFileEvent;
+import com.cheetahapps.sales.document.CreateFolderEvent;
 
 import io.vavr.control.Option;
 import io.vavr.control.Try;

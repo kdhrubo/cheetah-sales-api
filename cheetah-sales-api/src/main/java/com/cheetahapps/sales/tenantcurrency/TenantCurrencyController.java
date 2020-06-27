@@ -39,6 +39,7 @@ public class TenantCurrencyController extends AbstractController<TenantCurrency,
 		return tenantCurrencyBusinessDelegate.search(rsql, pageable);
 	}
 	
+	@Deprecated
 	@PostMapping("/savelist")
 	public List<TenantCurrency> saveAll(@RequestBody TenantCurrencyList tenantCurrencyWrapper) {
 		log.info("## In saveAll --> {}", tenantCurrencyWrapper);

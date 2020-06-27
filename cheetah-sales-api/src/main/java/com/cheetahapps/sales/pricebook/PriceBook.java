@@ -24,15 +24,12 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class PriceBook extends Base {
 	
-	private boolean active;
 	
-	private String priceBookName;
+	private String name;
 	
 	private String description;
 	
 	private boolean isStandard;
 	
-	private String externalDataSrc;
 	
-	private String externalId;
 }
