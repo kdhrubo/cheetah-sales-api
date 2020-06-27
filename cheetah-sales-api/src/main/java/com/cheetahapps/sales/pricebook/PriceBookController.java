@@ -18,7 +18,7 @@ import com.cheetahapps.sales.core.AbstractController;
  * 
  */
 @RestController
-@RequestMapping("/pricebook")
+@RequestMapping("/pricebooks")
 @Slf4j
 public class PriceBookController extends AbstractController<PriceBook, String>{
 
@@ -31,7 +31,7 @@ public class PriceBookController extends AbstractController<PriceBook, String>{
 	}
 
 	
-	@GetMapping("/q")
+	@GetMapping("/search")
 	public Page<PriceBook> search(@RequestParam("rsql") String rsql, Pageable pageable) {
 		log.debug("Search price book");
 		return priceBookBusinessDelegate.search(rsql, pageable);
