@@ -1,0 +1,33 @@
+package com.cheetahapps.sales.productprice;
+
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
+import com.cheetahapps.sales.core.Base;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+/**
+ * 
+ * @author Rajiv
+ * @Description: POJO for Price Book table in Mongo database
+ */
+
+@Document("PriceBook")
+@TypeAlias("PriceBook")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+public class PriceBook extends Base {
+
+	private String name;
+
+	private String description;
+
+	private boolean isStandard;
+
+}
