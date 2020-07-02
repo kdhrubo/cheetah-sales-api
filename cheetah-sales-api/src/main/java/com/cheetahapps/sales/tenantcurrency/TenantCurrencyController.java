@@ -1,9 +1,13 @@
 package com.cheetahapps.sales.tenantcurrency;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +43,6 @@ public class TenantCurrencyController extends AbstractController<TenantCurrency,
 		return tenantCurrencyBusinessDelegate.search(rsql, pageable);
 	}
 	
-	@Deprecated
 	@PostMapping("/savelist")
 	public List<TenantCurrency> saveAll(@RequestBody TenantCurrencyList tenantCurrencyWrapper) {
 		log.info("## In saveAll --> {}", tenantCurrencyWrapper);
@@ -47,5 +50,11 @@ public class TenantCurrencyController extends AbstractController<TenantCurrency,
 		return this.tenantCurrencyBusinessDelegate.saveAll(tenantCurrencyWrapper.getTenantCurrency());
 	}
 	
-
+	@PostMapping("/{id}/rate")
+	public ConversionRate addConversionRate(@PathVariable String id,
+			@RequestBody @Valid ConversionRate rate) {
+		return this.tenantCurrencyBusinessDelegate.addConversionRate(id, rate);
+		
+		
+	}
 }
