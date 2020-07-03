@@ -3,6 +3,7 @@ package com.cheetahapps.sales.productprice;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.cheetahapps.sales.core.Base;
 import com.cheetahapps.sales.core.ExtensibleBase;
 import com.cheetahapps.sales.lead.Product;
 
@@ -25,11 +26,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ProductPrice extends ExtensibleBase {
+public class ProductPrice extends Base {
 
 	private Boolean active;
 
 	private Currency currency;
+	
+	private Double listPrice;
 
 //	private List<Price> priceList;      //TODO : Align it 
 

@@ -1,8 +1,5 @@
 package com.cheetahapps.sales.productprice;
 
-import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.mapping.Document;
-import com.cheetahapps.sales.core.Base;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,19 +12,16 @@ import lombok.NoArgsConstructor;
  * @Description: POJO for Price Book table in Mongo database
  */
 
-@Document("PriceBook")
-@TypeAlias("PriceBook")
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class PriceBook extends Base {
+@EqualsAndHashCode(of = { "id" })
+public class PriceBook  {
+	
+	private String id;
 
-	private String name;
-
-	private String description;
-
-	private boolean isStandard;
+	private String priceBookName;
 
 }

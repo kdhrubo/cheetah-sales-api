@@ -15,10 +15,6 @@ public class Product {
 
 	private String id;
 
-	private String name;
+	private String productName;
 
-	private float cost;
-
-	private String currencyId;
-	private String currency;
 }
