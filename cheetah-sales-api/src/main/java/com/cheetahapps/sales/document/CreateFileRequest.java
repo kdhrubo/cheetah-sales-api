@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
-class CreateMultipartDocumentItemRequest {
+class CreateFileRequest {
 	private String name;
 	private String parentName;
 	private String parentId;

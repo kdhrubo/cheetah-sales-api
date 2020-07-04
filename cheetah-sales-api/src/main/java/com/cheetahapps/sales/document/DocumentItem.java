@@ -3,7 +3,7 @@ package com.cheetahapps.sales.document;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.cheetahapps.sales.core.ExtensibleBase;
+import com.cheetahapps.sales.core.Base;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,27 +18,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-class DocumentItem extends ExtensibleBase{
-	
-	private String title;
+class DocumentItem extends Base{
 	
 	private String name;
-	private String parentName;
-	
-	private String externalId;
-	
-	private String externalParentId;
-	
-	private String externalParentName;
-	
-	private String documentSourceId;
-	
-	private String documentSource;
-	
-	private String documentType;
-	
-	private String documentTypeId;
-	
-	
+	private String container;
+	private String path;
 	private String extension; 
+	private DocType type;
+}
+
+enum DocType {
+	FILE,FOLDER,LINK
 }

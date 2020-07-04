@@ -1,6 +1,5 @@
 package com.cheetahapps.sales.document;
 
-import io.vavr.control.Option;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,11 +12,7 @@ import lombok.NoArgsConstructor;
 public class CreateFolderEvent {
 	
 	private String name;
+	private String container;
 	
-	private String documentSourceId;
-	private String documentSource;
-
-	private String externalId;
-	private Option<String> externalParentId;
-	private Option<String> externalParentName;
+	private String root;
 }

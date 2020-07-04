@@ -23,33 +23,31 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 		'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 		'org.springframework.boot:spring-boot-starter-web'
+	implementation 		'org.springframework.boot:spring-boot-starter-validation'
+	implementation 		'org.springframework.boot:spring-boot-starter-batch'
 	
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	compileOnly 		'org.projectlombok:lombok'
+	developmentOnly 	'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	
-	compile 'io.vavr:vavr:0.10.2'
-	compile 'org.springframework.security:spring-security-oauth2-resource-server'
+	compile 			'io.vavr:vavr:0.10.2'
 	
-	 
-	compile 'org.springframework.security:spring-security-oauth2-jose'	
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	compile 			'org.springframework.security:spring-security-oauth2-resource-server'
+	compile 			'org.springframework.security:spring-security-oauth2-jose'	
+	implementation 		'org.springframework.boot:spring-boot-starter-security'
 	
 	//integration packs
 	
-	implementation 'com.github.seratch:jslack-api-client:3.3.0'
-	implementation 'com.amazonaws:aws-java-sdk-s3:1.11.788'
-	implementation 'com.box:box-java-sdk:2.47.0'
+	implementation 		'com.github.seratch:jslack-api-client:3.3.0'
+	implementation 		'com.amazonaws:aws-java-sdk-s3:1.11.815'
 	
 	
-	compile group: 'org.jodd', name: 'jodd-core', version: '5.1.4'
-	compile group: 'org.jodd', name: 'jodd-bean', version: '5.1.4'
-	compile group: 'org.jodd', name: 'jodd-mail', version: '5.1.4'
+	compile 			'org.jodd:jodd-core:5.1.4'
+	compile 			'org.jodd:jodd-bean:5.1.4'
+	compile 			'org.jodd:jodd-mail:5.1.4'
 	
 	compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
 	

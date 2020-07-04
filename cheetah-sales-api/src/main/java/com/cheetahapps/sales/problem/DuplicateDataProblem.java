@@ -7,21 +7,21 @@ import org.zalando.problem.Status;
 
 import lombok.Getter;
 
-public class DuplicateUserProblem extends AbstractThrowableProblem {
+public class DuplicateDataProblem extends AbstractThrowableProblem {
  
    
 	private static final long serialVersionUID = 1L;
 	private static final URI TYPE
-      = URI.create("https://nirvaanacrm.com/users/duplicate");
+      = URI.create("https://nirvaanacrm.com/error");
 	@Getter
-	private final String errorCode = "USER-001";
+	private final String errorCode = "DATA-002";
  
-    public DuplicateUserProblem(String email) {
+    public DuplicateDataProblem(String msg) {
         super(
           TYPE,
-          "Duplicate User",
+          "Duplicate Data",
           Status.CONFLICT,
-          String.format("User with email '%s' already exists.", email));
+           msg);
     }
  
 }

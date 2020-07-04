@@ -12,7 +12,7 @@ public class NoDataFoundProblem extends AbstractThrowableProblem {
    
 	private static final long serialVersionUID = 1L;
 	private static final URI TYPE
-      = URI.create("https://nirvaanacrm.com/not-found");
+      = URI.create("https://nirvaanacrm.com/error");
 	@Getter
 	private final String errorCode = "DATA-001";
  
