@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import com.cheetahapps.sales.core.AbstractController;
@@ -30,29 +32,21 @@ class DocumentItemController extends AbstractController<DocumentItem, String> {
 	}
 	
 	@PostMapping("/folders")
-	public DocumentItem createFolder(@Valid @RequestBody CreateDocumentItemRequest request) {
-		
+	public DocumentItem createFolder(@Valid @RequestBody CreateFolderRequest request, @AuthenticationPrincipal Jwt jwt) {
+		log.info("Request - {}", request);
+		String tenantCode = jwt.getClaimAsString("tenantCode"); // get it from request context or create argument handler
+		request.setRoot(tenantCode);
 		return documentItemBusinessDelegate.createFolder(request);
-		
 	}
 	
 	@PostMapping("/files")
-	public DocumentItem createFile(CreateMultipartDocumentItemRequest request) {
+	public DocumentItem createFile(CreateFileRequest request, @AuthenticationPrincipal Jwt jwt) {
 		log.info("request -> " + request);
-		
+		String tenantCode = jwt.getClaimAsString("tenantCode"); // get it from request context or create argument handler
+		request.setRoot(tenantCode);
 		return documentItemBusinessDelegate.createFile(request);
 		
-		
 	}
-	
-	/*
-	@PostMapping("/link")
-	public DocumentItem createLink(@Valid @RequestBody CreateDocumentItemRequest request) {
-		
-		return documentItemBusinessDelegate.createFolder(request.getParentId(),request.getFolder(), request.getDocumentSource(), 
-				request.getDocumentSourceId(), request.getDocumentType(), request.getDocumentTypeId());
-		
-	}*/
 	
 	
 }

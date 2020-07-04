@@ -54,7 +54,7 @@ public class TenantBusinessDelegate extends AbstractBusinessDelegate<Tenant, Str
 	 */
 	@Transactional
 	public Tenant create(String tenantName) {
-		Tenant t = Tenant.builder().name(tenantName).code("T_" + getTenantSeq()).build();
+		Tenant t = Tenant.builder().name(tenantName).code("tenant-" + getTenantSeq()).build();
 		return save(t);
 	}
 

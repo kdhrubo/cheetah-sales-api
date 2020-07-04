@@ -1,27 +1,16 @@
 package com.cheetahapps.sales.document;
 
-import org.springframework.web.multipart.MultipartFile;
+import java.io.InputStream;
 
-import io.vavr.control.Option;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+import lombok.Value;
+
+@Value(staticConstructor = "of")
 public class CreateFileEvent {
 	
-	private String name;
+	String container,name, root;
+	long size;
+	InputStream input;
 	
-	private String documentSourceId;
-	private String documentSource;
-
-	private String externalId;
-	private Option<String> externalParentId;
-	private Option<String> externalParentName;
 	
-	private MultipartFile file;
 }

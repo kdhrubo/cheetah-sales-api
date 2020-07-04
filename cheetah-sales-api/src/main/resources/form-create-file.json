@@ -1,5 +1,5 @@
 {
-	"name": "create-file-form",
+	"name": "form-create-file",
 	"fields": [
 		
 		{
@@ -15,23 +15,7 @@
 							"class": "form-control form-control-sm"
 						}
 					}
-				},
-				
-				{
-					"className": "col-md-6",
-					"type": "picklist",
-					"key": "documentSourceId",
-					"templateOptions": {
-						"required": "true",
-						"label": "Source",
-						"val": "documentSource",
-						"domain": "DOC_SOURCE",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
 				}
-				
 			]
 		}
 	]

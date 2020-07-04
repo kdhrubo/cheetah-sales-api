@@ -1,11 +1,10 @@
 package com.cheetahapps.sales.document;
 
-import lombok.Value;
 
+import lombok.Data;
 
-@Value(staticConstructor = "of")
-public class CreateFolderEvent {
-	
+@Data
+class CreateFolderRequest {
 	private String name;
 	private String container;
 	
