@@ -9,6 +9,7 @@ import io.vavr.control.Option;
 
 interface DocumentItemRepository extends MongoRepository<DocumentItem, String>, SearchRepositoryCustom<DocumentItem> {
 	
-	Option<DocumentItem> findByPath(String container);
+	Option<DocumentItem> findByPath(String path);
+	Option<DocumentItem> findByContainer(String container);
 
 }

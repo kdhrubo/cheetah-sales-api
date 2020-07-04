@@ -1,14 +1,9 @@
 package com.cheetahapps.sales.document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Value;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+
+@Value(staticConstructor = "of")
 public class CreateFolderEvent {
 	
 	private String name;

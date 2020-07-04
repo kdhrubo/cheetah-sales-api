@@ -40,23 +40,13 @@ class DocumentItemController extends AbstractController<DocumentItem, String> {
 	}
 	
 	@PostMapping("/files")
-	public DocumentItem createFile(CreateFileRequest request) {
+	public DocumentItem createFile(CreateFileRequest request, @AuthenticationPrincipal Jwt jwt) {
 		log.info("request -> " + request);
-		
-		//return documentItemBusinessDelegate.createFile(request);
-		
-		return null;
+		String tenantCode = jwt.getClaimAsString("tenantCode"); // get it from request context or create argument handler
+		request.setRoot(tenantCode);
+		return documentItemBusinessDelegate.createFile(request);
 		
 	}
-	
-	/*
-	@PostMapping("/link")
-	public DocumentItem createLink(@Valid @RequestBody CreateDocumentItemRequest request) {
-		
-		return documentItemBusinessDelegate.createFolder(request.getParentId(),request.getFolder(), request.getDocumentSource(), 
-				request.getDocumentSourceId(), request.getDocumentType(), request.getDocumentTypeId());
-		
-	}*/
 	
 	
 }

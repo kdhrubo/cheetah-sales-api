@@ -25,6 +25,9 @@ class DocumentItem extends Base{
 	private String path;
 	private String extension; 
 	private DocType type;
+	private long size;
+	private String contentType;
+	
 }
 
 enum DocType {

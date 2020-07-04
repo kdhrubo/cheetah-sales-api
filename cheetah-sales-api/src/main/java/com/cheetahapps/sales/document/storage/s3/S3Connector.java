@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.cheetahapps.sales.document.CreateFileEvent;
 import com.cheetahapps.sales.document.CreateFolderEvent;
 import com.cheetahapps.sales.document.CreateRootEvent;
 
@@ -60,6 +61,31 @@ public class S3Connector {
 		// create a PutObjectRequest passing the folder name suffixed by /
 		PutObjectRequest putObjectRequest = new PutObjectRequest(event.getRoot(),
 				folderName, emptyContent, metadata);
+		// send request to S3 to create folder
+		s3client.putObject(putObjectRequest);
+
+	}
+	
+	@EventListener
+	public void createFileHandler(CreateFileEvent event) {
+		log.info("Create folder event - {}", event);
+		String container = event.getContainer();
+		String path = StringUtil.replaceFirst(container, "/", "") + "/" + event.getName();
+
+		if (StringUtil.equals(container, "/")) {
+			path = event.getName();
+		}
+		
+		
+		log.info("path - {}", path);
+		
+		// create meta-data for your folder and set content-length to 0
+		ObjectMetadata metadata = new ObjectMetadata();
+		metadata.setContentLength(event.getSize());
+		
+		// create a PutObjectRequest passing the folder name suffixed by /
+		PutObjectRequest putObjectRequest = new PutObjectRequest(event.getRoot(),
+				path, event.getInput(), metadata);
 		// send request to S3 to create folder
 		s3client.putObject(putObjectRequest);
 

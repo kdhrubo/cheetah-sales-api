@@ -6,12 +6,9 @@ import lombok.Data;
 
 @Data
 class CreateFileRequest {
-	private String name;
-	private String parentName;
-	private String parentId;
-	private String documentSourceId;
-	private String documentSource;
 	
+	private String container;
 	private MultipartFile file;
 	
+	private String root;
 }
