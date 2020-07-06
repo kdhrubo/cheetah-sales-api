@@ -21,20 +21,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Account extends ExtensibleBase {
-
+	
+	//row 1
 	private String name;
-	
-	private String email;
 	private String website;
-	private String phone;
-	
 	private int noOfEmployees;
-	
-	private String industryId;
-	private String industry;
-
 	private double annualRevenue;
 	
+	//row 2
+	private String email;
+	private String otherEmail;
+	private String phone;
+	private String otherPhone;
+	
+	//row 3
+	
+	private String fax;
+	private String twitter;
+	private String facebook;
+	private String linkedin;
+	
+	
+	//row 4
+	private String industryId;
+	private String industry;
 	
 	// Customer, Competitor, Partner, Analyst, Vendor, Lead, Sales Qualified Lead
 	
@@ -42,73 +52,53 @@ public class Account extends ExtensibleBase {
 	private String accountTypeId; 
 	
 	private String ownerShip;
-	
 	private String tickerSymbol;
 	
+	//row 5
 	private String assignedUserId;
 	private String assignedUserName;
 	
-	private boolean notifyOwner;
-	
-	private String sicCode;
-	
-	private String orgNum;
-	
-	private boolean fromLead;
-	
-	private String twitter;
-
-	
-	private LocalDateTime lastContactedOn;
-	private String lastConcatedVia;
-	
-	private String slaId;
-	private String sla; 
-	
-	private String emailDomain;
-	
-	
-	//Active, Inactive
-	private String organizationStatusId;
-	private String organizationStatus;
+	private String accountStatusId;
+	private String accountStatus;
 	
 	private String territoryId; //sometimes called region
 	private String territory;
 	
-	private int profileScore;
-	private float profileRating;
-	
-	
-	private String otherEmail;
+	private String slaId;
+	private String sla; 
 
-	
-	private String otherPhone;
-
-	private String mobile;
-	private String fax;
-
-	
-
-	private String leadTypeId;
-	private String leadTypeName;
-
-	
-
-	
-
-	private Address primaryAddress;
-	private Address secondaryAddress;
-
-	private String description;
-
-	
-	
-	private String facebook;
-	private String linkedin;
+	//row 6
 	
 	private boolean donotCall;
 	private boolean emailOptIn;
 	private boolean smsOptIn;
+	private boolean notifyOwner;
+	
+	//row 7
+	private LocalDateTime lastContactedOn;
+	private String lastConcatedVia;
+	private int profileScore;
+	private float profileRating;
+	
+	//Active, Inactive
+	
+	//row 8
+	private Address primaryAddress;
+	
+	//row 9
+	private Address secondaryAddress;
+
+	//row 10
+	private String description;
+
+	
+	
+	// row 4
+	//private String sicCode;
+	//private String orgNum;
+	private boolean fromLead; // not shown in form
+	private String leadId; // not shown in form
+	
 	
 	
 	//RELATIONS

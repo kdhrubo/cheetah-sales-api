@@ -33,8 +33,7 @@ smtp:
 logging:
   level:
     org.springframework: INFO
-    org.springframework.data.mongodb: INFO
+    org.springframework.data.mongodb: DEBUG
     org.springframework.security: WARN
-    com.box.sdk: DEBUG
     com.cheetahapps.sales: INFO
     
