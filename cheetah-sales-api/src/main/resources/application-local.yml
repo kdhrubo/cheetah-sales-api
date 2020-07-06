@@ -5,15 +5,11 @@ app:
     s3:
       accessKeyId: AKIAX226J2W5KBUW4T5D
       accessKeySecret: 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
-  
+  authz:
+    jwt:
+      issuer: http://localhost:7001/auth/issuer
   
 spring:
-  security: 
-    oauth2: 
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:7001/auth/.well-known/jwks.json
-
   jackson:
     default-property-inclusion: NON_ABSENT
   
@@ -33,7 +29,8 @@ smtp:
 logging:
   level:
     org.springframework: INFO
-    org.springframework.data.mongodb: DEBUG
-    org.springframework.security: WARN
+    org.springframework.data.mongodb: INFO
+    org.springframework.security: INFO
     com.cheetahapps.sales: INFO
+    org.springframework.web.client: INFO
     

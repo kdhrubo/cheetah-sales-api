@@ -21,8 +21,8 @@ import com.cheetahapps.sales.security.MultiTenantNimbusJwtDecoder;
 @RequiredArgsConstructor
 public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
-	private String jwkSetUri;
+	@Value("${app.authz.jwt.issuer}")
+	private String issuer;
 
 	private static final String[] AUTHENTICATION_WHITELIST = { "/swagger-resources/**", "/swagger-ui.html",
 			"/v2/api-docs", "/webjars/**",  "/users/register" };
@@ -58,7 +58,7 @@ public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public JwtDecoder jwtDecoder() {
-		return MultiTenantNimbusJwtDecoder.withJwkSetUri(this.jwkSetUri); // TODO fix code design
+		return MultiTenantNimbusJwtDecoder.create(this.issuer);
 	}
 
 }

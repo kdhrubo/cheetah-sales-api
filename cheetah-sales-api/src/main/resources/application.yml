@@ -3,12 +3,6 @@ app:
     uri: 
 
 spring:
-  security: 
-    oauth2: 
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:7001/auth/.well-known/jwks.json
-
   jackson:
     default-property-inclusion: NON_ABSENT
   
@@ -18,11 +12,4 @@ spring:
       enabled: false
       
 
-logging:
-  level:
-    org.springframework: INFO
-    org.springframework.data.mongodb: INFO
-    org.springframework.security: WARN
-    com.box.sdk: DEBUG
-    com.cheetahapps.sales: INFO
     
