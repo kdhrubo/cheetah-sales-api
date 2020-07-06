@@ -63,8 +63,6 @@
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
-				
-				
 				{
 					"className": "col-md-3",
 					"type": "input",
@@ -242,7 +240,6 @@
 				
 			]
 		},
-		
 		
 		
 		{
