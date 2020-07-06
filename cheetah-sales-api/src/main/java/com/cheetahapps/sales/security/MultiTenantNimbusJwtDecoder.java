@@ -2,8 +2,9 @@ package com.cheetahapps.sales.security;
 
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.oauth2.jwt.JwtException;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
@@ -18,12 +19,10 @@ public final class MultiTenantNimbusJwtDecoder implements JwtDecoder {
 		this.decoder = decoder;
 	}
 	
-	
-	public static MultiTenantNimbusJwtDecoder withJwkSetUri(String jwkSetUri) {
-		log.debug("*** Creating Multi tenant decoder ***");
-		JwtDecoder ldecoder = NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build();
-		return new MultiTenantNimbusJwtDecoder(ldecoder);
+	public static MultiTenantNimbusJwtDecoder create(String issuer) {
+		return new MultiTenantNimbusJwtDecoder(JwtDecoders.fromIssuerLocation(issuer));
 	}
+	
 
 	@Override
 	public Jwt decode(String token) throws JwtException {
@@ -33,7 +32,6 @@ public final class MultiTenantNimbusJwtDecoder implements JwtDecoder {
 		String tenantCode = (String) jwt.getClaims().get("tenantCode");
 		String userId = (String) jwt.getClaims().get("userId");
 		String sub = (String) jwt.getClaims().get("sub");
-		
 		
 		RequestContextHolder.getRequestAttributes().setAttribute("tenantId", tenantId, RequestAttributes.SCOPE_REQUEST);
 		RequestContextHolder.getRequestAttributes().setAttribute("tenantCode", tenantCode, RequestAttributes.SCOPE_REQUEST);
