@@ -52,7 +52,7 @@ public class Account extends ExtensibleBase {
 	private String accountTypeId; 
 	
 	private String ownerShip;
-	private String tickerSymbol;
+	private String ticker;
 	
 	//row 5
 	private String assignedUserId;
@@ -74,7 +74,7 @@ public class Account extends ExtensibleBase {
 	private boolean smsOptIn;
 	private boolean notifyOwner;
 	
-	//row 7
+	//row 7 // to be added to UI
 	private LocalDateTime lastContactedOn;
 	private String lastConcatedVia;
 	private int profileScore;
