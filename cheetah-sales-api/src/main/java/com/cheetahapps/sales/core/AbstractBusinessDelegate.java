@@ -25,6 +25,10 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	@Getter
 	@Autowired
 	private MongoOperations mongoOperations;
+	
+	@Getter
+	@Autowired
+	private AuthenticatedUser authUser;
 
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
@@ -49,7 +53,11 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	// create , update
 	@Transactional
 	public T save(T t) {
-		return repository.save(t);
+		beforeSave(t);
+		log.info("Authenticated user - {}", this.authUser);
+		T saved = repository.save(t);
+		afterSave(t);
+		return saved;
 	}
 
 	// read
@@ -152,9 +160,11 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		return copied;
 	}
 	
-	protected void beforeSave(T toBecopied) {}
-	protected void afterSave(T toBecopied) {}
-	protected void beforeCopy(T toBecopied) {}
-	protected void afterCopy(T toBecopied) {}
+	
+	
+	protected void beforeSave(T t) {}
+	protected void afterSave(T t) {}
+	protected void beforeCopy(T t) {}
+	protected void afterCopy(T t) {}
 
 }

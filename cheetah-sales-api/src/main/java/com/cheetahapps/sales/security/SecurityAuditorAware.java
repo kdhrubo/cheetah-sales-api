@@ -8,9 +8,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class SecurityAuditorAware implements AuditorAware<String> {
 
 	public Optional<String> getCurrentAuditor() {
