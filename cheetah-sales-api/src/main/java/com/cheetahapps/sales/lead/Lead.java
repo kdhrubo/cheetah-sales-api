@@ -61,9 +61,8 @@ public class Lead extends ExtensibleBase {
 	private Address primaryAddress;
 	private Address secondaryAddress;
 	
-	private String assignedTo;
-	private String assignedToId;
-	private Long assignedTeam;
+	private AssignedUser assignedTo;
+	
 
 	private String description;
 

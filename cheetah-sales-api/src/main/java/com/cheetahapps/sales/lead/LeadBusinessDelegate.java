@@ -39,7 +39,19 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 		return leadRepository.search(criteria, pageable, Lead.class);
 	}
 	
-	
+	@Override
+	protected void beforeSave(Lead lead) {
+		//Future this will be rule driven, if no rule then assign default
+		//Should post save later based on event. 
+		if(getAuthUser() != null && lead.getAssignedTo() == null) {
+			
+			lead.setAssignedTo(AssignedUser.of(getAuthUser().getUserId(), 
+					getAuthUser().getFirstName(), 
+					getAuthUser().getLastName(), 
+					getAuthUser().getEmail()));
+			
+		}
+	}
 
 	@Override
 	protected void beforeCopy(Lead toBecopied) {

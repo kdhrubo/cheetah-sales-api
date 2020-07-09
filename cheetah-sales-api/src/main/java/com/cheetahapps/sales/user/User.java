@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -51,5 +52,12 @@ public class User implements Serializable{
 
 	@CreatedDate
 	private LocalDateTime createdDate;
+	
+	private UserType type;
+	private List<User> relatedMembers; //if type = TEAM then members are here.
+}
 
+enum UserType {
+	TEAM,
+	MEMBER
 }

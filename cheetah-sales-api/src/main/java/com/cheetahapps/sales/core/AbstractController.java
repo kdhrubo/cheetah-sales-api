@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +22,7 @@ public abstract class AbstractController<T, I> {
 	public AbstractController(AbstractBusinessDelegate<T, I> businessDelegate) {
 		this.businessDelegate = businessDelegate;
 	}
+	
 
 	@PostMapping
 	public T save(@Valid @RequestBody T t) {
@@ -75,5 +78,10 @@ public abstract class AbstractController<T, I> {
 		return businessDelegate.copy(id);
 		
 	}
+	
+	protected void beforeSave(T t) {}
+	protected void afterSave(T t) {}
+	protected void beforeCopy(T t) {}
+	protected void afterCopy(T t) {}
 
 }
