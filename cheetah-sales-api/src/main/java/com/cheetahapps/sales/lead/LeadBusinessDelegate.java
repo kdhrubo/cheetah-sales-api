@@ -43,12 +43,16 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 	protected void beforeSave(Lead lead) {
 		//Future this will be rule driven, if no rule then assign default
 		//Should post save later based on event. 
-		if(getAuthUser() != null && lead.getAssignedTo() == null) {
+		
+		//if new lead then only apply this
+		if(getAuthUser() != null && lead.getId() == null) {
 			
 			lead.setAssignedTo(AssignedUser.of(getAuthUser().getUserId(), 
 					getAuthUser().getFirstName(), 
 					getAuthUser().getLastName(), 
 					getAuthUser().getEmail()));
+			
+			lead.setSource("NIRVANA-CRM");
 			
 		}
 	}

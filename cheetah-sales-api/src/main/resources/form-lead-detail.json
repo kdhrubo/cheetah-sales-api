@@ -157,6 +157,19 @@
 							"class": "form-control form-control-sm"
 						}
 					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "source",
+					"templateOptions": {
+						"label": "Source",
+						"readonly": true,
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
 				}
 				
 			]
@@ -180,9 +193,11 @@
 				{
 					"className": "col-md-3",
 					"type": "input",
-					"key": "assignedTeam",
+					"key": "engagementScore",
+					"defaultValue": "0",
 					"templateOptions": {
-						"label": "Assigned Team",
+						"label": "Engagement Score",
+						"readonly": true,
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -191,9 +206,21 @@
 				
 				{
 					"className": "col-md-3",
+					"type": "input",
+					"key": "website",
+					"templateOptions": {
+						"label": "Website",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
 					"key": "converted",
 					"type": "checkbox",
-					
+					"readonly": true,
 					"templateOptions": {
 						
 						"label": "Converted"
@@ -238,6 +265,64 @@
 					}
 				}
 				
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "createdBy",
+					"templateOptions": {
+						"label": "Created By",
+						"readonly": true,
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "createdDate",
+					"defaultValue": "0",
+					"templateOptions": {
+						"label": "CreatedDate",
+						"readonly": true,
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "lastModifiedBy",
+					"templateOptions": {
+						"label": "Last Modified By",
+						"readonly": true,
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "lastModifiedDate",
+					"templateOptions": {
+						"label": "Last Modified Date",
+						"readonly": true,
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
 			]
 		},
 		
