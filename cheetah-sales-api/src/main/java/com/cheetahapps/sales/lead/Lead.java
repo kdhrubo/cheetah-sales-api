@@ -40,13 +40,7 @@ public class Lead extends ExtensibleBase {
 	//currency associated with annual revenue required.
 	
 	private String email;
-	private String otherEmail;
-	
 	private String phone;
-	private String otherPhone;
-	
-	private String mobile;
-	private String fax;
 	
 	
 	private String industryId;
@@ -75,6 +69,8 @@ public class Lead extends ExtensibleBase {
 	private String twitter;
 	private String facebook;
 	private String linkedin;
+	
+	private int engagementScore;
 	
 
 	private boolean converted;
