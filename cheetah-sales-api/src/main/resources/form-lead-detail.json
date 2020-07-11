@@ -214,17 +214,6 @@
 							"class": "form-control  form-control-sm"
 						}
 					}
-				},
-				
-				{
-					"className": "col-md-3",
-					"key": "converted",
-					"type": "checkbox",
-					"readonly": true,
-					"templateOptions": {
-						
-						"label": "Converted"
-					}
 				}
 			]
 		},

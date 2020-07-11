@@ -33,6 +33,7 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 
 	public Page<Lead> search(String rsql, Pageable pageable) {
 		QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
+		
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Lead.class);
 		Criteria criteria = condition.query(new MongoVisitor());
 

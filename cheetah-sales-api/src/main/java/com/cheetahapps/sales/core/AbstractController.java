@@ -1,16 +1,13 @@
 package com.cheetahapps.sales.core;
 
 import javax.validation.Valid;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,13 +37,7 @@ public abstract class AbstractController<T, I> {
 		return businessDelegate.findById(id).get();
 
 	}
-
-	@GetMapping("/findAll/{deleted}")
-	public Page<T> findAllByDeleted(@PathVariable boolean deleted, Pageable pageable) {
-
-		return null;
-
-	}
+	
 
 	@DeleteMapping("/delete/")
 	public void delete(@RequestParam("id") I[] ids) {
@@ -79,9 +70,16 @@ public abstract class AbstractController<T, I> {
 		
 	}
 	
-	protected void beforeSave(T t) {}
-	protected void afterSave(T t) {}
-	protected void beforeCopy(T t) {}
-	protected void afterCopy(T t) {}
+	protected void beforeSave(T t) {
+	}
+
+	protected void afterSave(T t) {
+	}
+
+	protected void beforeCopy(T t) {
+	}
+
+	protected void afterCopy(T t) {
+	}
 
 }
