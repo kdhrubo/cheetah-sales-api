@@ -6,24 +6,68 @@
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				
-			
 				{
-					"className": "col-md-4",
-					"type": "input",
-					"key": "zip",
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "street",
 					"templateOptions": {
-						"label": "Zip",
+						"label": "Street",
+						"attributes": {
+							"class": "form-control form-control-sm"
+							
+						}
+					}
+				}
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "city",
+					"templateOptions": {
+						"label": "City",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
 					}
-				},
+				}
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
 				{
-					"className": "col-md-4",
+					"className": "col-md-12",
 					"type": "input",
 					"key": "state",
 					"templateOptions": {
 						"label": "State",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+			
+				{
+					"className": "col-md-12",
+					"type": "input",
+					"key": "zip",
+					"templateOptions": {
+						"label": "Zip",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
@@ -36,36 +80,13 @@
 			"fieldGroup": [
 				
 				{
-					"className": "col-md-4",
-					"type": "input",
-					"key": "city",
-					"templateOptions": {
-						"label": "City",
-						"attributes": {
-							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-4",
+					"className": "col-md-12",
 					"type": "input",
 					"key": "country",
 					"templateOptions": {
 						"label": "Country",
 						"attributes": {
 							"class": "form-control form-control-sm"
-						}
-					}
-				},
-				{
-					"className": "col-md-4",
-					"type": "textarea",
-					"key": "street",
-					"templateOptions": {
-						"label": "Street",
-						"attributes": {
-							"class": "form-control form-control-sm"
-							
 						}
 					}
 				}
