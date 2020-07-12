@@ -25,7 +25,7 @@ public final class MultiTenantNimbusJwtDecoder implements JwtDecoder {
 
 	@Override
 	public Jwt decode(String token)  {
-		log.info("## Multi tenant decoder called ##");
+		log.debug("Decoding token");
 		Jwt jwt = decoder.decode(token);
 		String firstName = (String) jwt.getClaims().get("firstName");
 		String lastName = (String) jwt.getClaims().get("lastName");
