@@ -4,8 +4,8 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.cheetahapps.sales.core.Base;
-import com.cheetahapps.sales.core.ExtensibleBase;
-import com.cheetahapps.sales.lead.Product;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -75,5 +75,6 @@ public class Lead extends ExtensibleBase {
 	private boolean converted;
 	
 	private List<Product> products;
-
+	private List<DocumentItem> documents;
+	
 }

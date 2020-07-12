@@ -6,17 +6,13 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ConvertLeadEvent;
 import com.cheetahapps.sales.problem.NoDataFoundProblem;
-import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
-import com.github.rutledgepaulv.qbuilders.conditions.Condition;
-import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
-import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -117,6 +113,57 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 			if(products != null && products.contains(p)) {
 				boolean status = products.remove(p);
 				log.info("Product removed from lead - {}", status);
+				
+				if(status) {
+					this.repository.save(l);
+				}
+			}
+			
+			
+		} else {
+			throw new NoDataFoundProblem("Lead with given id not found.");
+		}
+
+		return lead.get();
+	}
+	
+	@Transactional
+	public Lead addDocument(String id, DocumentItem docItem) {
+		Optional<Lead> lead = this.repository.findById(id);
+		if (lead.isPresent()) {
+			Lead l = lead.get();
+			List<DocumentItem> documents = l.getDocuments();
+			
+			if(documents == null) {
+				documents = new ArrayList<>();
+			}
+			
+			if(!documents.contains(docItem)) {
+				documents.add(docItem);
+				l.setDocuments(documents);
+				
+				this.repository.save(l);
+			}
+			
+		} else {
+			throw new NoDataFoundProblem("Lead with given id not found.");
+		}
+
+		return lead.get();
+	}
+	
+	@Transactional
+	public Lead removeDocument(String id, String docId) {
+		Optional<Lead> lead = this.repository.findById(id);
+		DocumentItem d = DocumentItem.builder().id(docId).build();
+		if (lead.isPresent()) {
+			Lead l = lead.get();
+			List<DocumentItem> documents = l.getDocuments();
+			log.info("Documents - {}", documents);
+			
+			if(documents != null && documents.contains(d)) {
+				boolean status = documents.remove(d);
+				log.info("Document removed from lead - {}", status);
 				
 				if(status) {
 					this.repository.save(l);

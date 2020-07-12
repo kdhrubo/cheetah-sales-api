@@ -59,4 +59,15 @@ public class LeadController extends AbstractController<Lead, String> {
 	public Lead removeProduct(@PathVariable String id, @PathVariable String productId) {
 		return this.leadBusinessDelegate.removeProduct(id, productId);
 	}
+	
+	@PostMapping("/{id}/documents")
+	public Lead addDocument(@PathVariable String id, @RequestBody @Valid DocumentItem doc) {
+		return this.leadBusinessDelegate.addDocument(id, doc);
+	}
+	
+	@PostMapping("/{id}/documents/{docId}")
+	public Lead removeDocument(@PathVariable String id, @PathVariable String docId) {
+		log.info("Removing doc from lead.");
+		return this.leadBusinessDelegate.removeDocument(id, docId);
+	}
 }
