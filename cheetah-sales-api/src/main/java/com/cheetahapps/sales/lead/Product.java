@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = {"id"})
 class Product {
 	
-
 	private String id;
 	
 	private String name;
