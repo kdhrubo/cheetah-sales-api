@@ -33,9 +33,6 @@ public class LeadController extends AbstractController<Lead, String> {
 
 	@GetMapping("/q")
 	public Page<Lead> search(@RequestParam("rsql") String rsql, @PageableDefault Pageable pageable) {
-		log.info("Lead business delegate - {}", this.businessDelegate);
-		log.info("rsql - {}", rsql);
-		log.info("pageable - {}", pageable);
 		return leadBusinessDelegate.search(rsql, pageable);
 	}
 

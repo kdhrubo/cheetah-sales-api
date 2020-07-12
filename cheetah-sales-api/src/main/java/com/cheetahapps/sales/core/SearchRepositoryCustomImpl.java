@@ -12,12 +12,20 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.repository.support.PageableExecutionUtils;
 
+import com.cheetahapps.sales.lead.Lead;
+import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
+import com.github.rutledgepaulv.qbuilders.conditions.Condition;
+import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
+import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
 public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
+	
+	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 	
 	private final MongoTemplate mongoTemplate;
 
@@ -55,7 +63,7 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
                       clazz
               );
 		
-		//Long.parseLong(results.getMappedResults().get(0).get("count").toString());
+		
 		Document document = results.getRawResults();
 		
 		
@@ -67,6 +75,14 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
 		
 		
 		return finalCount;
+	}
+
+	@Override
+	public Page<T> search(String rsql, Pageable pageable, Class<T> clazz) {
+		
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, clazz);
+		Criteria criteria = condition.query(new MongoVisitor());
+		return search(criteria, pageable, clazz);
 	}
 
 	
