@@ -30,14 +30,9 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 		super(repository);
 		this.leadRepository = repository;
 	}
-
+	
 	public Page<Lead> search(String rsql, Pageable pageable) {
-		QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
-		
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Lead.class);
-		Criteria criteria = condition.query(new MongoVisitor());
-
-		return leadRepository.search(criteria, pageable, Lead.class);
+		return leadRepository.search(rsql, pageable, Lead.class);
 	}
 	
 	@Override
