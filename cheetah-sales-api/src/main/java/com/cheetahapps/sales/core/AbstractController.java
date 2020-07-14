@@ -39,22 +39,21 @@ public abstract class AbstractController<T, I> {
 	}
 	
 
-	@DeleteMapping("/delete/")
-	public void delete(@RequestParam("id") I[] ids) {
-		log.debug("Delete multiple object with ids ={} ", ids.length);
-		for (I id : ids)
-			businessDelegate.delete(id);
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable("id") I id) {
+		log.debug("Delete object with ids ={} ", id);
+		businessDelegate.delete(id);
 
 	}
 
-	@PostMapping("/purge/{id}")
+	@PostMapping("/{id}/purge")
 	public void purge(@PathVariable("id") I id) {
 		log.debug("Purge object with id = ", id);
 		businessDelegate.purge(id);
 
 	}
 
-	@PostMapping("/restore/{id}")
+	@PostMapping("/{id}/restore")
 	public T restore(@PathVariable("id") I id) {
 		log.debug("Restore object with id = ", id);
 
@@ -62,8 +61,7 @@ public abstract class AbstractController<T, I> {
 
 	}
 	
-
-	@PostMapping("/copy/{id}")
+	@PostMapping("/{id}/copy")
 	public T copy(@PathVariable("id") I id) {
 		log.info("Copy object with id = {}", id);
 		return businessDelegate.copy(id);
