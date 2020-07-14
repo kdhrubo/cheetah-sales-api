@@ -49,7 +49,6 @@ public class Contact extends ExtensibleBase {
 
 	private String assignedUser;
 	private String assignedUserId;
-	//private Team assignedTeam;
 
 	private String contactTypeId;
 

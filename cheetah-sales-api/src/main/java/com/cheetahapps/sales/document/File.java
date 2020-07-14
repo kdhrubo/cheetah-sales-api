@@ -6,7 +6,7 @@ import java.io.InputStream;
 import lombok.Value;
 
 @Value(staticConstructor = "of")
-public class CreateFileEvent {
+public class File {
 	
 	String container,name, root;
 	long size;

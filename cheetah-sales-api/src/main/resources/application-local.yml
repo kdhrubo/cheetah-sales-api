@@ -8,6 +8,9 @@ app:
   authz:
     jwt:
       issuer: http://localhost:7001/auth/issuer
+  document:
+    storage:
+      provider: s3
   
 spring:
   jackson:

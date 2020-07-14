@@ -6,7 +6,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import com.cheetahapps.sales.role.Role;
-import com.cheetahapps.sales.tenant.Tenant;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -55,7 +55,6 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
              );
 		
 		
-		
 		AggregationResults results = 
               mongoTemplate.aggregate(
                       agg ,
@@ -83,6 +82,13 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
 		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, clazz);
 		Criteria criteria = condition.query(new MongoVisitor());
 		return search(criteria, pageable, clazz);
+	}
+
+	@Override
+	public List<T> searchAll(String rsql, Class<T> clazz) {
+		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, clazz);
+		Criteria criteria = condition.query(new MongoVisitor());
+		return searchAll(criteria, clazz);
 	}
 
 	

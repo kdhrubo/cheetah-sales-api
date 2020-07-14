@@ -13,6 +13,8 @@ public interface SearchRepositoryCustom<T> {
 	@Deprecated
 	Page<T> search(Criteria criteria, Pageable pageable, Class<T> clazz);
 	
+	List<T> searchAll(String rsql, Class<T> clazz);
+	
 	@Deprecated
 	List<T> searchAll(Criteria criteria, Class<T> clazz);
 }
