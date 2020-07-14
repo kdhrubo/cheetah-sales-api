@@ -2,8 +2,8 @@ package com.cheetahapps.sales.document;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,10 +14,7 @@ import jodd.util.StringUtil;
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ProvisionTenantEvent;
 import com.cheetahapps.sales.problem.DuplicateDataProblem;
-import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
-import com.github.rutledgepaulv.qbuilders.conditions.Condition;
-import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
-import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,6 +23,9 @@ import lombok.extern.slf4j.Slf4j;
 class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem, String> {
 
 	private DocumentItemRepository documentItemRepository;
+	
+	@Autowired
+	private DocumentStorageProvider storageProvider;
 
 	public DocumentItemBusinessDelegate(DocumentItemRepository documentItemRepository) {
 		super(documentItemRepository);
@@ -35,7 +35,7 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 	@EventListener
 	public void provision(ProvisionTenantEvent event) {
 		if (!event.isExistingTenant()) {
-			publish(CreateRootEvent.of(event.getTenant().getCode()));
+			storageProvider.createRoot(DocumentRoot.of(event.getTenant().getCode()));
 		}
 	}
 
@@ -55,9 +55,8 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 		if (folder.isEmpty()) {
 			// create folder in this container / parent folder
 			
-			publish(CreateFolderEvent.of(request.getName(), request.getContainer(), request.getRoot()));
-			
-			
+			storageProvider.createFolder(Folder.of(request.getName(), request.getContainer(), request.getRoot()));
+						
 
 			DocumentItem item = DocumentItem.builder().name(request.getName()).container(container).type(DocType.FOLDER)
 					.path(path).build();
@@ -84,8 +83,10 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 			
 			Try.run(() -> 
 			
-			publish(CreateFileEvent.of(request.getContainer(), request.getFile().getOriginalFilename(),
+			storageProvider.createFile(File.of(request.getContainer(), request.getFile().getOriginalFilename(),
 					request.getRoot(), request.getFile().getSize(), request.getFile().getInputStream()))
+			
+			
 			
 			).onFailure(ex -> log.info("Error - {}", ex.getMessage()))
 			.onSuccess(t -> log.info("File saved in storage") );
@@ -119,11 +120,7 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 	@Transactional(readOnly = true)
 	public List<DocumentItem> searchAll(String rsql) {
 		log.info("rsql - {}", rsql);
-		QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, DocumentItem.class);
-		Criteria criteria = condition.query(new MongoVisitor());
-
-		return documentItemRepository.searchAll(criteria, DocumentItem.class);
+		return documentItemRepository.searchAll(rsql, DocumentItem.class);
 	}
 
 	

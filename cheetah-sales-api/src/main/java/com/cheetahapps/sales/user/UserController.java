@@ -30,9 +30,9 @@ public class UserController extends AbstractController<User, String> {
     @Qualifier("provisioningJob")
     private Job job;
 
-	public UserController(UserBusinessDelegate businessDelegate) {
-		super(businessDelegate);
-		this.userBusinessDelegate = businessDelegate;
+	public UserController(UserBusinessDelegate userBusinessDelegate) {
+		super(userBusinessDelegate);
+		this.userBusinessDelegate = userBusinessDelegate;
 	}
 
 	@PostMapping("/register")

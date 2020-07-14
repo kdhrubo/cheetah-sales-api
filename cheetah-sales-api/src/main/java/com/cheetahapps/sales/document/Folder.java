@@ -1,10 +1,13 @@
 package com.cheetahapps.sales.document;
 
-
 import lombok.Value;
 
+
 @Value(staticConstructor = "of")
-public class CreateRootEvent {
+public class Folder {
 	
-	String name;
+	private String name;
+	private String container;
+	
+	private String root;
 }
