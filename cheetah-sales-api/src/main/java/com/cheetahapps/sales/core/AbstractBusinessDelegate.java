@@ -3,6 +3,7 @@ package com.cheetahapps.sales.core;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -84,16 +85,26 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 			throw new NoDataFoundProblem(
 					"Record with id = " + id + " not found. May be it is already deleted or purged. ");
 		}
+		
+		T obj = t.get();
+		
+		beforeDelete(obj);
 
 		try {
-
-			BeanUtil.declaredForcedSilent.setProperty(t, DELETED, true);
+			
+			BeanUtil.declaredForcedSilent.setProperty(obj, DELETED, true);
+			
+			
 		} catch (Exception e) {
 			log.error("Error while setting deleted property in restore - {}", e);
-			throw new RuntimeException("Entity cannot be deleted (soft delete) - " + e.getLocalizedMessage()
-					+ ". Check if deleted field is present.");
+			throw new RuntimeException("Entity cannot be deleted.");
 		}
-		repository.save(t.get());
+		
+		log.info("Before delete - {}", obj);
+		
+		repository.save(obj);
+		
+		afterDelete(obj);
 
 	}
 
@@ -166,5 +177,8 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	protected void afterSave(T t) {}
 	protected void beforeCopy(T t) {}
 	protected void afterCopy(T t) {}
+	
+	protected void beforeDelete(T t) {}
+	protected void afterDelete(T t) {}
 
 }

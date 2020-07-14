@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ConvertLeadEvent;
+import com.cheetahapps.sales.problem.DeleteProblem;
 import com.cheetahapps.sales.problem.NoDataFoundProblem;
 
 
@@ -50,9 +51,18 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 	}
 
 	@Override
-	protected void beforeCopy(Lead toBecopied) {
-		toBecopied.setFirstName("Copied " + toBecopied.getFirstName());
+	protected void beforeCopy(Lead lead) {
+		lead.setFirstName("Copied " + lead.getFirstName());
 		
+	}
+	
+	
+
+	@Override
+	protected void beforeDelete(Lead lead) {
+		if(lead.isConverted()) {
+			new DeleteProblem("Converted lead cannot be deleted.");
+		}
 	}
 
 	@Transactional
