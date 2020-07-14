@@ -87,6 +87,8 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		}
 		
 		T obj = t.get();
+		
+		beforeDelete(obj);
 
 		try {
 			
@@ -101,6 +103,8 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		log.info("Before delete - {}", obj);
 		
 		repository.save(obj);
+		
+		afterDelete(obj);
 
 	}
 
@@ -173,5 +177,8 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	protected void afterSave(T t) {}
 	protected void beforeCopy(T t) {}
 	protected void afterCopy(T t) {}
+	
+	protected void beforeDelete(T t) {}
+	protected void afterDelete(T t) {}
 
 }
