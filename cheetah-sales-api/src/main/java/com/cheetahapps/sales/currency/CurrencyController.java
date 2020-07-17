@@ -1,5 +1,7 @@
 package com.cheetahapps.sales.currency;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,12 +30,10 @@ public class CurrencyController extends AbstractController<Currency, String>{
 
 	
 	@GetMapping("/q")
-	public Page<Currency> search(@RequestParam("rsql") String rsql, Pageable pageable) {
+	public List<Currency> search(@RequestParam("rsql") String rsql) {
 		log.debug("Search currency");
-		return currencyBusinessDelegate.search(rsql, pageable);
+		return currencyBusinessDelegate.searchAll(rsql);
 	}
-	
-	
 	
 
 }

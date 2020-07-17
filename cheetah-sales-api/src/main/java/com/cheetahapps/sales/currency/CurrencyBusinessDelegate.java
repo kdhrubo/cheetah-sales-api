@@ -3,24 +3,18 @@ package com.cheetahapps.sales.currency;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.query.Criteria;
+
 import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ProvisionTenantEvent;
-
-import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
-import com.github.rutledgepaulv.qbuilders.conditions.Condition;
-import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
-import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
 
 @Component
 @Slf4j
@@ -28,7 +22,6 @@ public class CurrencyBusinessDelegate extends AbstractBusinessDelegate<Currency,
 
 	private CurrencyRepository currencyRepository;
 
-	private QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
 	
 	@Value("classpath:/data/currency.csv")
 	private Resource resource;
@@ -38,12 +31,10 @@ public class CurrencyBusinessDelegate extends AbstractBusinessDelegate<Currency,
 		this.currencyRepository = repository;
 	}
 
-	public Page<Currency> search(String rsql, Pageable pageable) {
+	public List<Currency> searchAll(String rsql) {
 		log.debug("Searching category - {}", rsql);
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, Currency.class);
-		Criteria criteria = condition.query(new MongoVisitor());
 
-		return currencyRepository.search(criteria, pageable, Currency.class);
+		return currencyRepository.searchAll(rsql, Currency.class);
 	}
 	
 
