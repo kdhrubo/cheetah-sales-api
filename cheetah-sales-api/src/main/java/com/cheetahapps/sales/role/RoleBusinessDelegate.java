@@ -1,5 +1,7 @@
 package com.cheetahapps.sales.role;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +25,11 @@ public class RoleBusinessDelegate {
 	@Transactional
 	public Role save(Role role) {
 		return this.roleRepository.save(role);
+	}
+	
+	@Transactional
+	public List<Role> saveAll(List<Role> roles) {
+		return this.roleRepository.saveAll(roles);
 	}
 	
 	@Transactional(readOnly = true)

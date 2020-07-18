@@ -1,5 +1,7 @@
 package com.cheetahapps.sales.country;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +30,9 @@ public class CountryController extends AbstractController<Country, String>{
 
 	
 	@GetMapping("/q")
-	public Page<Country> search(@RequestParam("rsql") String rsql, Pageable pageable) {
+	public List<Country> searchAll(@RequestParam("rsql") String rsql) {
 		log.debug("Search currency");
-		return countryBusinessDelegate.search(rsql, pageable);
+		return countryBusinessDelegate.searchAll(rsql);
 	}
 	
 	

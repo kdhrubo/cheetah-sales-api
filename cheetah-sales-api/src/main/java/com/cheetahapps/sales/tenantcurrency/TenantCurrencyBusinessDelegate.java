@@ -7,12 +7,14 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
+import com.cheetahapps.sales.event.ProvisionDefaultCurrencyEvent;
 import com.cheetahapps.sales.problem.DuplicateDataProblem;
 import com.cheetahapps.sales.problem.NoDataFoundProblem;
 
@@ -26,12 +28,25 @@ import io.vavr.control.Option;
 @Component
 @Slf4j
 public class TenantCurrencyBusinessDelegate extends AbstractBusinessDelegate<TenantCurrency, String> {
+	
 
 	private TenantCurrencyRepository tenantCurrencyRepository;
 
 	public TenantCurrencyBusinessDelegate(TenantCurrencyRepository repository) {
 		super(repository);
 		this.tenantCurrencyRepository = repository;
+	}
+	
+	@EventListener
+	public void provision(ProvisionDefaultCurrencyEvent event) {
+		if (!event.isExistingTenant()) {
+			
+			save(TenantCurrency.builder()
+					.active(true).code(event.getCode())
+					.corporate(true)
+					.name(event.getName())
+					.symbol(event.getSymbol()).build());
+		}
 	}
 
 	@Transactional(readOnly = true)

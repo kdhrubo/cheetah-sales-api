@@ -24,7 +24,6 @@ public class Currency extends Base {
 	private String code;
 	private String symbol;
 	private String name;
-	private String country;
 	
 
 }

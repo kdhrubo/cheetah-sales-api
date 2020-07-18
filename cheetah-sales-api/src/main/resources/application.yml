@@ -1,7 +1,8 @@
 app:
   mongodb:
     uri: 
-
+  default:
+    currency: USD
 spring:
   jackson:
     default-property-inclusion: NON_ABSENT

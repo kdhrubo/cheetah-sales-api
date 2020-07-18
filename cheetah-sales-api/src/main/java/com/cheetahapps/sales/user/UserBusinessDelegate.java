@@ -40,6 +40,8 @@ public class UserBusinessDelegate extends AbstractBusinessDelegate<User, String>
 
 	@Transactional
 	public User create(UserDto userDto) {
+		
+		log.info("#Password - {}", userDto.getPassword());
 
 		String encryptedPwd = this.passwordEncoder.encode(userDto.getPassword());
 

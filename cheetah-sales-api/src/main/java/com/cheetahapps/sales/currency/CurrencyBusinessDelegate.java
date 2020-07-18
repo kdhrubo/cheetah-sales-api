@@ -1,24 +1,31 @@
 package com.cheetahapps.sales.currency;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
 
 import org.springframework.stereotype.Component;
+
 import lombok.extern.slf4j.Slf4j;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
+import com.cheetahapps.sales.event.ProvisionDefaultCurrencyEvent;
 import com.cheetahapps.sales.event.ProvisionTenantEvent;
+
+import io.vavr.control.Try;
+
 
 @Component
 @Slf4j
 public class CurrencyBusinessDelegate extends AbstractBusinessDelegate<Currency, String> {
+	
+	@Value("${app.default.currency}")
+	private String defaultCurrencyCode;
 
 	private CurrencyRepository currencyRepository;
 
@@ -39,28 +46,30 @@ public class CurrencyBusinessDelegate extends AbstractBusinessDelegate<Currency,
 	
 
 	@EventListener
-	public void provision(ProvisionTenantEvent event) throws IOException{
+	public void provision(ProvisionTenantEvent event) {
 		if (!event.isExistingTenant()) {
 			load();
+			
+			currencyRepository.findByCode(this.defaultCurrencyCode)
+			.onEmpty(() -> log.warn("Default currency - {} not found. Cannot provision tenant currency.", this.defaultCurrencyCode))
+			.peek(t -> publish(
+					ProvisionDefaultCurrencyEvent.of(false, t.getCode()
+							,t.getSymbol(), t.getName())
+					));
+			
 		}
 	}
 	
-	public void load() throws IOException {
+	public void load() {
+		
+		Try.run(() ->
 
-		try (Stream<String> stream = Files.lines(Paths.get(resource.getURI()))) {
-			stream.forEach(i -> {
-				String s [] = i.split(",");
-				
-				currencyRepository.findByCountry(s[3]).onEmpty(() -> {
-					
-					Currency currency = Currency.builder().code(s[0])
-							.symbol(s[1]).country(s[3]).name(s[2]).build();
-						
-					this.save(currency);
-				});
+		saveAll(Files.lines(Paths.get(resource.getURI())).map(i -> i.split(","))
+				.map(s -> Currency.builder().code(s[0])
+						.symbol(s[1]).name(s[2]).build()).collect(Collectors.toList())))
+				.onFailure(e -> log.info("Failed to provision currency. - {}", e.getMessage()))
+				.onSuccess(t -> log.info("Currencies provisioned successfully."));
 
-			});
-		}
 	}
 
 }

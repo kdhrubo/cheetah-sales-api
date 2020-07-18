@@ -9,5 +9,5 @@ import io.vavr.control.Option;
 public interface CurrencyRepository extends MongoRepository<Currency, String>, 
 	SearchRepositoryCustom<Currency> {
 	
-	Option<Currency> findByCountry(String country);
+	Option<Currency> findByCode(String code);
 }

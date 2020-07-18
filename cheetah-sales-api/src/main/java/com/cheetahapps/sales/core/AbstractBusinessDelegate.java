@@ -54,7 +54,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 	@Transactional
 	public T save(T t) {
 		beforeSave(t);
-		log.info("Authenticated user - {}", this.authUser);
+		log.info("saving - {}", t);
 		T saved = repository.save(t);
 		afterSave(t);
 		return saved;
