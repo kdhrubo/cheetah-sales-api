@@ -1,44 +1,28 @@
-AUD,$,Australian Dollar,Australia
-EUR,€,Euro,Austria
-EUR,€,Euro,Belgium
-EUR,€,Euro,Estonia
-EUR,€,Euro,Finland
-EUR,€,Euro,France
-EUR,€,Euro,Germany
-EUR,€,Euro,Greece
-EUR,€,Euro,Ireland
-EUR,€,Euro,Italy
-EUR,€,Euro,Luxembourg
-EUR,€,Euro,Malta
-EUR,€,Euro,Monaco
-EUR,€,Euro,Netherlands
-EUR,€,Euro,Portugal
-EUR,€,Euro,Slovakia
-EUR,€,Euro,Spain
-GBP,£,Pound,Great Britain
-INR,₹,Indian Rupee,India
-USD,$,US Dollar,United States of America
-SEK,kr,Swedish Krona,Sweden
-SGD,$,Singapore Dollar,Singapore
-NZD,$,New Zealand Dollar,New Zealand
-NOK,kr,Norwegian Krone,Norway
-DKK,kr,Danish Krone,Denmark
-CZK,Kč,Czech Koruna,Czech Republic
-CHF,₣,Swiss Franc,Lichtenstein
-CHF,₣,Swiss Franc,Switzerland
-CAD,$,Canadian Dollar,Canada
-BRL,R$,Brazilian Real,Brazil
-AED,د.إ,UAE Dirham,UAE
-ARS,$,Argentine Peso,Argentina
-BDT,৳,Taka,Bangladesh
-IDR,Rp,Rupiah,Indonesia
-ILS,₪,Shekel,Israel
-ISK,Kr,Iceland Krona,Iceland
-JPY,¥,Yen,Japan
-KRW,₩,South Korean Won,South Korea
-LKR,Rs,Sri Lanka Rupee, Sri Lanka
-MUR,₨,Mauritius Rupee,Mauritius
-MOP,P,Pataca,Macao
-MXN,$,Mexican Peso,Mexico
-MYR,RM,Malaysian Ringgit,Malaysia
-CNY,¥,Yuan,China
+AUD,$,Australian Dollar
+EUR,€,Euro
+GBP,£,Pound
+INR,₹,Indian Rupee
+USD,$,US Dollar
+SEK,kr,Swedish Krona
+SGD,$,Singapore Dollar
+NZD,$,New Zealand Dollar
+NOK,kr,Norwegian Krone
+DKK,kr,Danish Krone
+CZK,Kč,Czech Koruna
+CHF,₣,Swiss Franc
+CAD,$,Canadian Dollar
+BRL,R$,Brazilian Real
+AED,د.إ,UAE Dirham
+ARS,$,Argentine Peso
+BDT,৳,Taka
+IDR,Rp,Rupiah
+ILS,₪,Shekel
+ISK,Kr,Iceland Krona
+JPY,¥,Yen
+KRW,₩,South Korean Won
+LKR,Rs,Sri Lanka Rupee
+MUR,₨,Mauritius Rupee
+MOP,P,Pataca
+MXN,$,Mexican Peso
+MYR,RM,Malaysian Ringgit
+CNY,¥,Yuan

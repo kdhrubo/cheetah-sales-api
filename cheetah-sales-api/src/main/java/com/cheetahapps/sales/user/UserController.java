@@ -36,10 +36,8 @@ public class UserController extends AbstractController<User, String> {
 	}
 
 	@PostMapping("/register")
-	public UserDto register(@RequestBody UserDto userDto) {
-		log.info("Registering user - {}", userDto);
-		
-		log.info("userDto - {}", userDto);
+	public UserDto register(@RequestBody UserDto userDto) throws Exception{
+		log.info("Registering user - {}", userDto.getFirstName());
 		
 		JobParameters jobParameters = new JobParametersBuilder()
 				.addString("firstName", userDto.getFirstName())
@@ -49,7 +47,7 @@ public class UserController extends AbstractController<User, String> {
 				.addString("email", userDto.getEmail())
 				.toJobParameters();
 		
-		Try.of(() -> jobLauncher.run(job, jobParameters));
+		jobLauncher.run(job, jobParameters);
 		
 		return userDto;
 	}
