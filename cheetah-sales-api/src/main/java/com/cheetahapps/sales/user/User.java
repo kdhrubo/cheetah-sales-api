@@ -17,6 +17,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.cheetahapps.sales.role.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,10 +37,12 @@ public class User implements Serializable{
 	private String email;
 	private String mobile;
 	
+	@JsonIgnore
 	private String password;
 	private String firstName;
 	private String lastName;
-
+	
+	@JsonUnwrapped(prefix = "role")
 	private Role role;
 
 	private String tenantId;
