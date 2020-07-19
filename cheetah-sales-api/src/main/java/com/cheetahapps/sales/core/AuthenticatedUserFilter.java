@@ -33,10 +33,8 @@ public class AuthenticatedUserFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
 			throws IOException, ServletException {
-
-	    // LOGGER.info("Thread had tenant data: {} from an old request", this.tenantStore.getTenantId());
-
-	    
+		
+		
 		try {
 			
 			String tenantId = (String) RequestContextHolder.getRequestAttributes().getAttribute("tenantId",  RequestAttributes.SCOPE_REQUEST);
@@ -46,6 +44,8 @@ public class AuthenticatedUserFilter implements Filter {
 			String firstName = (String)RequestContextHolder.getRequestAttributes().getAttribute("firstName",
 					RequestAttributes.SCOPE_REQUEST);
 			String lastName = (String)RequestContextHolder.getRequestAttributes().getAttribute("lastName", RequestAttributes.SCOPE_REQUEST);
+			
+			log.info("Working for tenantId = {}" ,  tenantId);
 			
 			this.user.setFirstName(firstName);
 			this.user.setUserId(userId);
