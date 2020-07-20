@@ -31,9 +31,6 @@ public abstract class AbstractController<T, I> {
 	// view details, edit, copy
 	@GetMapping("/findOne/{id}")
 	public T findById(@PathVariable("id") I id) {
-
-		log.debug("Id - {}", id);
-
 		return businessDelegate.findById(id).get();
 
 	}
@@ -68,16 +65,5 @@ public abstract class AbstractController<T, I> {
 		
 	}
 	
-	protected void beforeSave(T t) {
-	}
-
-	protected void afterSave(T t) {
-	}
-
-	protected void beforeCopy(T t) {
-	}
-
-	protected void afterCopy(T t) {
-	}
 
 }

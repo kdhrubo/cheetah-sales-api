@@ -26,9 +26,6 @@ public class DealController extends AbstractController<Deal, String> {
 	
 	@GetMapping("/search")
 	public Page<Deal> search(@RequestParam("rsql") String rsql, @PageableDefault Pageable pageable) {
-		log.info("Deal business delegate - {}", this.businessDelegate);
-		log.info("rsql - {}", rsql);
-		log.info("pageable - {}", pageable);
 		return dealBusinessDelegate.search(rsql, pageable);
 	}
 
