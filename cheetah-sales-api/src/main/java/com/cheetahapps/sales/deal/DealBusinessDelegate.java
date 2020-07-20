@@ -11,8 +11,9 @@ import org.springframework.stereotype.Component;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ConvertLeadEvent;
+import com.cheetahapps.sales.problem.DeleteProblem;
 
-
+import jodd.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -35,6 +36,21 @@ public class DealBusinessDelegate extends AbstractBusinessDelegate<Deal, String>
 		toBecopied.setName("Copied " + toBecopied.getName());
 	}
 	
+	
+	
+	@Override
+	protected void beforeDelete(Deal t) {
+		//move to rules engine
+		
+		if(t.isConvertedFromLead() || (t.getQuotes() != null && !t.getQuotes().isEmpty())){
+			throw new DeleteProblem("Deal cannot be deleted when converted from a lead.");
+		}
+		
+		if((t.getQuotes() != null && !t.getQuotes().isEmpty())){
+			throw new DeleteProblem("Deal cannot be deleted. Quotes are associated with it.");
+		}
+	}
+
 	@EventListener
 	public void createFromLead(ConvertLeadEvent event) {
 		//field mapping to come from db 

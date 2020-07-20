@@ -87,7 +87,7 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		
 		T obj = t.get();
 		
-		beforeDelete(obj);
+		
 
 		try {
 			
@@ -100,6 +100,8 @@ public abstract class AbstractBusinessDelegate<T, Id> {
 		}
 		
 		log.info("Before delete - {}", obj);
+		
+		beforeDelete(obj);
 		
 		repository.save(obj);
 		

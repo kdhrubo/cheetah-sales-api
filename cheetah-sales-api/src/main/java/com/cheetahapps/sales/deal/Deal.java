@@ -1,6 +1,7 @@
 package com.cheetahapps.sales.deal;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -39,33 +40,31 @@ public class Deal extends ExtensibleBase {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate expectedClose;
 
-	private String salesStageId; //pl
+	private String salesStageId; 
 	private String salesStage;
 	
 	private String assignedUserId;
 	private String assignedUser;
 	
-	private String leadSourceId; //pl
+	private String leadSourceId; 
 	private String leadSource;
 
 	private String nextStep;
 
-	private String dealTypeId; //pl
+	private String dealTypeId; 
 
 	private int probablity; 
 
 	private double forecastAmount;
 
 
-	private String lostReasonId; //pl
+	private String lostReasonId; 
 	
-	private String lostNotes; //description
+	private String lostNotes; 
 	
-	private String teamId; // association 1:1
+	private String teamId;
 	
-
-	// Keep a reference to the lead from which it was (if it was) converted
-	private String leadId; // association 1:1 , never allowed to modify not shown in create
+	private String leadId; 
 	
 	private boolean convertedFromLead;
 	
@@ -77,6 +76,8 @@ public class Deal extends ExtensibleBase {
 	// private String pipelineId; 
 	// private double weightedRevenue;
 	
+	
+	private List<Quote> quotes;
 	
 
 }
