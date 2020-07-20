@@ -3,10 +3,13 @@ package com.cheetahapps.sales.document.s3;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import org.springframework.util.Assert;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
 import com.cheetahapps.sales.document.File;
 import com.cheetahapps.sales.document.Folder;
 import com.cheetahapps.sales.document.DocumentRoot;
@@ -24,6 +27,7 @@ public class S3StorageProvider implements DocumentStorageProvider {
 
 	@Override
 	public void createRoot(DocumentRoot root) {
+		
 		log.info("Creating root");
 		if (s3client.doesBucketExistV2(root.getName())) {
 			log.info("Bucket - {} already exists.", root.getName());
@@ -62,7 +66,7 @@ public class S3StorageProvider implements DocumentStorageProvider {
 
 	@Override
 	public void createFile(File file) {
-		log.info("Create folder  - {}", file);
+		log.info("Create file  - {}", file);
 		String container = file.getContainer();
 		String path = StringUtil.replaceFirst(container, "/", "") + "/" + file.getName();
 
@@ -103,7 +107,19 @@ public class S3StorageProvider implements DocumentStorageProvider {
 
 	@Override
 	public InputStream getFile(File file) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("download file  - {}", file);
+		String container = file.getContainer();
+		String path = StringUtil.replaceFirst(container, "/", "") + "/" + file.getName();
+
+		if (StringUtil.equals(container, "/")) {
+			path = file.getName();
+		}
+
+		log.info("path - {}", path);
+		
+		S3Object fullObject = s3client.getObject(new GetObjectRequest(file.getRoot(), path));
+		
+		return fullObject.getObjectContent();
+		
 	}
 }

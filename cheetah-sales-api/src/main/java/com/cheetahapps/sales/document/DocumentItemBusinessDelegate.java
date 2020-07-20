@@ -1,6 +1,8 @@
 package com.cheetahapps.sales.document;
 
+import java.io.InputStream;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
@@ -14,7 +16,7 @@ import jodd.util.StringUtil;
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
 import com.cheetahapps.sales.event.ProvisionTenantEvent;
 import com.cheetahapps.sales.problem.DuplicateDataProblem;
-
+import com.cheetahapps.sales.problem.NoDataFoundProblem;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -80,7 +82,7 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 		Option<DocumentItem> file = this.documentItemRepository.findByPath(path);
 		
 		if (file.isEmpty()) {
-			
+			//change on error this must error out. 
 			Try.run(() -> 
 			
 			storageProvider.createFile(File.of(request.getContainer(), request.getFile().getOriginalFilename(),
@@ -115,6 +117,25 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 		}else {
 			throw new DuplicateDataProblem("File already exists");
 		}
+	}
+	
+	@Transactional
+	public DocumentItem getFile(String id, String root) {		
+		// check if folder exists
+		Optional<DocumentItem> file = this.documentItemRepository.findById(id);
+		
+		if(file.isPresent()) {
+			DocumentItem item = file.get();
+			
+			InputStream in = storageProvider.getFile(File.of(item.getContainer(), item.getName(), root, 0L, null));
+			item.setIn(in);
+			return item;
+		}
+		else {
+			throw new NoDataFoundProblem("Document not found.");
+		}
+		
+		
 	}
 
 	@Transactional(readOnly = true)

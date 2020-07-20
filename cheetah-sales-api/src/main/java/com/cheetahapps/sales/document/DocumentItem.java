@@ -1,5 +1,8 @@
 package com.cheetahapps.sales.document;
 
+import java.io.InputStream;
+
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -27,6 +30,9 @@ class DocumentItem extends Base{
 	private DocType type;
 	private long size;
 	private String contentType;
+	
+	@Transient
+	private InputStream in;
 	
 }
 
