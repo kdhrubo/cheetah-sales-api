@@ -28,37 +28,13 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class Product extends Base {
 
-	private String productName;
-
-	private float cost;
-
-	private int prodPartNo;
-
-	private int prodSerialNo;
-
-	private String manufacturerName;
-
-	private int manufacturerPartNo;
-
-	private boolean availability;
-
-	private boolean isActive;
-
-	// @DBRef
-	private String categoryId;
-
-	private String currency;
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date doa; // date of availability
-
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateCostPrice;
-
-	private String vendorName;
-
-	private int vendPartNo;
-
+	private String name;
+	private String partNo;
+	private boolean active;
+	private Category category;
+	private Vendor vendor;
+	private Manufacturer manufacturer;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date salesStartDate;
 
@@ -70,80 +46,48 @@ public class Product extends Base {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date supportEndDate;
-
-	private String productUrl;
-
-	private int generalLedgerAccount;
-
-	private String productSheetpath;
-
-	private String productSku;
-
-	private String barCode;
-
-	private String externalDisplayUrl;
-
-	private String externalDataSource;
-
-	private String externalId;
-
-	private String prodCurrency;
+	
+	private String serialNo;
+	private String manufacturerPartNo;
+	private String vendorPartNo;
+	
+	private String url;
+	private String glAccount; //can be hidden for now.
+	private String productSheet;
+	
+	private String sku;
+	
+	private Currency currency;
+	private double unitPrice; //standard price
+	private double commissionRate; //percentage <=100 >0
+	
+	private String taxClass;
+	private double purchaseCost;
+	
+	
 
 	private String description;
 
-	private String billingType;
-
+	
+	//LOV - Box, Carton, dozen, each, hours, impressions, Lb, M
+	//pack, pages, pieces, quantity, reams, sheet, spiral binder, sq ft
 	private String usageUnits;
 
 	private int quantityPerUnit;
 
-	private String stockUnits;
+	private int qtyInStock;
 
-	private String reorderLevel;
+	private int reorderLevel;
 
 	private int qtyInDemand;
 
 	private String handler;
-
-	private String supportContact;
-
-	private String supportDesc;
-
-	private String supportName;
-
-	// in terms of no of months
-	private String supportTerm;
-
-	private String tags;
-
-	private String prodImagePath;
-
-	private int commissionRate;
-
-	private boolean qtySchedulingEnabled;
-
-	private boolean revenueSchedulingEnabled;
-
-	private String taxClass;
-
-	private String productType;
-
-	private float prodHeight;
-
-	private String prodHeightUnit;
-
-	private float prodLength;
-
-	private String prodLengthUnit;
-
-	private float prodWidth;
-
-	private String prodWidthUnit;
-
-	private float prodWeight;
-
-	private String prodWeightUnit;
 	
+
+	private String [] tags;
+
+	private List<DocumentItem> medias;
+
 	private List<Lead> leads;
 
 }
