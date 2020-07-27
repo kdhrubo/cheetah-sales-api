@@ -1,0 +1,272 @@
+{
+	"name": "form-product-detail",
+	"fields": [
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "name",
+					"templateOptions": {
+						"label": "Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "partNo",
+					"templateOptions": {
+						"label": "Part Number",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"key": "active",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Active"
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "category",
+					"templateOptions": {
+						"label": "Category",
+						"valueProp": "id",
+						"labelProp": "value",
+						"domain": "CATEGORY",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "vendor",
+					"templateOptions": {
+						"label": "Vendor",
+						"valueProp": "id",
+						"labelProp": "value",
+						"domain": "VENDOR",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "manufacturer",
+					"templateOptions": {
+						"label": "Manufacturer",
+						"valueProp": "id",
+						"labelProp": "value",
+						"domain": "MANUFACTURER",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesStartDate",
+					"templateOptions": {
+						"label": "Available From",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesEndDate",
+					"templateOptions": {
+						"label": "Available To",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				}
+			]
+		},
+		
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "supportStartDate",
+					"templateOptions": {
+						"label": "Support From",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "supportEndDate",
+					"templateOptions": {
+						"label": "Support End",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "serialNo",
+					"templateOptions": {
+						"label": "Serial#",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "manufacturerPartNo",
+					"templateOptions": {
+						"label": "Manufacturer Part#",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "vendorPartNo",
+					"templateOptions": {
+						"label": "Vendor Part#",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "url",
+					"templateOptions": {
+						"label": "Website",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "glAccount",
+					"templateOptions": {
+						"label": "GL Account",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "productSheet",
+					"templateOptions": {
+						"label": "Product Sheet",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "sku",
+					"templateOptions": {
+						"label": "SKU",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "source",
+					"templateOptions": {
+						"label": "Source",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "2",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
