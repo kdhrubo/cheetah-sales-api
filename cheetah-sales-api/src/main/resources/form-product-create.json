@@ -1,0 +1,114 @@
+{
+	"name": "form-product-create",
+	"fields": [
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "name",
+					"templateOptions": {
+						"label": "Name",
+						"required": "true",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "sku",
+					"templateOptions": {
+						"label": "SKU",
+						"attributes": {
+							"class": "form-control  form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "unitPrice",
+					"templateOptions": {
+						"label": "Unit Price",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+			   {
+					"className": "col-md-3",
+					"key": "active",
+					"type": "checkbox",
+					"defaultValue": "false",
+					"templateOptions": {
+						"label": "Active"
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesStartDate",
+					"templateOptions": {
+						"label": "Sales Start Date",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "salesEndDate",
+					"templateOptions": {
+						"label": "Sales End Date",
+						"attributes": {
+							"class": "form-control  form-control-sm",
+							"type": "date"
+						}
+					}
+				}
+				
+				
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				
+			    
+			]
+		},
+		
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-12",
+					"type": "textarea",
+					"key": "description",
+					"templateOptions": {
+						"label": "Description",
+						"rows": "2",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		}
+	]
+}
