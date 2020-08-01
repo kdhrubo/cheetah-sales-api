@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.taxsettings;
+package com.cheetahapps.sales.taxsetting;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import com.cheetahapps.sales.core.AbstractController;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/taxes")
+@RequestMapping("/taxes/setting")
 @Slf4j
 public class TaxSettingController extends AbstractController<TaxSetting, String> {
 
