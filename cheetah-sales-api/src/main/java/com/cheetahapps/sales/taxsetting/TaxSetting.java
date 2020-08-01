@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.taxsettings;
+package com.cheetahapps.sales.taxsetting;
 
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;

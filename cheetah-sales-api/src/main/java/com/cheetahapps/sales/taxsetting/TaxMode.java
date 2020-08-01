@@ -1,4 +1,4 @@
-package com.cheetahapps.sales.taxsettings;
+package com.cheetahapps.sales.taxsetting;
 
 public enum TaxMode {
 	GROUP, INDIVIDUAL
