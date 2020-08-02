@@ -25,21 +25,23 @@ public class MailSender {
 	private final TemplateBusinessDelegate templateBusinessDelegate;
 	private final SettingBusinessDelegate settingBusinessDelegate;
 
-	@Async
+	//@Async
 	@EventListener
 	public <T> void send(SendEmailEvent<T> event) {
 
-		log.info("Trying to send email via System SMTP");
+		log.info("Trying to send email.");
 
 		Try.run(() -> {
 
 			String body = templateBusinessDelegate.getMergedTemplate(event.getTemplateName(), event.getT());
 
-			log.info("Body - {}", body);
+
 			Email email = Email.create().from(event.getName(), event.getFrom()).to(event.getTo()).replyTo(event.getTo())
 					.subject(event.getSubject()).htmlMessage(body);
 
 			Setting setting = settingBusinessDelegate.findByName(event.getSettingName());
+			
+			log.info("setting - {}" , setting);
 
 			MailSetting mailSetting = new MailSetting();
 
@@ -50,10 +52,18 @@ public class MailSender {
 	}
 
 	private void sendMail(MailSetting mailSetting, Email email) {
+		log.info("cONNECTING TO EMAIL SERVER - {}", mailSetting);
 		SendMailSession session = smtpServer(mailSetting).createSession();
+		
 		session.open();
-		session.sendMail(email);
+		try {
+		String s = session.sendMail(email);
+		log.info("send email - {}", s);
 		session.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private SmtpServer smtpServer(MailSetting mailSetting) {

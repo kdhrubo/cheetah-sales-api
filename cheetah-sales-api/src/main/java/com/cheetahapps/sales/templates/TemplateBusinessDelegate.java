@@ -41,9 +41,10 @@ public class TemplateBusinessDelegate extends AbstractBusinessDelegate<Template,
 	@Transactional
 	@EventListener
 	public void provision(ProvisionTenantEvent event) {
+		
 		if (!event.isExistingTenant()) {
 			for (Resource r : formResources) {
-				log.info("File - {}", r.getFilename());
+				
 
 				String templateText = Try.of(() -> readTemplate(r)).getOrNull();
 
@@ -65,17 +66,20 @@ public class TemplateBusinessDelegate extends AbstractBusinessDelegate<Template,
 	}
 
 	public String getMergedTemplate(String templateName, Object object) throws Exception {
-
+		
 		Option<Template> template = templateRepository.findByName(templateName);
 
 		if (template.isEmpty()) {
-			// throw error
+			
 			return null;
 		} else {
+			
 			MapTemplateParser parser = new MapTemplateParser();
 			Map<String, Object> data = objectMapper.convertValue(object, Map.class);
-
-			return parser.parseWithMap(template.get().getTemplateText(), data);
+			
+			String s = parser.parseWithMap(template.get().getTemplateText(), data);
+			
+			return s;
 		}
 
 	}

@@ -30,7 +30,9 @@ public class SendRegistrationConfirmationEmailTasklet implements Tasklet {
 		
 		User user = (User)jobExecutionContext.get("user");
 		
-		SendEmailEvent<User> event = SendEmailEvent.of("system_smtp",
+		log.info("User - {}", user);
+		
+		SendEmailEvent<User> event = SendEmailEvent.of("system_mail",
 				"support@cheetahdesk.com", "Nirvaana Support", user.getEmail(), "Welcome to Nirvaana", 
 				"welcome", user);
 		
