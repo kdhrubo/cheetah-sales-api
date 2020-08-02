@@ -20,11 +20,13 @@ public class ProvisioningJobConfiguration {
 
 	private final RegisterTasklet registerTasklet;
 	private final PrepareTenantProvisioningTasklet prepareTenantProvisioningTasklet;
+	private final SendRegistrationConfirmationEmailTasklet sendRegistrationConfirmationEmailTasklet;
 	private final CleanupTenantProvisioningTasklet cleanupTenantProvisioningTasklet;
 
 	@Bean("provisioningJob")
 	public Job provisoningJob() {
 		return this.jobBuilderFactory.get("provisioningJob").start(registerStep()).next(prepareTenantProvisioningStep())
+				.next(sendConfirmationEmailStep())
 				.next(cleanupTenantProvisioningStep()).build();
 	}
 
@@ -37,6 +39,12 @@ public class ProvisioningJobConfiguration {
 	public Step prepareTenantProvisioningStep() {
 		return stepBuilderFactory.get("prepareTenantProvisioningStep").tasklet(prepareTenantProvisioningTasklet)
 				.listener(promotionListener()).build();
+	}
+	
+	@Bean
+	public Step sendConfirmationEmailStep() {
+		return stepBuilderFactory.get("sendConfirmationEmailStep").tasklet(sendRegistrationConfirmationEmailTasklet)
+				.build();
 	}
 
 	@Bean

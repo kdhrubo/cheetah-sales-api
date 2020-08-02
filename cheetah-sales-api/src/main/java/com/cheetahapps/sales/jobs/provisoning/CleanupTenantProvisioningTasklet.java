@@ -22,9 +22,17 @@ public class CleanupTenantProvisioningTasklet implements Tasklet{
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 		
+		
+		
+		
 		log.info("Ending provisioning activities.");
 		
+		
+		
 		RequestContextHolder.setRequestAttributes(null);
+		
+		
+		
 		return RepeatStatus.FINISHED;
 	}
 	

@@ -24,16 +24,18 @@ spring:
   
 smtp:
   user: support@cheetahdesk.com
-  password: "@Kolkata84"
+  password: '@Kolkata84'
   server: smtp.dreamhost.com
-  port: 465
+  port: 587
   useTls: true
 
 logging:
   level:
     org.springframework: INFO
-    org.springframework.data.mongodb: INFO
+    org.springframework.data.mongodb: DEBUG
     org.springframework.security: INFO
     com.cheetahapps.sales: INFO
     org.springframework.web.client: INFO
+    javax.mail: DEBUG
+    jodd.mail: DEBUG
     
