@@ -27,9 +27,23 @@ public class PriceBook extends Base {
 	
 	private String name;
 	
-	private String description;
+	private boolean active;
 	
 	private boolean isStandard;
+	
+	private String externalDataSrc;
+	
+	private String externalId;
+	
+	private String description;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

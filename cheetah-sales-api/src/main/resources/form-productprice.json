@@ -1,0 +1,108 @@
+{
+	"name": "ProductPrice-form",
+	"fields": [
+		{
+			"className": "section-label",
+			"template": "<div><strong>Basic Information</strong></div>",
+			"sectionLabel": "Basic Information"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "parent",
+					"templateOptions": {
+						"label": "Currency",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "Currency",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "listPrice",
+					"templateOptions": {
+						"label": "List Price",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "parent",
+					"templateOptions": {
+						"label": "Price Book",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "priceBook",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "select",
+					"key": "parent",
+					"templateOptions": {
+						"label": "Product",
+						"valueProp": "id",
+        				"labelProp": "value",
+						"domain": "product",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "standardPrice",
+					"templateOptions": {
+						"label": "Standard Price",
+						"required": "true",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+					
+			]
+		},
+		{
+			"className": "section-label",
+			"template": "<div><strong>Please Select </strong></div>",
+			"sectionLabel": "Description"
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"key": "active",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Active"
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "useStandardPrice",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Standard Price"
+					}
+				}
+			]
+		}
+	]
+}
