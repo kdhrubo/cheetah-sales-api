@@ -20,7 +20,7 @@ import com.cheetahapps.sales.core.AbstractController;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/leads")
+@RequestMapping("/vendors")
 @Slf4j
 public class VendorController extends AbstractController<Vendor, String> {
 
