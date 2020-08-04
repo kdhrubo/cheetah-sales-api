@@ -6,6 +6,7 @@ import java.io.InputStream;
 import org.springframework.util.Assert;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -95,7 +96,16 @@ public class S3StorageProvider implements DocumentStorageProvider {
 
 	@Override
 	public void deleteFile(File file) {
-		// TODO Auto-generated method stub
+		String container = file.getContainer();
+		String path = StringUtil.replaceFirst(container, "/", "") + "/" + file.getName();
+
+		if (StringUtil.equals(container, "/")) {
+			path = file.getName();
+		}
+
+		log.info("path - {}", path);
+
+		s3client.deleteObject(new DeleteObjectRequest(file.getRoot(), path));
 
 	}
 

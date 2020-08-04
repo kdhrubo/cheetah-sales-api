@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem, String> {
 
 	private DocumentItemRepository documentItemRepository;
-	
+
 	@Autowired
 	private DocumentStorageProvider storageProvider;
 
@@ -56,9 +56,8 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 
 		if (folder.isEmpty()) {
 			// create folder in this container / parent folder
-			
+
 			storageProvider.createFolder(Folder.of(request.getName(), request.getContainer(), request.getRoot()));
-						
 
 			DocumentItem item = DocumentItem.builder().name(request.getName()).container(container).type(DocType.FOLDER)
 					.path(path).build();
@@ -69,73 +68,88 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 		}
 
 	}
-	
+
 	@Transactional
 	public DocumentItem createFile(CreateFileRequest request) {
 		String path = request.getContainer() + "/" + request.getFile().getOriginalFilename();
-		
+
 		if (StringUtil.equals(request.getContainer(), "/")) {
 			path = request.getContainer() + request.getFile().getOriginalFilename();
 		}
-		
+
 		// check if folder exists
 		Option<DocumentItem> file = this.documentItemRepository.findByPath(path);
-		
+
 		if (file.isEmpty()) {
-			//change on error this must error out. 
-			Try.run(() -> 
-			
+			// change on error this must error out.
+			Try.run(() ->
+
 			storageProvider.createFile(File.of(request.getContainer(), request.getFile().getOriginalFilename(),
 					request.getRoot(), request.getFile().getSize(), request.getFile().getInputStream()))
-			
-			
-			
+
 			).onFailure(ex -> log.info("Error - {}", ex.getMessage()))
-			.onSuccess(t -> log.info("File saved in storage") );
-		
-			String extension = request.getFile().getOriginalFilename().substring(request.getFile().getOriginalFilename().lastIndexOf('.') + 1);
-			
-			DocumentItem item = DocumentItem.builder().name(request.getFile().getOriginalFilename()).container(request.getContainer()).type(DocType.FILE)
-					.path(path).extension(extension).size(request.getFile().getSize()).contentType(request.getFile().getContentType())
-					.build();
-			
+					.onSuccess(t -> log.info("File saved in storage"));
+
+			String extension = request.getFile().getOriginalFilename()
+					.substring(request.getFile().getOriginalFilename().lastIndexOf('.') + 1);
+
+			DocumentItem item = DocumentItem.builder().name(request.getFile().getOriginalFilename())
+					.container(request.getContainer()).type(DocType.FILE).path(path).extension(extension)
+					.size(request.getFile().getSize()).contentType(request.getFile().getContentType()).build();
+
 			log.info("item - {}", item);
-			
-			//update size of container 
+
+			// update size of container
 			Option<DocumentItem> containterItem = this.documentItemRepository.findByPath(path);
-			
-			if(!containterItem.isEmpty()) {
+
+			if (!containterItem.isEmpty()) {
 				DocumentItem cItem = containterItem.get();
 				cItem.setSize(cItem.getSize() + item.getSize());
-				
+
 				documentItemRepository.save(cItem);
-				
+
 			}
-			
+
 			return documentItemRepository.save(item);
-		
-		}else {
+
+		} else {
 			throw new DuplicateDataProblem("File already exists");
 		}
 	}
-	
+
 	@Transactional
-	public DocumentItem getFile(String id, String root) {		
-		// check if folder exists
+	public DocumentItem getFile(String id, String root) {
+		// check if file exists
 		Optional<DocumentItem> file = this.documentItemRepository.findById(id);
-		
-		if(file.isPresent()) {
+
+		if (file.isPresent()) {
 			DocumentItem item = file.get();
-			
+
 			InputStream in = storageProvider.getFile(File.of(item.getContainer(), item.getName(), root, 0L, null));
 			item.setIn(in);
 			return item;
-		}
-		else {
+		} else {
 			throw new NoDataFoundProblem("Document not found.");
 		}
-		
-		
+
+	}
+
+	@Transactional
+	public void delete(String id, String root) {
+		// check if file exists
+		Optional<DocumentItem> file = this.documentItemRepository.findById(id);
+
+		if (file.isPresent()) {
+			DocumentItem item = file.get();
+
+			storageProvider.deleteFile(File.of(item.getContainer(), item.getName(), root, 0L, null));
+			
+			this.documentItemRepository.deleteById(item.getId());
+			
+		} else {
+			throw new NoDataFoundProblem("Document not found.");
+		}
+
 	}
 
 	@Transactional(readOnly = true)
@@ -143,8 +157,5 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 		log.info("rsql - {}", rsql);
 		return documentItemRepository.searchAll(rsql, DocumentItem.class);
 	}
-
-	
-	
 
 }
