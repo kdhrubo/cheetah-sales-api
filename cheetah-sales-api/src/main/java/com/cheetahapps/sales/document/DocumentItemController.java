@@ -74,5 +74,14 @@ class DocumentItemController extends AbstractController<DocumentItem, String> {
                 .body(new InputStreamResource(item.getIn()));
     }
 	
+	@PostMapping("/{id}/delete")
+	public void deleteById(@PathVariable String id, @AuthenticationPrincipal Jwt jwt) {
+		
+		String tenantCode = jwt.getClaimAsString("tenantCode");
+		
+		this.documentItemBusinessDelegate.delete(id, tenantCode);
+		
+	}
+	
 	
 }
