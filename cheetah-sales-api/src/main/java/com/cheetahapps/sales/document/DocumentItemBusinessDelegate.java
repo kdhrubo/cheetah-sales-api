@@ -97,10 +97,10 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 					.container(request.getContainer()).type(DocType.FILE).path(path).extension(extension)
 					.size(request.getFile().getSize()).contentType(request.getFile().getContentType()).build();
 
-			log.info("item - {}", item);
 
-			// update size of container
-			Option<DocumentItem> containterItem = this.documentItemRepository.findByPath(path);
+			// update size of container recursively in an event listener
+			/*
+			Option<DocumentItem> containterItem = this.documentItemRepository.findByPath(request.getContainer());
 
 			if (!containterItem.isEmpty()) {
 				DocumentItem cItem = containterItem.get();
@@ -108,7 +108,7 @@ class DocumentItemBusinessDelegate extends AbstractBusinessDelegate<DocumentItem
 
 				documentItemRepository.save(cItem);
 
-			}
+			}*/
 
 			return documentItemRepository.save(item);
 
