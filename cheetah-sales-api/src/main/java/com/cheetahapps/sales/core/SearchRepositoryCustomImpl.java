@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.repository.support.PageableExecutionUtils;
 
-import com.cheetahapps.sales.lead.Lead;
 import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
 import com.github.rutledgepaulv.qbuilders.conditions.Condition;
 import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
@@ -29,8 +28,7 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
 	
 	private final MongoTemplate mongoTemplate;
 
-	@Override
-	public Page<T> search(Criteria criteria, Pageable pageable, Class<T> clazz) {
+	private Page<T> search(Criteria criteria, Pageable pageable, Class<T> clazz) {
 		Query query = new Query(criteria).with(pageable);
 		List<T> filteredResults = mongoTemplate.find(query, clazz);
 		
@@ -41,8 +39,7 @@ public class SearchRepositoryCustomImpl<T> implements SearchRepositoryCustom<T>{
 		        () -> this.getCountByQuery(criteria, clazz));
 	}
 	
-	@Override
-	public List<T> searchAll(Criteria criteria, Class<T> clazz) {
+	private List<T> searchAll(Criteria criteria, Class<T> clazz) {
 		Query query = new Query(criteria);
 		return mongoTemplate.find(query, clazz);
 	}

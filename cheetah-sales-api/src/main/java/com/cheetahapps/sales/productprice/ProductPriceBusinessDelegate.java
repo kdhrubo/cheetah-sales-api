@@ -2,14 +2,9 @@ package com.cheetahapps.sales.productprice;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import com.cheetahapps.sales.core.AbstractBusinessDelegate;
-import com.github.rutledgepaulv.qbuilders.builders.GeneralQueryBuilder;
-import com.github.rutledgepaulv.qbuilders.conditions.Condition;
-import com.github.rutledgepaulv.qbuilders.visitors.MongoVisitor;
-import com.github.rutledgepaulv.rqe.pipes.QueryConversionPipeline;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,11 +26,8 @@ public class ProductPriceBusinessDelegate extends AbstractBusinessDelegate<Produ
 	}
 
 	public Page<ProductPrice> search(String rsql, Pageable pageable) {
-		QueryConversionPipeline pipeline = QueryConversionPipeline.defaultPipeline();
-		Condition<GeneralQueryBuilder> condition = pipeline.apply(rsql, ProductPrice.class);
-		Criteria criteria = condition.query(new MongoVisitor());
-
-		return productPriceRepository.search(criteria, pageable, ProductPrice.class);
+		log.debug("Search");
+		return productPriceRepository.search(rsql, pageable, ProductPrice.class);
 	}
 
 }
