@@ -67,12 +67,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "salesStageId",
 					"templateOptions": {
 						"label": "Sales Stage",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "salesStage",
 						"domain": "SALES_STAGE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -82,12 +81,11 @@
 						
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "leadSourceId",
 					"templateOptions": {
 						"label": "Lead Source",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "leadSource",
 						"domain": "LEAD_SOURCE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -112,12 +110,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "dealTypeId",
 					"templateOptions": {
 						"label": "Deal Type",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "dealType",
 						"domain": "DEAL_TYPE",
 						"attributes": {
 							"class": "form-control form-control-sm"

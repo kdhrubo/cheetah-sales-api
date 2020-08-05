@@ -1,11 +1,7 @@
 {
 	"name": "Category-form",
 	"fields": [
-		{
-			"className": "section-label",
-			"template": "<div><strong>Basic Information</strong></div>",
-			"sectionLabel": "Basic Information"
-		},
+		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
@@ -21,12 +17,11 @@
 					}
 				},{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "parent",
 					"templateOptions": {
 						"label": "Category",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "id",
 						"domain": "CATEGORY",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -48,11 +43,6 @@
 				}
 					
 			]
-		},
-		{
-			"className": "section-label",
-			"template": "<div><strong>Description</strong></div>",
-			"sectionLabel": "Description"
 		},
 		{
 			"fieldGroupClassName": "row",

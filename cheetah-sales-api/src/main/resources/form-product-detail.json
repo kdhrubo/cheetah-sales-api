@@ -39,12 +39,11 @@
 				
 				{
 					"className": "col-md-3",
-					"type": "select",
-					"key": "category",
+					"type": "picklist",
+					"key": "categoryId",
 					"templateOptions": {
 						"label": "Category",
-						"valueProp": "id",
-						"labelProp": "value",
+						"val": "category",
 						"domain": "CATEGORY",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -61,12 +60,11 @@
 				
 				{
 					"className": "col-md-3",
-					"type": "select",
-					"key": "vendor",
+					"type": "picklist",
+					"key": "vendorId",
 					"templateOptions": {
 						"label": "Vendor",
-						"valueProp": "id",
-						"labelProp": "value",
+						"val": "vendor",
 						"domain": "VENDOR",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -76,12 +74,11 @@
 				
 				{
 					"className": "col-md-3",
-					"type": "select",
-					"key": "manufacturer",
+					"type": "picklist",
+					"key": "manufacturerId",
 					"templateOptions": {
 						"label": "Manufacturer",
-						"valueProp": "id",
-						"labelProp": "value",
+						"val": "manufacturer",
 						"domain": "MANUFACTURER",
 						"attributes": {
 							"class": "form-control form-control-sm"

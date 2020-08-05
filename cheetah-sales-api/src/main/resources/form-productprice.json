@@ -1,22 +1,17 @@
 {
 	"name": "ProductPrice-form",
 	"fields": [
-		{
-			"className": "section-label",
-			"template": "<div><strong>Basic Information</strong></div>",
-			"sectionLabel": "Basic Information"
-		},
+		
 		{
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"type": "select",
-					"key": "parent",
+					"type": "picklist",
+					"key": "currencyId",
 					"templateOptions": {
 						"label": "Currency",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "currency",
 						"domain": "Currency",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -36,12 +31,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "parent",
 					"templateOptions": {
 						"label": "Price Book",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "id",
 						"domain": "priceBook",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -50,7 +44,7 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "parent",
 					"templateOptions": {
 						"label": "Product",
@@ -77,11 +71,6 @@
 				}
 					
 			]
-		},
-		{
-			"className": "section-label",
-			"template": "<div><strong>Please Select </strong></div>",
-			"sectionLabel": "Description"
 		},
 		{
 			"fieldGroupClassName": "row",
