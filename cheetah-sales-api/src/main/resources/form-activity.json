@@ -117,12 +117,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "activityTypeId",
 					"templateOptions": {
 						"label": "Type",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "activityType",
 						"domain": "ACTIVITY_TYPE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -131,12 +130,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "statusId",
 					"templateOptions": {
 						"label": "Status",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "status",
 						"domain": "ACTIVITY_STATUS",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -145,12 +143,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "priorityIdId",
 					"templateOptions": {
 						"label": "Salutation",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "priority",
 						"domain": "ACTIVITY_PRIORITY",
 						"attributes": {
 							"class": "form-control form-control-sm"
