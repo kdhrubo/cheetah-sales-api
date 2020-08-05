@@ -7,12 +7,11 @@
 			"fieldGroup": [
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "salutationId",
 					"templateOptions": {
 						"label": "Salutation",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "salutation",
 						"domain": "SALUTATION",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -113,12 +112,11 @@
 				
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "leadSourceId",
 					"templateOptions": {
 						"label": "Lead Source",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "leadSource",
 						"domain": "LEAD_SOURCE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -128,12 +126,11 @@
 				
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "contactTypeId",
 					"templateOptions": {
 						"label": "Contact Type",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "contactType",
         				"domain": "CONTACT_TYPE",
 						"attributes": {
 							"class": "form-control form-control-sm"
@@ -142,12 +139,11 @@
 				},
 				{
 					"className": "col-md-3",
-					"type": "select",
+					"type": "picklist",
 					"key": "contactStatusId",
 					"templateOptions": {
 						"label": "Contact Status",
-						"valueProp": "id",
-        				"labelProp": "value",
+						"val": "contactStatus",
         				"domain": "CONTACT_STATUS",
 						"attributes": {
 							"class": "form-control form-control-sm"
