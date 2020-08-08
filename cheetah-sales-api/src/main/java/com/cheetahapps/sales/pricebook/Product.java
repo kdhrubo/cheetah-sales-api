@@ -1,5 +1,4 @@
-package com.cheetahapps.sales.lead;
-
+package com.cheetahapps.sales.pricebook;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,15 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(of = { "id" })
 class Product {
-	
+
 	private String id;
-	
+
 	private String productName;
-	
-	private float cost;
-	
-	private String currencyId;
-	private String currency;
+
 }

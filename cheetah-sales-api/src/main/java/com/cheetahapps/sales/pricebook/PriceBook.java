@@ -1,8 +1,11 @@
 package com.cheetahapps.sales.pricebook;
 
+import java.util.List;
+
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.cheetahapps.sales.core.Base;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +39,8 @@ public class PriceBook extends Base {
 	private String externalId;
 	
 	private String description;
+	
+	private List<Product> products;
 	
 	
 	
