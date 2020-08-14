@@ -77,4 +77,6 @@ public class Lead extends ExtensibleBase {
 	private List<Product> products;
 	private List<DocumentItem> documents;
 	
+	private List<Note> notes;
+	
 }
