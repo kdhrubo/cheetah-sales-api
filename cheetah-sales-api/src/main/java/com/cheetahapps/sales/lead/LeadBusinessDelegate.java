@@ -1,5 +1,6 @@
 package com.cheetahapps.sales.lead;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -186,6 +187,33 @@ class LeadBusinessDelegate extends AbstractBusinessDelegate<Lead, String> {
 		}
 
 		return lead.get();
+	}
+	
+	@Transactional
+	public Lead addNote(String id, Note note) {
+		Lead lead = null;
+		Optional<Lead> olead = findById(id);
+		if (olead.isPresent()) {
+			lead = olead.get();
+			List<Note> notes = lead.getNotes();
+
+			if (notes == null) {
+				notes = new ArrayList<>();
+
+			}
+			User u = User.builder().email(getAuthUser().getEmail())
+					.firstName(getAuthUser().getFirstName()).lastName(getAuthUser().getLastName())
+					.userId(getAuthUser().getUserId()).build();
+			note.setCreatedBy(u);
+			note.setCreatedDate(LocalDateTime.now());
+			notes.add(note);
+			lead.setNotes(notes);
+			this.save(lead);
+
+			log.info("Note added to Lead");
+
+		}
+		return lead;
 	}
 
 }

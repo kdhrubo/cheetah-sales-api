@@ -70,4 +70,9 @@ public class LeadController extends AbstractController<Lead, String> {
 		log.info("Removing doc from lead.");
 		return this.leadBusinessDelegate.removeDocument(id, docId);
 	}
+	
+	@PostMapping("/{id}/notes")
+	public Lead addNotes(@PathVariable String id, @RequestBody @Valid Note note) {
+		return this.leadBusinessDelegate.addNote(id, note);
+	}
 }
