@@ -47,6 +47,7 @@
 					"key": "noOfEmployees",
 					"templateOptions": {
 						"label": "# of Employees",
+						"type": "number",
 						"attributes": {
 							"class": "form-control  form-control-sm"
 						}
@@ -87,6 +88,8 @@
 					"key": "email",
 					"templateOptions": {
 						"label": "Email",
+						"pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$",
+						"type": "email",
 						"attributes": {
 							"class": "form-control form-control-sm"
 						}
