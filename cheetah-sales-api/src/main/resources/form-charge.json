@@ -1,0 +1,82 @@
+{
+	"name": "Charge-form",
+	"fields": [
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "chargeName",
+					"templateOptions": {
+						"label": "Charge Name",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "picklist",
+					"key": "chargeFormat",
+					"templateOptions": {
+						"label": "Charge Format",
+						"val": "chargeFormat",
+						"domain": "CHARGE_FORMAT",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "picklist",
+					"key": "chargeType",
+					"templateOptions": {
+						"label": "Charge Type",
+						"val": "id",
+						"domain": "CHARGE_TYPE",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				}
+			]
+		},
+		{
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "chargeValue",
+					"templateOptions": {
+						"label": "Charge Value",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"type": "input",
+					"key": "tax",
+					"templateOptions": {
+						"label": "Tax",
+						"attributes": {
+							"class": "form-control form-control-sm"
+						}
+					}
+				},
+				{
+					"className": "col-md-3",
+					"key": "isTaxable",
+					"type": "checkbox",
+					"templateOptions": {
+						"label": "Taxable"
+					}
+				}
+			]
+		}
+	]
+}
