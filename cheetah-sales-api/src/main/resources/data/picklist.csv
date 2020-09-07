@@ -99,3 +99,7 @@ Designation,Sr Director
 Designation,Director
 Designation,Manager
 Designation,Team Lead
+CHARGE_FORMAT,DIRECT_PRICE
+CHARGE_FORMAT,PRICE
+CHARGE_TYPE,FIXED
+CHARGE_TYPE,VARIABLE
