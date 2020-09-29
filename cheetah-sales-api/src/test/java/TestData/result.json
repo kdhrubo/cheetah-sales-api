@@ -1,0 +1,58 @@
+{
+    "deleted": false,
+    "version": 1,
+    "createdBy": "jayS@gmail.com",
+    "lastModifiedBy": "jayS@gmail.com",
+    "createdDate": "2020-09-01T14:06:12.437",
+    "lastModifiedDate": "2020-09-01T14:06:12.437",
+    "source": "NIRVANA-CRM",
+    "salutationId": "1003",
+    "salutation": "Mr",
+    "firstName": "Jay",
+    "lastName": "Sinha",
+    "designationId": "2001",
+    "designation": "Engg",
+    "department": "Sales",
+    "company": "Wipro",
+    "noOfEmployees": 1,
+    "annualRevenue": 2000000.0,
+    "email": "jayS@gmail.com",
+    "phone": "+91-987654321",
+    "industryId": "3001",
+    "industry": "NewInd",
+    "leadSourceId": "4001",
+    "leadSource": "newSource",
+    "leadStatusId": "5001",
+    "leadStatus": "Active",
+    "assignedTo": {
+        "id": "5f428c1a9ab4542529a995ce",
+        "firstName": "jay",
+        "lastName": "sinha",
+        "email": "jayS@gmail.com"
+    },
+    "description": "NewDesc",
+    "donotCall": true,
+    "emailOptIn": true,
+    "smsOptIn": true,
+    "notifyOwner": true,
+    "website": "https://www.abc.com",
+    "twitter": "https://www.twitter.com/jay",
+    "facebook": "https://www.facebook.com/jay",
+    "linkedin": "https://www.linkedin.com/jay",
+    "engagementScore": 12,
+    "converted": true,
+    "products": [
+        {
+            "id": "6001",
+            "cost": 100.0,
+            "currencyId": "INR",
+            "currency": "Rupee"
+        }
+    ],
+    "documents": [
+        {
+            "id": "7001",
+            "name": "DocName"
+        }
+    ]
+}

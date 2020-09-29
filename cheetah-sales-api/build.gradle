@@ -60,6 +60,9 @@ dependencies {
 	
 	compile group: 'org.zalando', name: 'problem-spring-web', version: '0.25.2'
 	
+	testCompile 'com.intuit.karate:karate-junit4:0.9.4'
+    testCompile 'com.intuit.karate:karate-apache:0.9.4'
+	
 	
 }
 

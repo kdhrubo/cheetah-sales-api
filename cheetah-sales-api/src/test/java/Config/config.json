@@ -1,0 +1,6 @@
+{
+  "localUrls": {
+    "auth": "http://localhost:7001",
+    "sales": "http://localhost:8080"
+  }
+}

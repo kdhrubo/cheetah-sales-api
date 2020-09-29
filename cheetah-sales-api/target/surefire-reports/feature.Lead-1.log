@@ -1,0 +1,31 @@
+00:25:53.992 skipping bootstrap configuration: could not find or read file: classpath:karate-config.js
+00:25:54.186 request:
+1 > GET http://localhost:8080/leads/q%3Frsql=deleted==false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYXlTQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImpheSIsImxhc3ROYW1lIjoic2luaGEiLCJzY29wZSI6WyJvcGVuaWQiXSwidGVuYW50SWQiOiI1ZjQyOGMxYTlhYjQ1NDI1MjlhOTk1Y2QiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjcwMDEvYXV0aC9pc3N1ZXIiLCJ0ZW5hbnRDb2RlIjoidGVuYW50LTEiLCJleHAiOjE1OTg4MDE2NDMsInVzZXJJZCI6IjVmNDI4YzFhOWFiNDU0MjUyOWE5OTVjZSIsImF1dGhvcml0aWVzIjpbIntcIl9pZFwiOiB7XCIkb2lkXCI6IFwiNWY0MjhiZTQ3ZGM5OTgzYTNmNWMwOGU1XCJ9LCBcIm5hbWVcIjogXCJURU5BTlRfQURNSU5cIiwgXCJzeXN0ZW1cIjogdHJ1ZSwgXCJjcmVhdGVkRGF0ZVwiOiB7XCIkZGF0ZVwiOiBcIjIwMjAtMDgtMjNUMTU6MzI6NDIuNTY5WlwifSwgXCJsYXN0TW9kaWZpZWREYXRlXCI6IHtcIiRkYXRlXCI6IFwiMjAyMC0wOC0yM1QxNTozMjo0Mi41NjlaXCJ9fSJdLCJqdGkiOiJhZGJjZDM0OC1lM2NmLTQzOGEtYmU5ZC1jZTNkM2Y2ODQyZjciLCJjbGllbnRfaWQiOiJhZG1pbiJ9.bA3AnoBz3yN1W_lg5vEHvtP6azcwZEJNiNCIM2fgby8rZdhXfVogiyTOZ_L7_qaxx0lUZ9N5UbCephOqGkowfrlpnZhSX7bRlGsHpDVvkxZyKtnWXxFHrH72MugrcUx3FyvlcvGE7Azi4biyaI4Yq5gWCAW4fXSXsdol1uSrVIID0uTYD7NaYnnDY034GdiRuxcLCl8GpojK3ovSMWHG5wYVzciBblKjt_P7mYk79_HmrTtP5EGolukuFg34KP_cVcfIUp0TasMy4erm4GxFaXejD-NC1iHpBqBRSs5uLGKfI4ziX-As8TrhQQUpNCE29f2NjzWPLmwxSj5ffsS7-w
+1 > Connection: Keep-Alive
+1 > Host: localhost:8080
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_241)
+
+00:25:54.214 response time in milliseconds: 26.21
+1 < 405
+1 < Access-Control-Allow-Headers: Access-Control-Allow-Origin, x-requested-with, authorization, content-type, x-tenant-id
+1 < Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE
+1 < Access-Control-Allow-Origin: *
+1 < Access-Control-Max-Age: 3600
+1 < Allow: DELETE
+1 < Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/problem+json
+1 < Date: Sun, 23 Aug 2020 18:55:54 GMT
+1 < Expires: 0
+1 < Keep-Alive: timeout=60
+1 < Pragma: no-cache
+1 < Transfer-Encoding: chunked
+1 < X-Content-Type-Options: nosniff
+1 < X-Frame-Options: DENY
+1 < X-XSS-Protection: 1; mode=block
+{"title":"Method Not Allowed","status":405,"detail":"Request method 'GET' not supported"}
+
+00:25:54.238 status code was: 405, expected: 200, response time: 26, url: http://localhost:8080/leads/q%3Frsql=deleted==false, response: {"title":"Method Not Allowed","status":405,"detail":"Request method 'GET' not supported"}
+}
