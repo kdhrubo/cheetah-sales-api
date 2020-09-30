@@ -15,10 +15,11 @@ import com.cheetahapps.sales.core.AbstractController;
 import lombok.extern.slf4j.Slf4j;
 
 
+
 @RestController
 @RequestMapping("/countries")
 @Slf4j
-public class CountryController extends AbstractController<Country, String>{
+public class CountryController extends AbstractController<Country, String> implements CountryControllerInterface{
 
 	
 	private final CountryBusinessDelegate countryBusinessDelegate;
@@ -29,6 +30,7 @@ public class CountryController extends AbstractController<Country, String>{
 	}
 
 	
+	@Override
 	@GetMapping("/q")
 	public List<Country> searchAll(@RequestParam("rsql") String rsql) {
 		log.debug("Search currency");

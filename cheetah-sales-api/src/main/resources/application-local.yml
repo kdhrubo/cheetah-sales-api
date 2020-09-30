@@ -1,6 +1,6 @@
 app:
   mongodb:
-    uri: mongodb+srv://umpun20:xqzeUgbrLiCd2aC3@cluster0-wsps7.mongodb.net/coredb?retryWrites=true&w=majority
+    uri: mongodb+srv://JayCluster:j_02221459@cluster0-fsas8.mongodb.net/test?retryWrites=true&w=majority
   aws:
     s3:
       accessKeyId: AKIAX226J2W5KBUW4T5D

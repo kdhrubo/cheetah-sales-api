@@ -60,6 +60,12 @@ dependencies {
 	
 	compile group: 'org.zalando', name: 'problem-spring-web', version: '0.25.2'
 	
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+
 	testCompile 'com.intuit.karate:karate-junit4:0.9.4'
     testCompile 'com.intuit.karate:karate-apache:0.9.4'
 	
